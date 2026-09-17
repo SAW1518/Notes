@@ -4,20 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "0f3bf34eb7c829cd",
+        "id": "f3a0195e9ddeb126",
         "type": "tabs",
         "children": [
           {
-            "id": "18d4dbb79869fd98",
+            "id": "03af9e62f428b734",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
+                "file": "Study/Study Notes/The Best Notes of the F Word.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "The Best Notes of the F Word"
             }
           }
         ]
@@ -185,12 +186,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "f6a88b52bdfd0ab3",
+  "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Study Notes/Utils.md",
+    "Utils/Create SSH git key.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
-    "Utils/Create SSH git key.md",
     "README.md",
     "Utils"
   ]
