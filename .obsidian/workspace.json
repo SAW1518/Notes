@@ -11,10 +11,13 @@
             "id": "18d4dbb79869fd98",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "bases",
+              "state": {
+                "file": "Untitled.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled"
             }
           }
         ]
@@ -79,7 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 299.27734375
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -177,10 +180,18 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "cmdr:Open in Terminal: Open in terminal": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false
     }
   },
-  "active": "18d4dbb79869fd98",
-  "lastOpenFiles": []
+  "active": "f6a88b52bdfd0ab3",
+  "lastOpenFiles": [
+    "Untitled.canvas",
+    "Untitled.base",
+    "Untitled 1.base",
+    "Utils/Create SSH git key.md",
+    "README.md",
+    "Utils"
+  ]
 }
