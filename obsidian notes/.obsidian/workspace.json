@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "1a3468d8999dd2df",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd1e5f542ee0d978",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cac85036ae9061c1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02 Environments/Utils Users.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Utils Users"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5cab51ab16392802",
+    "type": "split",
+    "children": [
+      {
+        "id": "19281b2795ee4108",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf883f74b2a8ca28",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0a0ff1e3250a200e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "faf2e3f395fe7cf8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 217.70065307617188
+  },
+  "right": {
+    "id": "c5b8f2e8c6ddf067",
+    "type": "split",
+    "children": [
+      {
+        "id": "589201d58d4b9017",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ccaae1179b98ee1e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Untitled.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Untitled"
+            }
+          },
+          {
+            "id": "ec5d8372de87882e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Untitled.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Untitled"
+            }
+          },
+          {
+            "id": "2ec5b1436b4d6a34",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "edd9ae2ea9832258",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "021331974dbab113",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "04 Project/PFM-446 — Hide OR field in Monarch.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "2290b8fce35464df",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "cac85036ae9061c1",
+  "lastOpenFiles": [
+    "02 Environments/Test users.md",
+    "02 Environments/Utils Users.md",
+    "02 Environments/Check deployed version.md",
+    "Dashboard.base",
+    "UTILES.md",
+    "01 Commands/Git.md",
+    "01 Commands/Kafka — kcat and consumer groups.md",
+    "02 Environments/Polyphonic — URLs by environment.md",
+    "05 Debug/2026-06-25 — Monarch preingestion 422.md",
+    "04 Project/Links — Jira, Confluence, pipelines.md",
+    "01 Commands/Run services locally.md",
+    "03 Prompts/PR description.md",
+    "adjuntos/PR templete - Attachment.png",
+    "01 Commands/Ports and processes.md",
+    "Screenshot 2026-07-31 at 11.28.48 a.m..png",
+    "Screenshot 2026-07-31 at 11.28.11 a.m..png",
+    "How I find things.md",
+    "04 Project/PFM-446 — Hide OR field in Monarch.md",
+    "Screenshot 2026-07-31 at 11.27.55 a.m..png",
+    "01 Comandos/Puertos y procesos.md",
+    "01 Comandos/Levantar servicios en local.md",
+    "Cómo encuentro las cosas.md",
+    "01 Comandos/Kafka — kcat y consumer groups.md",
+    "01 Comandos/Git.md",
+    "04 Project",
+    "02 Environments",
+    "01 Commands",
+    "Tablero.base",
+    "04 Proyecto/PFM-446 — Ocultar OR field en Monarch.md",
+    "04 Proyecto/Enlaces — Jira, Confluence, pipelines.md",
+    "02 Entornos y accesos/Polyphonic — URLs por entorno.md",
+    "02 Entornos y accesos/Usuarios de prueba.md",
+    "02 Entornos y accesos/Ver versión desplegada.md",
+    "The Best Notes of the F *Word.md",
+    "Untitled.canvas",
+    "Welcome.md"
+  ]
+}

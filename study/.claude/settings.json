@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(obsidian read:*)",
+      "Bash(obsidian search:*)",
+      "Bash(obsidian backlinks:*)",
+      "Bash(obsidian tags:*)",
+      "Bash(obsidian tasks:*)",
+      "Bash(obsidian vault:*)",
+      "Bash(obsidian version)",
+      "Bash(obsidian help:*)",
+      "Bash(defuddle parse:*)"
+    ]
+  }
+}

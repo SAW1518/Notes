@@ -1,0 +1,892 @@
+[
+  {
+    "fileName": "How I find things",
+    "relativePath": "How I find things.md",
+    "tags": [
+      "meta"
+    ],
+    "frontmatter": {
+      "title": "How I find things"
+    },
+    "aliases": [
+      "readme",
+      "how this works",
+      "convention"
+    ],
+    "headings": [
+      {
+        "heading": "How I find things",
+        "level": 1
+      },
+      {
+        "heading": "Searching fast",
+        "level": 2
+      },
+      {
+        "heading": "The convention",
+        "level": 2
+      },
+      {
+        "heading": "The folders",
+        "level": 2
+      },
+      {
+        "heading": "Rules",
+        "level": 2
+      },
+      {
+        "heading": "Notes",
+        "level": 2
+      }
+    ]
+  },
+  {
+    "fileName": "UTILES",
+    "relativePath": "UTILES.md"
+  },
+  {
+    "fileName": "2026-06-25 — Monarch preingestion 422",
+    "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md",
+    "tags": [
+      "debug"
+    ],
+    "frontmatter": {
+      "title": "2026-06-25 — Monarch preingestion 422",
+      "type": "debug",
+      "area": [
+        "monarch",
+        "kafka",
+        "polyphonic"
+      ],
+      "created": "2026-06-25T16:20:07-06:00",
+      "date": "2026-06-25"
+    },
+    "aliases": [
+      "error 422",
+      "preingestion fails",
+      "non-retryable client error",
+      "managed-remote-upload 422"
+    ],
+    "headings": [
+      {
+        "heading": "2026-06-25 — Monarch preingestion 422",
+        "level": 1
+      },
+      {
+        "heading": "Case data",
+        "level": 2
+      },
+      {
+        "heading": "How far it got",
+        "level": 2
+      },
+      {
+        "heading": "Where to pick up next time",
+        "level": 2
+      },
+      {
+        "heading": "Full log",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "link": "Test users",
+        "relativePath": "02 Environments/Test users.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "Test users",
+        "link": "2026-06-25 — Monarch preingestion 422",
+        "relativePath": "02 Environments/Test users.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "2026-06-25 — Monarch preingestion 422",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      }
+    ]
+  },
+  {
+    "fileName": "PFM-446 — Hide OR field in Monarch",
+    "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md",
+    "tags": [
+      "reference",
+      "ticket"
+    ],
+    "frontmatter": {
+      "title": "PFM-446 — Hide OR field in Monarch",
+      "type": "reference",
+      "area": [
+        "polyphonic",
+        "monarch"
+      ],
+      "created": "2026-05-20T15:43:24-06:00",
+      "ticket": "PFM-446"
+    },
+    "aliases": [
+      "PFM-446",
+      "Operating Room field",
+      "PR example"
+    ],
+    "headings": [
+      {
+        "heading": "PFM-446 — Hide OR field in Monarch",
+        "level": 1
+      },
+      {
+        "heading": "Story",
+        "level": 2
+      },
+      {
+        "heading": "Commit message",
+        "level": 2
+      },
+      {
+        "heading": "PR description",
+        "level": 2
+      },
+      {
+        "heading": "Problem statement",
+        "level": 3
+      },
+      {
+        "heading": "Solution",
+        "level": 3
+      },
+      {
+        "heading": "Changes made",
+        "level": 3
+      },
+      {
+        "heading": "Verification",
+        "level": 3
+      },
+      {
+        "heading": "Affected apps",
+        "level": 3
+      },
+      {
+        "heading": "Template checks",
+        "level": 3
+      },
+      {
+        "heading": "Notes",
+        "level": 3
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "PR description",
+        "relativePath": "03 Prompts/PR description.md"
+      },
+      {
+        "link": "PR description",
+        "relativePath": "03 Prompts/PR description.md"
+      },
+      {
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "Links — Jira, Confluence, pipelines",
+        "link": "PFM-446 — Hide OR field in Monarch",
+        "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md"
+      },
+      {
+        "fileName": "PR description",
+        "link": "PFM-446 — Hide OR field in Monarch",
+        "relativePath": "03 Prompts/PR description.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Links — Jira, Confluence, pipelines",
+    "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md",
+    "tags": [
+      "reference"
+    ],
+    "frontmatter": {
+      "title": "Links — Jira, Confluence, pipelines",
+      "type": "reference",
+      "area": [
+        "polyphonic",
+        "ci"
+      ],
+      "created": "2026-06-18T10:14:47-06:00"
+    },
+    "aliases": [
+      "pipeline",
+      "azure devops",
+      "confluence",
+      "test plan",
+      "where is the build"
+    ],
+    "headings": [
+      {
+        "heading": "Links — Jira, Confluence, pipelines",
+        "level": 1
+      },
+      {
+        "heading": "Pipelines",
+        "level": 2
+      },
+      {
+        "heading": "Repos and PRs",
+        "level": 2
+      },
+      {
+        "heading": "Confluence (Nucleus space)",
+        "level": 2
+      },
+      {
+        "heading": "Jira",
+        "level": 2
+      },
+      {
+        "heading": "Other",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "link": "PFM-446 — Hide OR field in Monarch",
+        "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "PFM-446 — Hide OR field in Monarch",
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+      },
+      {
+        "fileName": "Polyphonic — URLs by environment",
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "fileName": "Check deployed version",
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "02 Environments/Check deployed version.md"
+      }
+    ]
+  },
+  {
+    "fileName": "PR description",
+    "relativePath": "03 Prompts/PR description.md",
+    "tags": [
+      "prompt"
+    ],
+    "frontmatter": {
+      "title": "PR description",
+      "type": "prompt",
+      "area": [
+        "git",
+        "polyphonic"
+      ],
+      "created": "2026-06-08T12:14:10-06:00",
+      "modified": "2026-07-02T15:47:27-06:00"
+    },
+    "aliases": [
+      "PR prompt",
+      "generate PR description",
+      "commit message",
+      "role",
+      "pr template"
+    ],
+    "headings": [
+      {
+        "heading": "PR description",
+        "level": 1
+      },
+      {
+        "heading": "Full prompt",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "PFM-446 — Hide OR field in Monarch",
+        "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+      },
+      {
+        "link": "Git",
+        "relativePath": "01 Commands/Git.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "PFM-446 — Hide OR field in Monarch",
+        "link": "PR description",
+        "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+      },
+      {
+        "fileName": "PFM-446 — Hide OR field in Monarch",
+        "link": "PR description",
+        "relativePath": "04 Project/PFM-446 — Hide OR field in Monarch.md"
+      },
+      {
+        "fileName": "Git",
+        "link": "PR description",
+        "relativePath": "01 Commands/Git.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Test users",
+    "relativePath": "02 Environments/Test users.md",
+    "tags": [
+      "environment"
+    ],
+    "frontmatter": {
+      "title": "Test users",
+      "type": "environment",
+      "area": [
+        "polyphonic",
+        "monarch"
+      ],
+      "created": "2026-02-23T12:53:39-06:00"
+    },
+    "aliases": [
+      "test accounts",
+      "which user do I log in with",
+      "surgeon",
+      "monarch admin",
+      "case manager"
+    ],
+    "headings": [
+      {
+        "heading": "Test users",
+        "level": 1
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "link": "2026-06-25 — Monarch preingestion 422",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "2026-06-25 — Monarch preingestion 422",
+        "link": "Test users",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      },
+      {
+        "fileName": "Polyphonic — URLs by environment",
+        "link": "Test users",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Polyphonic — URLs by environment",
+    "relativePath": "02 Environments/Polyphonic — URLs by environment.md",
+    "tags": [
+      "environment"
+    ],
+    "frontmatter": {
+      "title": "Polyphonic — URLs by environment",
+      "type": "environment",
+      "area": [
+        "polyphonic"
+      ],
+      "created": "2026-02-23T12:53:39-06:00"
+    },
+    "aliases": [
+      "dev-euw1",
+      "sbox-euw1",
+      "dev url",
+      "where do I log in to test",
+      "test mailbox"
+    ],
+    "headings": [
+      {
+        "heading": "Polyphonic — URLs by environment",
+        "level": 1
+      },
+      {
+        "heading": "Sandbox endpoints I use",
+        "level": 2
+      },
+      {
+        "heading": "Tenant IDs that come up often",
+        "level": 2
+      },
+      {
+        "heading": "Config",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Test users",
+        "relativePath": "02 Environments/Test users.md"
+      },
+      {
+        "link": "Check deployed version",
+        "relativePath": "02 Environments/Check deployed version.md"
+      },
+      {
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "2026-06-25 — Monarch preingestion 422",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      },
+      {
+        "fileName": "Links — Jira, Confluence, pipelines",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md"
+      },
+      {
+        "fileName": "Test users",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Test users.md"
+      },
+      {
+        "fileName": "Check deployed version",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Check deployed version.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "fileName": "Run services locally",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "01 Commands/Run services locally.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Check deployed version",
+    "relativePath": "02 Environments/Check deployed version.md",
+    "tags": [
+      "environment"
+    ],
+    "frontmatter": {
+      "title": "Check deployed version",
+      "type": "environment",
+      "area": [
+        "polyphonic",
+        "ci"
+      ],
+      "created": "2026-05-20T12:12:34-06:00"
+    },
+    "aliases": [
+      "which version is deployed",
+      "deployed tag",
+      "meta version"
+    ],
+    "headings": [
+      {
+        "heading": "Check deployed version",
+        "level": 1
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "link": "Links — Jira, Confluence, pipelines",
+        "relativePath": "04 Project/Links — Jira, Confluence, pipelines.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "Polyphonic — URLs by environment",
+        "link": "Check deployed version",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Git",
+    "relativePath": "01 Commands/Git.md",
+    "tags": [
+      "command"
+    ],
+    "frontmatter": {
+      "title": "Git",
+      "type": "command",
+      "area": [
+        "git"
+      ],
+      "created": "2026-04-08T11:22:13-06:00"
+    },
+    "aliases": [
+      "git stash",
+      "save changes without committing",
+      "undo last commit",
+      "stash pop"
+    ],
+    "headings": [
+      {
+        "heading": "Git",
+        "level": 1
+      },
+      {
+        "heading": "Save changes without committing (including new files)",
+        "level": 2
+      },
+      {
+        "heading": "Restore the last thing I stashed",
+        "level": 2
+      },
+      {
+        "heading": "Stash with a name so I can identify it",
+        "level": 2
+      },
+      {
+        "heading": "Undo the last commit but keep the changes",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "link": "PR description",
+        "relativePath": "03 Prompts/PR description.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "PR description",
+        "link": "Git",
+        "relativePath": "03 Prompts/PR description.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Ports and processes",
+    "relativePath": "01 Commands/Ports and processes.md",
+    "tags": [
+      "command"
+    ],
+    "frontmatter": {
+      "title": "Ports and processes",
+      "type": "command",
+      "area": [
+        "node",
+        "docker"
+      ],
+      "created": "2026-03-25T16:19:03-06:00"
+    },
+    "aliases": [
+      "port in use",
+      "address already in use",
+      "EADDRINUSE",
+      "kill process",
+      "lsof"
+    ],
+    "headings": [
+      {
+        "heading": "Ports and processes",
+        "level": 1
+      },
+      {
+        "heading": "Port 8080 is already in use",
+        "level": 2
+      },
+      {
+        "heading": "Check for a stuck Nest process",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Kafka — kcat and consumer groups#Error — Group is not empty",
+        "cleanLink": "Kafka — kcat and consumer groups",
+        "displayText": "Kafka — kcat and consumer groups > Error — Group is not empty",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Run services locally.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "Git",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Git.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "fileName": "Run services locally",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Run services locally.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Kafka — kcat and consumer groups",
+    "relativePath": "01 Commands/Kafka — kcat and consumer groups.md",
+    "tags": [
+      "command"
+    ],
+    "frontmatter": {
+      "title": "Kafka — kcat and consumer groups",
+      "type": "command",
+      "area": [
+        "kafka",
+        "monarch",
+        "ottava"
+      ],
+      "created": "2026-02-23T12:53:39-06:00"
+    },
+    "aliases": [
+      "kcat",
+      "produce event",
+      "send message to kafka",
+      "trigger a case",
+      "consumer group",
+      "Group is not empty",
+      "Could not start up the Kafka Microservice"
+    ],
+    "headings": [
+      {
+        "heading": "Kafka — kcat and consumer groups",
+        "level": 1
+      },
+      {
+        "heading": "Trigger an OTTAVA case",
+        "level": 2
+      },
+      {
+        "heading": "Trigger a MONARCH case",
+        "level": 2
+      },
+      {
+        "heading": "Trigger a MONARCH case with mocked PDP",
+        "level": 2
+      },
+      {
+        "heading": "Trigger a MONARCH case with redaction and a real principal",
+        "level": 2
+      },
+      {
+        "heading": "Publish a media change (SurgicalCaseVideo)",
+        "level": 2
+      },
+      {
+        "heading": "Error — Could not start up the Kafka Microservice",
+        "level": 2
+      },
+      {
+        "heading": "Delete a consumer group",
+        "level": 2
+      },
+      {
+        "heading": "Error — Group is not empty",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      },
+      {
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Run services locally.md"
+      },
+      {
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "link": "2026-06-25 — Monarch preingestion 422",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "2026-06-25 — Monarch preingestion 422",
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      },
+      {
+        "fileName": "2026-06-25 — Monarch preingestion 422",
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+      },
+      {
+        "fileName": "Ports and processes",
+        "link": "Kafka — kcat and consumer groups#Error — Group is not empty",
+        "relativePath": "01 Commands/Ports and processes.md",
+        "cleanLink": "Kafka — kcat and consumer groups",
+        "displayText": "Kafka — kcat and consumer groups > Error — Group is not empty"
+      },
+      {
+        "fileName": "Ports and processes",
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "fileName": "Run services locally",
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Run services locally.md"
+      }
+    ]
+  },
+  {
+    "fileName": "Run services locally",
+    "relativePath": "01 Commands/Run services locally.md",
+    "tags": [
+      "command"
+    ],
+    "frontmatter": {
+      "title": "Run services locally",
+      "type": "command",
+      "area": [
+        "polyphonic",
+        "java"
+      ],
+      "created": "2026-02-23T12:53:39-06:00"
+    },
+    "aliases": [
+      "gradlew bootRun",
+      "run feature flags locally",
+      "FF repo local",
+      "skip auth locally"
+    ],
+    "headings": [
+      {
+        "heading": "Run services locally",
+        "level": 1
+      },
+      {
+        "heading": "Run the Feature Flags repo locally",
+        "level": 2
+      },
+      {
+        "heading": "Sandbox environment variables",
+        "level": 2
+      },
+      {
+        "heading": "See also",
+        "level": 2
+      }
+    ],
+    "links": [
+      {
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+      }
+    ],
+    "backlinks": [
+      {
+        "fileName": "Ports and processes",
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      }
+    ]
+  }
+]

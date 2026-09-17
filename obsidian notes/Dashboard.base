@@ -1,0 +1,52 @@
+filters:
+  or:
+    - file.hasTag("command")
+    - file.hasTag("environment")
+    - file.hasTag("prompt")
+    - file.hasTag("reference")
+    - file.hasTag("debug")
+formulas:
+  days_untouched: (now() - file.mtime).days.round(0)
+properties:
+  type:
+    displayName: Type
+  area:
+    displayName: Area
+  aliases:
+    displayName: Also search for
+  formula.days_untouched:
+    displayName: Days untouched
+  file.folder:
+    displayName: Folder
+views:
+  - type: table
+    name: ⚡ Commands
+    filters: type == "command"
+    order:
+      - file.name
+      - area
+      - aliases
+  - type: table
+    name: 🔑 Environments
+    filters: type == "environment"
+    order:
+      - file.name
+      - area
+      - aliases
+  - type: table
+    name: 🐛 Debug
+    filters: type == "debug"
+    order:
+      - file.name
+      - area
+      - date
+  - type: table
+    name: 📁 All
+    groupBy:
+      property: type
+      direction: ASC
+    order:
+      - file.name
+      - area
+      - file.folder
+      - formula.days_untouched

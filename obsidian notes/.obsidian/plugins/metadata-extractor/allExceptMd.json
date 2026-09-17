@@ -1,0 +1,64 @@
+{
+  "folders": [
+    {
+      "name": "",
+      "relativePath": "/"
+    },
+    {
+      "name": "01 Commands",
+      "relativePath": "01 Commands"
+    },
+    {
+      "name": "02 Environments",
+      "relativePath": "02 Environments"
+    },
+    {
+      "name": "03 Prompts",
+      "relativePath": "03 Prompts"
+    },
+    {
+      "name": "04 Project",
+      "relativePath": "04 Project"
+    },
+    {
+      "name": "05 Debug",
+      "relativePath": "05 Debug"
+    },
+    {
+      "name": "adjuntos",
+      "relativePath": "adjuntos"
+    }
+  ],
+  "nonMdFiles": [
+    {
+      "name": "Screenshot 2026-07-31 at 11.28.11 a.m..png",
+      "basename": "Screenshot 2026-07-31 at 11.28.11 a.m.",
+      "relativePath": "Screenshot 2026-07-31 at 11.28.11 a.m..png"
+    },
+    {
+      "name": "Dashboard.base",
+      "basename": "Dashboard",
+      "relativePath": "Dashboard.base"
+    },
+    {
+      "name": "Screenshot 2026-07-31 at 11.27.55 a.m..png",
+      "basename": "Screenshot 2026-07-31 at 11.27.55 a.m.",
+      "relativePath": "Screenshot 2026-07-31 at 11.27.55 a.m..png"
+    },
+    {
+      "name": "Screenshot 2026-07-31 at 11.28.48 a.m..png",
+      "basename": "Screenshot 2026-07-31 at 11.28.48 a.m.",
+      "relativePath": "Screenshot 2026-07-31 at 11.28.48 a.m..png"
+    },
+    {
+      "name": "PR templete - Attachment.png",
+      "basename": "PR templete - Attachment",
+      "relativePath": "adjuntos/PR templete - Attachment.png"
+    },
+    {
+      "name": "Robotics in sbox - env.sbox",
+      "basename": "Robotics in sbox - env",
+      "relativePath": "adjuntos/Robotics in sbox - env.sbox"
+    }
+  ]
+}

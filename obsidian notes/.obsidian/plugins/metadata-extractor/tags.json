@@ -1,0 +1,57 @@
+[
+  {
+    "tag": "meta",
+    "tagCount": 1,
+    "relativePaths": [
+      "How I find things.md"
+    ]
+  },
+  {
+    "tag": "debug",
+    "tagCount": 1,
+    "relativePaths": [
+      "05 Debug/2026-06-25 — Monarch preingestion 422.md"
+    ]
+  },
+  {
+    "tag": "reference",
+    "tagCount": 2,
+    "relativePaths": [
+      "04 Project/PFM-446 — Hide OR field in Monarch.md",
+      "04 Project/Links — Jira, Confluence, pipelines.md"
+    ]
+  },
+  {
+    "tag": "ticket",
+    "tagCount": 1,
+    "relativePaths": [
+      "04 Project/PFM-446 — Hide OR field in Monarch.md"
+    ]
+  },
+  {
+    "tag": "prompt",
+    "tagCount": 1,
+    "relativePaths": [
+      "03 Prompts/PR description.md"
+    ]
+  },
+  {
+    "tag": "environment",
+    "tagCount": 3,
+    "relativePaths": [
+      "02 Environments/Test users.md",
+      "02 Environments/Polyphonic — URLs by environment.md",
+      "02 Environments/Check deployed version.md"
+    ]
+  },
+  {
+    "tag": "command",
+    "tagCount": 4,
+    "relativePaths": [
+      "01 Commands/Git.md",
+      "01 Commands/Ports and processes.md",
+      "01 Commands/Kafka — kcat and consumer groups.md",
+      "01 Commands/Run services locally.md"
+    ]
+  }
+]
