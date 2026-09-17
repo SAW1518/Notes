@@ -1,5 +1,9 @@
 [
   {
+    "fileName": "UTILES",
+    "relativePath": "UTILES.md"
+  },
+  {
     "fileName": "How I find things",
     "relativePath": "How I find things.md",
     "tags": [
@@ -39,10 +43,6 @@
         "level": 2
       }
     ]
-  },
-  {
-    "fileName": "UTILES",
-    "relativePath": "UTILES.md"
   },
   {
     "fileName": "2026-06-25 — Monarch preingestion 422",
@@ -369,6 +369,10 @@
     ]
   },
   {
+    "fileName": "Utils Users",
+    "relativePath": "02 Environments/Utils Users.md"
+  },
+  {
     "fileName": "Test users",
     "relativePath": "02 Environments/Test users.md",
     "tags": [
@@ -502,14 +506,14 @@
         "relativePath": "02 Environments/Check deployed version.md"
       },
       {
-        "fileName": "Kafka — kcat and consumer groups",
-        "link": "Polyphonic — URLs by environment",
-        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
-      },
-      {
         "fileName": "Run services locally",
         "link": "Polyphonic — URLs by environment",
         "relativePath": "01 Commands/Run services locally.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
       }
     ]
   },
@@ -562,44 +566,37 @@
     ]
   },
   {
-    "fileName": "Git",
-    "relativePath": "01 Commands/Git.md",
+    "fileName": "Run services locally",
+    "relativePath": "01 Commands/Run services locally.md",
     "tags": [
       "command"
     ],
     "frontmatter": {
-      "title": "Git",
+      "title": "Run services locally",
       "type": "command",
       "area": [
-        "git"
+        "polyphonic",
+        "java"
       ],
-      "created": "2026-04-08T11:22:13-06:00"
+      "created": "2026-02-23T12:53:39-06:00"
     },
     "aliases": [
-      "git stash",
-      "save changes without committing",
-      "undo last commit",
-      "stash pop"
+      "gradlew bootRun",
+      "run feature flags locally",
+      "FF repo local",
+      "skip auth locally"
     ],
     "headings": [
       {
-        "heading": "Git",
+        "heading": "Run services locally",
         "level": 1
       },
       {
-        "heading": "Save changes without committing (including new files)",
+        "heading": "Run the Feature Flags repo locally",
         "level": 2
       },
       {
-        "heading": "Restore the last thing I stashed",
-        "level": 2
-      },
-      {
-        "heading": "Stash with a name so I can identify it",
-        "level": 2
-      },
-      {
-        "heading": "Undo the last commit but keep the changes",
+        "heading": "Sandbox environment variables",
         "level": 2
       },
       {
@@ -609,19 +606,28 @@
     ],
     "links": [
       {
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
         "link": "Ports and processes",
         "relativePath": "01 Commands/Ports and processes.md"
       },
       {
-        "link": "PR description",
-        "relativePath": "03 Prompts/PR description.md"
+        "link": "Polyphonic — URLs by environment",
+        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
       }
     ],
     "backlinks": [
       {
-        "fileName": "PR description",
-        "link": "Git",
-        "relativePath": "03 Prompts/PR description.md"
+        "fileName": "Ports and processes",
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Ports and processes.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Run services locally",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
       }
     ]
   },
@@ -683,24 +689,24 @@
     ],
     "backlinks": [
       {
-        "fileName": "Git",
-        "link": "Ports and processes",
-        "relativePath": "01 Commands/Git.md"
-      },
-      {
-        "fileName": "Kafka — kcat and consumer groups",
-        "link": "Ports and processes",
-        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
-      },
-      {
-        "fileName": "Kafka — kcat and consumer groups",
-        "link": "Ports and processes",
-        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
-      },
-      {
         "fileName": "Run services locally",
         "link": "Ports and processes",
         "relativePath": "01 Commands/Run services locally.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "fileName": "Kafka — kcat and consumer groups",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+      },
+      {
+        "fileName": "Git",
+        "link": "Ports and processes",
+        "relativePath": "01 Commands/Git.md"
       }
     ]
   },
@@ -805,6 +811,11 @@
         "relativePath": "05 Debug/2026-06-25 — Monarch preingestion 422.md"
       },
       {
+        "fileName": "Run services locally",
+        "link": "Kafka — kcat and consumer groups",
+        "relativePath": "01 Commands/Run services locally.md"
+      },
+      {
         "fileName": "Ports and processes",
         "link": "Kafka — kcat and consumer groups#Error — Group is not empty",
         "relativePath": "01 Commands/Ports and processes.md",
@@ -815,46 +826,48 @@
         "fileName": "Ports and processes",
         "link": "Kafka — kcat and consumer groups",
         "relativePath": "01 Commands/Ports and processes.md"
-      },
-      {
-        "fileName": "Run services locally",
-        "link": "Kafka — kcat and consumer groups",
-        "relativePath": "01 Commands/Run services locally.md"
       }
     ]
   },
   {
-    "fileName": "Run services locally",
-    "relativePath": "01 Commands/Run services locally.md",
+    "fileName": "Git",
+    "relativePath": "01 Commands/Git.md",
     "tags": [
       "command"
     ],
     "frontmatter": {
-      "title": "Run services locally",
+      "title": "Git",
       "type": "command",
       "area": [
-        "polyphonic",
-        "java"
+        "git"
       ],
-      "created": "2026-02-23T12:53:39-06:00"
+      "created": "2026-04-08T11:22:13-06:00"
     },
     "aliases": [
-      "gradlew bootRun",
-      "run feature flags locally",
-      "FF repo local",
-      "skip auth locally"
+      "git stash",
+      "save changes without committing",
+      "undo last commit",
+      "stash pop"
     ],
     "headings": [
       {
-        "heading": "Run services locally",
+        "heading": "Git",
         "level": 1
       },
       {
-        "heading": "Run the Feature Flags repo locally",
+        "heading": "Save changes without committing (including new files)",
         "level": 2
       },
       {
-        "heading": "Sandbox environment variables",
+        "heading": "Restore the last thing I stashed",
+        "level": 2
+      },
+      {
+        "heading": "Stash with a name so I can identify it",
+        "level": 2
+      },
+      {
+        "heading": "Undo the last commit but keep the changes",
         "level": 2
       },
       {
@@ -864,28 +877,19 @@
     ],
     "links": [
       {
-        "link": "Kafka — kcat and consumer groups",
-        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
-      },
-      {
         "link": "Ports and processes",
         "relativePath": "01 Commands/Ports and processes.md"
       },
       {
-        "link": "Polyphonic — URLs by environment",
-        "relativePath": "02 Environments/Polyphonic — URLs by environment.md"
+        "link": "PR description",
+        "relativePath": "03 Prompts/PR description.md"
       }
     ],
     "backlinks": [
       {
-        "fileName": "Ports and processes",
-        "link": "Run services locally",
-        "relativePath": "01 Commands/Ports and processes.md"
-      },
-      {
-        "fileName": "Kafka — kcat and consumer groups",
-        "link": "Run services locally",
-        "relativePath": "01 Commands/Kafka — kcat and consumer groups.md"
+        "fileName": "PR description",
+        "link": "Git",
+        "relativePath": "03 Prompts/PR description.md"
       }
     ]
   }

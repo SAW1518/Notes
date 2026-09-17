@@ -48,10 +48,10 @@
     "tag": "command",
     "tagCount": 4,
     "relativePaths": [
-      "01 Commands/Git.md",
+      "01 Commands/Run services locally.md",
       "01 Commands/Ports and processes.md",
       "01 Commands/Kafka — kcat and consumer groups.md",
-      "01 Commands/Run services locally.md"
+      "01 Commands/Git.md"
     ]
   }
 ]
