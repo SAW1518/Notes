@@ -11,10 +11,14 @@
             "id": "03af9e62f428b734",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Study/Study Notes/TypeScript at the Boundary.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "TypeScript at the Boundary"
             }
           }
         ]

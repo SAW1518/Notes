@@ -85,17 +85,17 @@ TypeScript types are structural and exist only in the type space. There is no ma
 
 Every one of these hands the app `any` or a comfortable lie:
 
-| Boundary | What it really gives back |
-|---|---|
-| `fetch(...).json()` | `any` |
-| `JSON.parse(...)` | `any` |
-| `localStorage` / `sessionStorage` | `string \| null`, then `JSON.parse` → `any` |
-| URL and query params | `string \| null`, whatever the user typed |
-| `postMessage`, `BroadcastChannel`, WebSocket | `any`, and from another origin in some cases |
-| A third-party SDK without types, or with optimistic ones | whatever it feels like |
-| `process.env` / `import.meta.env` | `string \| undefined`, often typed as `string` by hand |
-| A CMS, a feature flag payload, an analytics config | JSON, unversioned, edited by non-engineers |
-| An `<input>` value, a file, a pasted payload | a string that claims to be a number |
+| Boundary                                                 | What it really gives back                              |
+| -------------------------------------------------------- | ------------------------------------------------------ |
+| `fetch(...).json()`                                      | `any`                                                  |
+| `JSON.parse(...)`                                        | `any`                                                  |
+| `localStorage` / `sessionStorage`                        | `string \| null`, then `JSON.parse` → `any`            |
+| URL and query params                                     | `string \| null`, whatever the user typed              |
+| `postMessage`, `BroadcastChannel`, WebSocket             | `any`, and from another origin in some cases           |
+| A third-party SDK without types, or with optimistic ones | whatever it feels like                                 |
+| `process.env` / `import.meta.env`                        | `string \| undefined`, often typed as `string` by hand |
+| A CMS, a feature flag payload, an analytics config       | JSON, unversioned, edited by non-engineers             |
+| An `<input>` value, a file, a pasted payload             | a string that claims to be a number                    |
 
 > [!question] The senior framing
 > These are **trust boundaries**, the same idea as in security ([[The Best Notes of the F Word#Ataques XSS (Cross-Site Scripting)]]). Validation goes exactly where trust changes hands — not sprinkled everywhere, and never omitted there.
