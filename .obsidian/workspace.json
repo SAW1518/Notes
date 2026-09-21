@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Study Notes/The Best Notes of the F Word.md",
+                "file": "Study/Study Notes/Design Patterns.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Best Notes of the F Word"
+              "title": "Design Patterns"
             }
           }
         ]
@@ -183,11 +183,13 @@
       "templates:Insert template": false,
       "cmdr:Open in Terminal: Open in terminal": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Study Notes/The Best Notes of the F Word.md",
     "Study/Study Notes/TypeScript at the Boundary.md",
     "Study/Study Notes/Utils.md",
     "Utils/Create SSH git key.md",
