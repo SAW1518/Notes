@@ -16,7 +16,7 @@ original: "[[Notion Import/The Best Notes of the F Word|Notion version]]"
 > 4. Hooks came in React **16.8**, not React 16.
 > 5. `useEffect` runs **after the browser paints**, not just "after render".
 
-## Index
+## Index:
 
 - [[CSS]]
 - [[Array Notes]]

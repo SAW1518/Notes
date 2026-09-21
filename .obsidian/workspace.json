@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Study Notes/TypeScript at the Boundary.md",
+                "file": "Study/Study Notes/The Best Notes of the F Word.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TypeScript at the Boundary"
+              "title": "The Best Notes of the F Word"
             }
           }
         ]
@@ -181,58 +181,20 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "cmdr:Open in Terminal: Open in terminal": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "cmdr:Open in Terminal: Open in terminal": false
+      "bases:Create new base": false
     }
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
     "Study/Study Notes/TypeScript at the Boundary.md",
-    "study/Study Notes/React Re-renders and Memoisation.md",
-    "Study/Notion Import/attachments/grid-28.png",
-    "Study/Notion Import/attachments/grid-27.png",
-    "Study/Notion Import/attachments/grid-26.png",
-    "Study/Notion Import/attachments/grid-25.png",
-    "Study/Notion Import/attachments/grid-24.png",
-    "Study/Notion Import/attachments/grid-23.png",
-    "Study/Notion Import/attachments/grid-22.png",
-    "Study/Notion Import/attachments/grid-21.png",
-    "Study/Notion Import/attachments/grid-20.png",
-    "Study/Notion Import/attachments/grid-19.png",
     "Study/Study Notes/Utils.md",
-    "Study/Study Notes/The Best Notes of the F Word.md",
-    "Study/Study Notes/Study prompt.md",
-    "Study/Study Notes/Soft Skills and Processes to study.md",
-    "Study/Study Notes/React Re-renders and Memoisation.md",
-    "Study/Study Notes/Questions for interviews.md",
-    "Study/Study Notes/Mock Interviews Knowledge Base.md",
-    "Study/Study Notes/Mock Interview Session 04.md",
-    "Study/Study Notes/Mock Interview Session 03.md",
-    "Study/Study Notes/Mock Interview Session 02.md",
-    "Study/Study Notes/Mock Interview Session 01.md",
-    "Study/Study Notes/Grid.md",
-    "Study/Study Notes/Flex.md",
-    "Study/Study Notes/Design Patterns.md",
-    "Study/Study Notes/Assessment Questions.md",
-    "Study/Study Notes/Array Notes.md",
-    "Study/Notion Import/attachments",
-    "Study/Notion Import/Utils.md",
-    "Study/Notion Import/The Best Notes of the F Word.md",
-    "Study/Notion Import/Questions for interviews.md",
-    "Study/Notion Import/Grid.md",
-    "Study/Notion Import/Flex.md",
-    "Study/Notion Import/CSS.md",
-    "Study/Notion Import/Array Notes.md",
-    "Study/Study Notes",
-    "Study/Patrones_reales_para_Node_22_y_React.m4a",
-    "Study/Notion Import",
-    "Study",
-    "study/Study Notes/Soft Skills and Processes to study.md",
-    "study/Patrones_reales_para_Node_22_y_React.m4a",
+    "Utils/Create SSH git key.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
+    "README.md",
     "Utils"
   ]
 }
