@@ -134,7 +134,7 @@ Good things to extract in a custom hook: the fetch logic, DOM measurements, subs
 > If the new value depends on the old one, we use the function form: `setN(prev => prev + 1)`.
 
 ## useEffect vs useLayoutEffect: what do you mean by "execution time"?
-
+ckck
 - **`useEffect`** runs **after** the browser paints. It does not block the paint.
 - **`useLayoutEffect`** runs after React writes in the DOM but **before** the paint, so the layout is already calculated and we can measure. It **blocks** the paint.
 
