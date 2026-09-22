@@ -13,12 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Study Notes/The Best Notes of the F Word.md",
+                "file": "Study/Study Notes/Assessment Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Best Notes of the F Word"
+              "title": "Assessment Questions"
+            }
+          },
+          {
+            "id": "384bc3eace5f8dcd",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -189,8 +199,8 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
-    "Study/Study Notes/Assessment Questions.md",
     "Study/Study Notes/The Best Notes of the F Word.md",
+    "Study/Study Notes/Assessment Questions.md",
     "Study/Study Notes/Array Notes.md",
     "Study/Study Notes/Design Patterns.md",
     "Study/Study Notes/TypeScript at the Boundary.md",
