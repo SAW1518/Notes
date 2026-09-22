@@ -413,7 +413,7 @@ Everything that is not the behavior of the application — not the flows of the 
 > [!tip] The honest part was good
 > Saying "the accessibility is the one we do worst in our project — it does not have business priority" is a strong answer. It shows that we know the gap and the reason, instead of pretending that everything is perfect.
 
-## How do you handle technical debt?
+## How do you handle technical debt?  here
 
 The key is to keep the **business value** as the priority. Refactoring only to make the code nicer is not a justification by itself.
 
