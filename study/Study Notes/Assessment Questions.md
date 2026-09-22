@@ -299,7 +299,8 @@ The answer that was given was to treat it with the maximum security, to not cach
 
 ---
 
-# 2. Technical — Design patterns & principles
+# 2. Technical — Design patterns & principles:
+
 
 ## What is your favorite design pattern?
 
