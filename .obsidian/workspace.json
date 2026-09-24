@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Study Notes/The Best Notes of the F Word.md",
+                "file": "Study/Study Notes/Assessment Questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Best Notes of the F Word"
+              "title": "Assessment Questions"
             }
           },
           {
@@ -199,6 +199,7 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Study Notes/The Best Notes of the F Word.md",
     "Study/Study Notes/OOP in JavaScript and TypeScript.md",
     "Study/Study Notes/TypeScript Type System.md",
     "Study/Study Notes/Mock Interviews Knowledge Base.md",
@@ -214,7 +215,6 @@
     "Study/Study Notes/React Re-renders and Memoisation.md",
     "Study/Study Notes/Soft Skills and Processes to study.md",
     "Study/Study Notes/Utils.md",
-    "Study/Study Notes/The Best Notes of the F Word.md",
     "Study/Study Notes/Array Notes.md",
     "Utils/Create SSH git key.md",
     "Untitled.canvas",
