@@ -834,8 +834,8 @@ Reuse this structure for any behavioural question: **the concrete case → the r
 1. Token-refresh race as a **design** question (open since S01).
 2. CDN caching and release versioning (skipped in S04).
 3. `useMemo` / `React.memo`: when they do **nothing**, and how you measure that they helped.
-4. TypeScript: why types do not validate an API response, and what you do about it (**zero** TS questions asked so far — it is 10% of the rubric).
-5. `this` binding: the five rules, and why arrow functions have no `this` of their own.
+4. ~~TypeScript: why types do not validate an API response, and what you do about it~~ → [[TypeScript at the Boundary]], and the type system itself in [[TypeScript Type System]] (**zero** TS questions asked so far — it is 10% of the rubric, so expect several).
+5. ~~`this` binding: the five rules, and why arrow functions have no `this` of their own.~~ → **written up 2026-09-24** in [[OOP in JavaScript and TypeScript#4. `this` — the five rules (the open question)]]. Still needs to be said **out loud** under pressure.
 6. Modules: ESM vs CJS, tree-shaking, circular imports, `import()` and code splitting.
 7. Bundle size, design-system component API and versioning, observability and progressive rollout, monorepo vs multi-repo, GraphQL vs REST / BFF.
 

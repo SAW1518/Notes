@@ -174,7 +174,7 @@ type Role = 'admin' | 'member' | 'viewer';   // exists only at compile time, zer
 
 ## Discriminated (tagged) unions — the single most useful shape in a frontend
 
-```ts
+```tsx
 type Request =
   | { status: 'idle' }
   | { status: 'loading' }
@@ -420,7 +420,7 @@ type PublicUser = Omit<User, 'passwordHash'>;
 
 ---
 
-# 9. Mapped and conditional types (the "type manipulation" item)
+# 9. Mapped and conditional types, and type manipulation
 
 ```ts
 // mapped: transform every key

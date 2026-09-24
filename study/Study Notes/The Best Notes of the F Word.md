@@ -24,6 +24,11 @@ original: "[[Notion Import/The Best Notes of the F Word|Notion version]]"
 - [[Utils]]
 - [[Assessment Questions]]
 - [[Mock Interviews Knowledge Base]] — the 4 mock sessions, consolidated as questions
+- [[Design Patterns]] — the 23 GoF patterns, anti-patterns and principles
+- [[TypeScript at the Boundary]] — why types do not validate an API response
+- [[TypeScript Type System]] — types, scopes, the checks, interfaces and unions
+- [[OOP in JavaScript and TypeScript]] — the pillars, the prototype underneath `class`, and `this`
+- [[React Re-renders and Memoisation]]
 
 ## Call stack
 
@@ -550,21 +555,21 @@ Topics clave a dominar:
 - ES modules (`import` / `export`, static vs dynamic import, tree shaking)
 - Execution context and the scope chain
 - Consistent error handling in asynchronous flows
-- Object patterns and composition
+- [x] Object patterns and composition — [[OOP in JavaScript and TypeScript#8. Composition, mixins and delegation]]
 - How to write unit tests and refactor for readability and reuse
 
 ### TypeScript
 https://levelup.epam.com/skill/skillId=7770000000000112280&skillLevelId=7770000000000001003&externalUserId=8760000000007062455&planId=0f1fde13-8c31-464f-b6d4-a40d1aee42df
-Resumen: TS at Advanced level — the notes only have the pros and cons, not the type system.
+Resumen: TS at Advanced level — written up in [[TypeScript Type System]] (2026-09-24). The runtime side is in [[TypeScript at the Boundary]].
 Topics clave a dominar:
-- Nominal vs structural typing, and the `never` type
-- Tuples, records, `as const`, named tuples
-- Type manipulation: `Readonly`, conditional types, `infer`
-- Utility types: `ThisType`, `ThisParameterType`, `OmitThisParameter`, `InstanceType`
-- Type narrowing: assert functions, `as` casting vs `satisfies`
-- Decorators (how they work, TS decorators vs esNext decorators, pitfalls)
-- `tsconfig`: `module`, `moduleResolution`, `isolatedModules`, multiple configs
-- Declaration merging, and how to extend global or third party typings
+- [x] Nominal vs structural typing, and the `never` type — [[TypeScript Type System#10. Structural vs nominal typing, and branded types]] · [[TypeScript Type System#3. Unions and intersections]]
+- [x] Tuples, records, `as const`, named tuples — [[TypeScript Type System#11. Tuples, `readonly`, and the array gotchas]] · [[TypeScript Type System#4. Literal types, widening, `as const` and `satisfies`]]
+- [x] Type manipulation: `Readonly`, conditional types, `infer` — [[TypeScript Type System#9. Mapped and conditional types, and type manipulation]]
+- [x] Utility types: `ThisType`, `ThisParameterType`, `OmitThisParameter`, `InstanceType` — [[TypeScript Type System#8. Utility types worth knowing cold]]
+- [x] Type narrowing: assert functions, `as` casting vs `satisfies` — [[TypeScript Type System#5. The checks: narrowing, guards and predicates]]
+- [x] Decorators (how they work, TS decorators vs esNext decorators, pitfalls) — [[TypeScript Type System#14. Decorators, in four lines]]
+- [x] `tsconfig`: `module`, `moduleResolution`, `isolatedModules`, multiple configs — [[TypeScript Type System#13. tsconfig — the flags that shrink the lie surface]]
+- [x] Declaration merging, and how to extend global or third party typings — [[TypeScript Type System#1. The two scopes: type space vs value space]]
 
 ### JavaScript in Browser
 https://levelup.epam.com/skill/skillId=7770000000000116741&skillLevelId=7770000000000001003&externalUserId=8760000000007062455&planId=0f1fde13-8c31-464f-b6d4-a40d1aee42df

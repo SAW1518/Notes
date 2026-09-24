@@ -386,7 +386,10 @@ The knowledge was present and did not surface. Retrieval is trained with **trigg
 
 # Still to study from here
 
-- [ ] `satisfies` and `as const` — narrowing config objects without widening.
-- [ ] tsconfig flags that shrink the lie surface: `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `useUnknownInCatchVariables`.
-- [ ] Branded / nominal types (`type UserId = string & { __brand: 'UserId' }`) and where they beat a plain alias.
+- [x] `satisfies` and `as const` — narrowing config objects without widening → [[TypeScript Type System#4. Literal types, widening, `as const` and `satisfies`]]
+- [x] tsconfig flags that shrink the lie surface: `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `useUnknownInCatchVariables` → [[TypeScript Type System#13. tsconfig — the flags that shrink the lie surface]]
+- [x] Branded / nominal types (`type UserId = string & { __brand: 'UserId' }`) and where they beat a plain alias → [[TypeScript Type System#10. Structural vs nominal typing, and branded types]]
 - [ ] tRPC and end-to-end type safety without codegen — and its boundary: it only works when both ends are mine.
+
+> [!tip] The other half of TypeScript
+> Everything that is **not** about the boundary — `type` vs `interface`, unions and narrowing, generics, utility types, the two declaration spaces — is in [[TypeScript Type System]]. The class side of the language is in [[OOP in JavaScript and TypeScript]].

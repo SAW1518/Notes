@@ -522,6 +522,9 @@ From [[Assessment Questions#Name some anti-patterns you try to avoid]]:
 
 # Composition over inheritance
 
+> [!tip] Why inheritance breaks, in detail
+> This section is the React answer. The mechanism underneath — Liskov, the fragile base class, mixins and the diamond — is in [[OOP in JavaScript and TypeScript#7. Inheritance: what actually breaks]].
+
 From [[Assessment Questions#Why is composition better than inheritance in React?]]:
 
 Because it gives us **loose coupling**. We can replace or modify each unit without impacting the rest. The inheritance creates rigid hierarchies: a change in the parent affects all the descendants, and JS/React does not work well with deep hierarchies of classes.
@@ -611,8 +614,8 @@ Why we need a container like Redux, if React already has state and Context — f
 > - [ ] **Event-driven architecture** — *Software Design, Advanced*
 > - [ ] **Micro-frontends** — *Software Design + JavaScript Top Frameworks*
 > - [ ] **Integration patterns, messaging patterns and enterprise application patterns** — *Software Design*
-> - [ ] **OOP vs FP vs RP (reactive)**, pros and cons — *Software Design*
+> - [x] **OOP vs FP vs RP (reactive)**, pros and cons — *Software Design* → [[OOP in JavaScript and TypeScript#11. OOP vs FP vs RP]]
 > - [ ] **Cross-cutting concerns** and how to solve them for a whole solution — *Software Design*
 > - [ ] **Compound components** — the vault itself says it is the "composition pattern that is missing in the notes"
-> - [ ] **Object patterns and composition** — *JavaScript, Advanced*
-> - [ ] **Decorators in TypeScript**: TS decorators vs esNext decorators, and the pitfalls — *TypeScript, Advanced*
+> - [x] **Object patterns and composition** — *JavaScript, Advanced* → [[OOP in JavaScript and TypeScript#8. Composition, mixins and delegation]]
+> - [x] **Decorators in TypeScript**: TS decorators vs esNext decorators, and the pitfalls — *TypeScript, Advanced* → [[TypeScript Type System#14. Decorators, in four lines]]
