@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Work/02 Environments/Check deployed version.md",
+                "file": "Work/01 Commands/Kafka — kcat and consumer groups.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Check deployed version"
+              "title": "Kafka — kcat and consumer groups"
             }
           },
           {
@@ -199,15 +199,15 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Work/01 Commands/Git.md",
+    "Work/02 Environments/Check deployed version.md",
     "Work/01 Commands/Run services locally.md",
     "Work/01 Commands/Kafka — kcat and consumer groups.md",
     "Work/01 Commands/Ports and processes.md",
-    "Work/01 Commands/Git.md",
     "Work/04 Project/PFM-446 — Hide OR field in Monarch.md",
     "Work/04 Project/Links — Jira, Confluence, pipelines.md",
     "Work/03 Prompts/PR description.md",
     "Work/02 Environments/Test users.md",
-    "Work/02 Environments/Check deployed version.md",
     "Work/Screenshot 2026-07-31 at 11.27.55 a.m..png",
     "Study/Study Notes/TypeScript Type System.md",
     "Study/Study Notes/OOP in JavaScript and TypeScript.md",
