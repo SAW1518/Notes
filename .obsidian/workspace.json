@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Work/01 Commands/Kafka — kcat and consumer groups.md",
+                "file": "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kafka — kcat and consumer groups"
+              "title": "NDM-SXP Frontend Engineer - POS Nordstrom"
             }
           },
           {
@@ -109,6 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -199,10 +200,13 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Work/01 Commands/Kafka — kcat and consumer groups.md",
+    "Study/Study Notes/vanates/# Frontend Engineer – POS+ | NordstromUntitled.md",
+    "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
+    "Study/Study Notes/vanates",
     "Work/01 Commands/Git.md",
     "Work/02 Environments/Check deployed version.md",
     "Work/01 Commands/Run services locally.md",
-    "Work/01 Commands/Kafka — kcat and consumer groups.md",
     "Work/01 Commands/Ports and processes.md",
     "Work/04 Project/PFM-446 — Hide OR field in Monarch.md",
     "Work/04 Project/Links — Jira, Confluence, pipelines.md",
@@ -224,8 +228,6 @@
     "Study/Study Notes/Mock Interview Session 02.md",
     "Study/Study Notes/Mock Interview Session 01.md",
     "Study/Study Notes/React Re-renders and Memoisation.md",
-    "Study/Study Notes/Soft Skills and Processes to study.md",
-    "Study/Study Notes/Array Notes.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
