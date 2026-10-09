@@ -11,5 +11,6 @@
       "Bash(obsidian help:*)",
       "Bash(defuddle parse:*)"
     ]
-  }
+  },
+  "autoMemoryEnabled": false
 }
