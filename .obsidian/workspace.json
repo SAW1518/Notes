@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/TypeScript.md",
+                "file": "study/JavaScript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TypeScript"
+              "title": "JavaScript"
             }
           },
           {
@@ -201,6 +201,7 @@
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
     "study/TypeScript Boundary.md",
+    "study/JavaScript.md",
     "study/TypeScript.md",
     "study/State Management.md",
     "study/Design Patterns.md",
@@ -238,7 +239,6 @@
     "Study/Study Notes/The Best Notes of the F Word.md",
     "Study/Study Notes/Utils.md",
     "Study/Study Notes/Assessment Questions.md",
-    "Study/Study Notes/Mock Interviews Knowledge Base.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
