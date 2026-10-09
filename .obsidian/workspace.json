@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Work/01 Commands/Kafka — kcat and consumer groups.md",
+                "file": "Study/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kafka — kcat and consumer groups"
-            }
-          },
-          {
-            "id": "f0888170e0e660c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Work/02 Environments/Polyphonic — URLs by environment.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Polyphonic — URLs by environment"
+              "title": "README"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Work/02 Environments/Polyphonic — URLs by environment.md",
+                "file": "Study/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -203,8 +188,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f0888170e0e660c3",
+  "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/TypeScript Boundary.md",
+    "Study/Vocabulary Drill.md",
+    "Study/Arrays.md",
+    "Study/attachments/flex-02.png",
+    "Work/02 Environments/Polyphonic — URLs by environment.md",
     "Work/02 Environments/Check deployed version.md",
     "Work/01 Commands/Run services locally.md",
     "Work/01 Commands/Ports and processes.md",
@@ -214,8 +204,6 @@
     "Study/_archive/Questions for interviews.md",
     "Study/CLAUDE.md",
     "Study/_archive/The Best Notes of the F Word.md",
-    "Study/TypeScript Boundary.md",
-    "Study/Vocabulary Drill.md",
     "Work/adjuntos/PR templete - Attachment.png",
     "Work/05 Debug/2026-06-25 — Monarch preingestion 422.md",
     "Work/04 Project/PFM-446 — Hide OR field in Monarch.md",
@@ -223,7 +211,6 @@
     "Work/03 Prompts/PR description.md",
     "Work/02 Environments/Utils Users.md",
     "Work/02 Environments/Test users.md",
-    "Work/02 Environments/Polyphonic — URLs by environment.md",
     "Work/How I find things.md",
     "Work/Dashboard.base",
     "Work/Screenshot 2026-07-31 at 11.28.48 a.m..png",
@@ -233,7 +220,6 @@
     "Study/_archive/Mock Interviews Knowledge Base.md",
     "Study/_archive/Mock Interview Session 04.md",
     "Study/_archive/Mock Interview Session 03.md",
-    "Study/_archive/Mock Interview Session 02.md",
     "Study/_archive",
     "Study/attachments/grid-28.png",
     "Study/attachments/grid-27.png",
@@ -242,7 +228,6 @@
     "Study/attachments/grid-24.png",
     "Study/attachments/grid-23.png",
     "Study/attachments/grid-22.png",
-    "Study/attachments/grid-21.png",
     "Study/attachments",
     "Study/Study Notes/vanates",
     "Untitled.canvas",
