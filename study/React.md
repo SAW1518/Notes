@@ -1,34 +1,172 @@
 ---
-title: React Re-renders and Memoisation
+title: React
 tags:
   - study
   - interview
-  - promotion
   - react
   - performance
-parent: "[[The Best Notes of the F Word]]"
-source: "created after Study Session 05 Q1 (2026-09-14). Closes item 3 of [[Mock Interviews Knowledge Base#Still unanswered across all four sessions — expect them again]]"
+  - hooks
 ---
 
-# React Re-renders and Memoisation
+# React
+
+Hooks and the lifecycle, re-renders and memoisation, rendering strategies, and the security holes that survive JSX escaping.
+
+State libraries are in [[State Management]]. The browser layer under React — layout, paint, the compositor — is in [[Browser Platform]].
+
+---
+
+# 1. Fundamentals
+
+## The Virtual DOM
+
+An in-memory tree of plain objects that describes what the UI should look like. On an update React builds a new tree, **diffs** it against the previous one (reconciliation), and applies only the differences to the real DOM (the commit).
+
+The point is not that it is fast — a direct DOM write is faster. The point is that it makes a **declarative** API possible: the component describes the result, and React works out the minimum set of mutations.
+
+## Hooks — what they are and what problem they solve
+
+Hooks let us use state and other React features inside a **function component**, without writing a class. They arrived in **React 16.8** (February 2019).
+
+They solve two problems:
+
+1. **Reuse of the logic.** Before hooks we had HOCs and render props, which created "wrapper hell". A custom hook extracts the logic without touching the tree of components.
+2. **Separation of concerns.** Related logic stays together, instead of being split across `componentDidMount`, `componentDidUpdate` and `componentWillUnmount`.
+
+Good things to extract into a custom hook: fetch logic, DOM measurements, subscriptions, forms.
+
+## The most used built-in hooks
+
+`useState` and `useEffect`.
+
+- **`useState`** creates a local state and updates it in a way the render algorithm can detect.
+- **`useEffect`** runs a callback after the render, when the values of the dependency array change.
+
+## `useRef`
+
+Two unrelated jobs under one name:
+
+1. **A handle to a DOM node** — `<input ref={inputRef} />`, then `inputRef.current.focus()`.
+2. **A mutable box that does not trigger a render** — a timer id, a previous value, a "has mounted" flag, an id that must survive.
+
+Writing `ref.current` **never** re-renders. That is the whole difference with state, and it is why a ref is the wrong place for anything the UI displays.
+
+## "useState is asynchronous" — careful with that phrase
+
+It is **not** asynchronous like a promise. What really happens:
+
+- React **groups** the updates (batching) and re-renders only once.
+- The state variable is a **constant of that render**. Reading it right after calling the setter gives the old value because of the **closure**, not because of a timer.
+
+```js
+const [n, setN] = useState(0);
+setN(n + 1);
+console.log(n);   // still 0 — this is the closure, not async
+```
+
+If the new value depends on the old one, use the function form: `setN(prev => prev + 1)`.
+
+## The setter is called three times in one click handler, each with the current value plus one. State starts at 0. What is on screen?
+
+**1** — and there are **two separate reasons**, and the panel wants both:
+
+| | What it explains |
+|---|---|
+| **The closure** | Why the value is **1** and not 3 |
+| **The batching** | Why there is **one** re-render and not three |
+
+The state variable is a constant of that render, so the three calls do not see each other:
+
+```js
+const count = 0;                                   // the value React gave to THIS render
+const calls = [count + 1, count + 1, count + 1];   // [1, 1, 1]
+```
+
+With the functional form `setCount(c => c + 1)` the result is **3**, and there is **still only one re-render** — that is the proof the two things are independent, and the best way to show you understand it.
+
+| | Inside a React event handler | Inside `setTimeout`, a promise, a native listener |
+|---|---|---|
+| **React 17** | Batched → 1 render | **Not batched** → 3 renders |
+| **React 18** (`createRoot`) | Batched → 1 render | **Batched too** → 1 render |
+
+React 18 calls this **automatic batching**. The escape hatch when a render is genuinely needed in the middle is `flushSync`.
+
+> [!question] Short answer for the interview
+> "The value is 1, for two separate reasons. The value is 1 because of the closure — the state is a constant of that render, so all three calls read the same 0. And there is one re-render because React batches. With the functional form the result is 3 and there is still one render, which shows the two are different things. In React 17 batching only happened inside React event handlers, so the same three calls inside a `setTimeout` gave three renders; React 18 added automatic batching everywhere, and `flushSync` is the escape hatch."
+
+## `useEffect` vs `useLayoutEffect`
+
+- **`useEffect`** runs **after** the browser paints. Asynchronous, does not block the paint.
+- **`useLayoutEffect`** runs after React writes to the DOM but **before** the paint, so the layout is already calculated and we can measure. Synchronous, it **blocks** the paint.
+
+`useLayoutEffect` is the correct place for DOM measurements, and for DOM changes that would produce a visible jump — tooltips, popovers, modals.
+
+> [!tip] Easy rule
+> If the user can see a flicker or a jump, use `useLayoutEffect`. For everything else, `useEffect`.
+
+## The dependency array
+
+The array tells React **which values** re-run the effect.
+
+- `[]` → runs **once**, after the mount.
+- `[a, b]` → runs when `a` or `b` change.
+- no array → runs after **every** render.
+
+> [!warning] They are values, not only props
+> The dependencies are **any reactive value** used inside the effect: props, state, context, and anything derived from them.
+
+Ignoring the array produces bugs, normally **stale closures**, where the effect keeps reading old values of the props or the state. `react-hooks/exhaustive-deps` is the ESLint rule that catches it, and it is non-negotiable.
+
+The **cleanup** function returned from the effect is what runs on unmount — and also before every re-run of the effect.
+
+## Which lifecycle methods useEffect replaces
+
+| Class component | Function component |
+|---|---|
+| `componentDidMount()` | `useEffect(() => {...}, [])` |
+| `componentDidUpdate(prevProps, prevState)` | `useEffect(() => {...}, [deps])` |
+| `componentWillUnmount()` | the **return** function inside `useEffect` |
+
+The cleanup (the function we return) is what runs on unmount; the empty array `[]` is what makes it run **only** at unmount instead of after every render.
+
+## The lifecycle methods useEffect does NOT replace
+
+The three phases map cleanly, so the panel goes one step further: **"and the rest?"**. Not every lifecycle method has a hook.
+
+| Class method | Hook equivalent | The real answer |
+|---|---|---|
+| `shouldComponentUpdate` | **none** | The closest thing is `React.memo`, and it wraps the component **from the outside** |
+| `PureComponent` | **none** | `React.memo` — but it compares **props only**, not state |
+| `getDerivedStateFromError` / `componentDidCatch` | **none** | An **error boundary can only be a class component**, still today |
+| `getDerivedStateFromProps` | **none** | Derive the value **during the render**, or reset with a `key` |
+| `forceUpdate()` | **none** | `useReducer(x => x + 1, 0)` as an escape hatch |
+
+`shouldComponentUpdate(nextProps, nextState, nextContext)` is the class bailout: returning `false` skips `render()` **and the whole subtree**. It is **not** called on mount and **not** called after `forceUpdate()`. It is **not deprecated** — the deprecated ones are `componentWillMount`, `componentWillReceiveProps` and `componentWillUpdate` (the `UNSAFE_` ones).
+
+> [!danger] The inverted return value — this is the trap
+> | API | `true` means |
+> |---|---|
+> | `shouldComponentUpdate` | **render** |
+> | `React.memo`'s second argument `areEqual` | **props are equal → skip the render** |
+>
+> Same word, opposite outcome. Getting it backwards silently freezes the UI.
+
+> [!tip] Why there is no hook for `shouldComponentUpdate`
+> `React.PureComponent` can shallow-compare **props *and* state**, because in a class the state is one object (`this.state`). `React.memo` compares **props only**: hook state is not a single object it can inspect. That is the mechanical reason why `React.memo` **never** blocks a re-render caused by the component's own `useState` — it only intercepts renders coming from the parent.
+
+> [!warning] Error boundaries
+> There is no hook for `getDerivedStateFromError` / `componentDidCatch`: a boundary **must** be a class (or the `react-error-boundary` package, which is a class underneath). And they catch **render-time errors only** — not async code, not promise rejections, not event handlers, not SSR. See [[JavaScript#Which layer catches which error]].
+
+---
+
+# 2. Re-renders and memoisation
 
 `React.memo`, `useMemo`, `useCallback` — what each one is for, what React actually builds underneath, which design pattern is behind it, when it pays and when it does literally nothing.
 
-Related: [[Mock Interviews Knowledge Base]] · [[Assessment Questions]] · [[Questions for interviews#What is useMemo in React]] · [[Design Patterns#Decorator]]
-
-> [!danger]- 3 things I said wrong on 2026-09-14 (read this first)
-> 1. **"memoising everywhere piles up unnecessary microtasks"** → memoisation creates **zero** microtasks. A microtask is a promise reaction, `queueMicrotask` or a `MutationObserver` callback. `React.memo` and `useMemo` are **synchronous work inside the render phase** — same call stack. The real cost is a shallow comparison per prop, a retained closure, and a deps array allocated on every render.
-> 2. **"the compile time gets slower"** → runtime cost, not build cost. Nothing about memoisation touches the bundler.
-> 3. **"you have to add those props to the dependency array"** about `React.memo` → **`React.memo` has no dependency array.** There is nowhere to put them. It compares *all* props, shallowly, with `Object.is`. The deps array is a **hook** API (`useMemo`, `useCallback`, `useEffect`).
->
-> The tell that separates them: **a deps array is something you pass to a hook, from inside the component. `React.memo` wraps the component from the outside — its "deps" are the props, and I do not get to choose them.**
-
 > [!warning] The order to answer this in an interview
-> Re-render causes → what `memo` intercepts (and what it does **not**) → reference identity → **measure** → the structural fix that beats memoising. Skipping straight to "I use `React.memo`" is the Mid answer.
+> Re-render causes → what `memo` intercepts (and what it does **not**) → reference identity → **measure** → the structural fix that beats memoising. Skipping straight to "I use `React.memo`" is the mid-level answer.
 
----
-
-# 0. First: why does a component re-render at all?
+## First: why does a component re-render at all?
 
 Only three reasons. Everything else reduces to these.
 
@@ -43,19 +181,17 @@ Only three reasons. Everything else reduces to these.
 
 Three more facts that belong here:
 
-- **Re-render ≠ DOM update.** A render is React calling the function and diffing the result (reconciliation). If the output is the same, the **commit** touches nothing in the DOM. A "wasted render" costs JS time, not layout and paint — that is a different layer ([[Mock Interviews Knowledge Base#Scrolling is janky. Layout and paint dominate the frame. What is happening and how do you fix it?]]).
+- **Re-render ≠ DOM update.** A render is React calling the function and diffing the result. If the output is the same, the **commit** touches nothing in the DOM. A "wasted render" costs JS time, not layout and paint — that is a different layer ([[Browser Platform#Scrolling is janky — layout and paint dominate the frame]]).
 - **Setting state to the same value bails out**, compared with `Object.is` — but React may still render the component **once** before it notices. It does not go deeper into the tree.
 - **A parent re-render renders the whole subtree by default.** That is normal and usually cheap. It is not a bug to fix pre-emptively.
 
----
+## `React.memo`
 
-# 1. `React.memo`
-
-## What it is for
+### What it is for
 
 Skip the re-render of a subtree when the parent re-rendered but **nothing that subtree depends on changed**.
 
-## What it generates underneath
+### What it generates underneath
 
 `React.memo(Component)` does **not** return a wrapper component that renders your component. It returns a plain object that the reconciler recognises as a special element type:
 
@@ -77,11 +213,11 @@ At render time the reconciler sees that type and, before rendering `type`, compa
 > [!info]- Internals (implementation detail, not API — do not quote as if it were documented)
 > The reconciler handles this in `updateMemoComponent` / `updateSimpleMemoComponent`, and the skip goes through `bailoutOnAlreadyFinishedWork`. The "simple" path is used when the inner component is a plain function with no `defaultProps`. **Never rely on this in an answer** — say "it bails out of the subtree", that is the documented behaviour.
 
-## Which design pattern it is
+### Which design pattern it is
 
-**Decorator** — it takes a component and returns the same component with one behaviour added, without modifying it. Already written in [[Design Patterns#Decorator]] ("the HOCs of React, `React.memo`"). Functionally it also acts as a **gatekeeper / guard**: it decides whether the call happens at all. The cache itself is **memoisation**, which is not a GoF pattern — it is the cache-aside idea applied to a function call.
+**Decorator** — it takes a component and returns the same component with one behaviour added, without modifying it ([[Design Patterns#Decorator]]). Functionally it also acts as a **gatekeeper / guard**: it decides whether the call happens at all. The cache itself is **memoisation**, which is not a GoF pattern — it is the cache-aside idea applied to a function call.
 
-## The second argument
+### The second argument
 
 ```jsx
 const Row = React.memo(RowBase, (prevProps, nextProps) => {
@@ -95,21 +231,10 @@ const Row = React.memo(RowBase, (prevProps, nextProps) => {
 >
 > And a custom comparator is usually a smell: if I need a deep comparison to make the memo hold, the real problem is the **shape of the props**, not the comparison.
 
-> [!info]- The class-component relatives: `shouldComponentUpdate` and `PureComponent`
-> `shouldComponentUpdate(nextProps, nextState, nextContext)` is a **lifecycle method of class components** — the only bailout that existed before hooks. Returning `false` skips `render()` and the whole subtree. It is **not** called on mount, and **not** called after `forceUpdate()`. It is **not deprecated** (the deprecated ones are `componentWillMount`, `componentWillReceiveProps`, `componentWillUpdate`).
->
-> | API | `true` means |
-> |---|---|
-> | `shouldComponentUpdate` | **render** |
-> | `React.memo`'s `areEqual` | **equal → skip** |
->
-> `React.PureComponent` implements `shouldComponentUpdate` as a shallow compare of **props *and* state**. `React.memo` is the function equivalent but **props only** — it cannot compare hook state, which is the mechanical reason why it never blocks a re-render caused by the component's own `useState` (§0, cause 1).
->
-> **There is no hook version.** No `useShouldComponentUpdate` exists; in function components the only lever is `React.memo`, from the outside.
->
-> Two footguns: a deep comparison inside `shouldComponentUpdate` costs more than the render it avoids; and mutating state in place (`this.state.list.push(x)`) with `PureComponent` makes the shallow compare see the same reference and the update never happens.
+> [!info]- Two class-component footguns worth knowing
+> A deep comparison inside `shouldComponentUpdate` costs more than the render it avoids. And mutating state in place (`this.state.list.push(x)`) with `PureComponent` makes the shallow compare see the same reference, so the update never happens.
 
-## When it does genuinely nothing
+### When `React.memo` does genuinely nothing
 
 | Situation | Why the memo is dead | Code |
 |---|---|---|
@@ -118,14 +243,14 @@ const Row = React.memo(RowBase, (prevProps, nextProps) => {
 | `style={{ margin: 8 }}` | Same — object literal | [[#2 — Object, array and style literals\|→ example 2]] |
 | A prop **value** is `new Date()`, `data.filter(…)`, `{ ...rest }` | New reference every render | [[#2 — Object, array and style literals\|→ example 2]] · [[#8 — JSX spread — NOT a dead memo\|→ 8]] |
 | It receives **`children`** | JSX creates a **new element object** each render, so `children` never compares equal | [[#3 — The children prop\|→ example 3]] |
-| The re-render comes from its **own state** | `memo` only intercepts the parent (cause 1 of §0) | [[#4 — Own state\|→ example 4]] |
-| The re-render comes from a **context** it consumes | `memo` does not intercept context (cause 3 of §0) | [[#5 — Context\|→ example 5]] |
+| The re-render comes from its **own state** | `memo` only intercepts the parent (cause 1) | [[#4 — Own state\|→ example 4]] |
+| The re-render comes from a **context** it consumes | `memo` does not intercept context (cause 3) | [[#5 — Context\|→ example 5]] |
 | The component is **trivial** (a `<span>`, a badge) | The comparison costs more than the render | [[#6 — Trivial component\|→ example 6]] |
 | The parent **remounts it** (`key` changed) | Nothing survives an unmount | [[#7 — Remount by key\|→ example 7]] |
 
-## The same table, as code
+### The same table, as code
 
-### 1 — Inline arrow
+#### 1 — Inline arrow
 
 ```jsx
 const Row = React.memo(RowBase);
@@ -186,8 +311,7 @@ const onSelect = useCallback(id => select(id), []);   // [] → same reference f
 >
 > **Interview line:** *"memoisation is never a correctness tool — removing every `useMemo` and `useCallback` from a codebase has to leave the behaviour identical. If it does not, the code was already broken."* Which is also why the React Compiler can do it automatically: it is a pure optimisation layer.
 
-
-### 2 — Object, array and style literals
+#### 2 — Object, array and style literals
 
 ```jsx
 function Dashboard({ data }) {
@@ -215,7 +339,7 @@ function Dashboard({ data }) {
 }
 ```
 
-### 3 — The children prop
+#### 3 — The children prop
 
 ```jsx
 const Panel = React.memo(PanelBase);
@@ -236,12 +360,12 @@ function Page() {
 ```
 
 > [!tip] The nuance of this one
-> The problem is not `children` itself — it is that **`Page` re-renders**. If the element is created by a component that does **not** re-render, that reference survives and the memo holds. That is exactly the trick in [[#5. What beats memoising (the senior half of the answer)]]: pass the heavy part as `children` from **above** the component that owns the changing state, and the win arrives **with no memo at all**.
+> The problem is not `children` itself — it is that **`Page` re-renders**. If the element is created by a component that does **not** re-render, that reference survives and the memo holds. That is exactly the trick in [[#What beats memoising (the senior half of the answer)]]: pass the heavy part as `children` from **above** the component that owns the changing state, and the win arrives **with no memo at all**.
 
-### 4 — Own state
+#### 4 — Own state
 
 ```jsx
-// ❌ DEAD MEMO — the re-render comes from INSIDE (cause 1 of §0).
+// ❌ DEAD MEMO — the re-render comes from INSIDE (cause 1).
 const Clock = React.memo(function Clock() {
   const [now, setNow] = useState(Date.now());
 
@@ -256,10 +380,10 @@ const Clock = React.memo(function Clock() {
 });
 ```
 
-### 5 — Context
+#### 5 — Context
 
 ```jsx
-// ❌ DEAD MEMO — context (cause 3 of §0).
+// ❌ DEAD MEMO — context (cause 3).
 const Avatar = React.memo(function Avatar() {
   // React.memo does NOT intercept context. Any new value in AuthContext
   // re-renders this component, memoised or not.
@@ -269,7 +393,7 @@ const Avatar = React.memo(function Avatar() {
 // The real fix is not memo: split the context, or use a store with selectors.
 ```
 
-### 6 — Trivial component
+#### 6 — Trivial component
 
 ```jsx
 // ❌ DEAD MEMO — trivial component.
@@ -278,7 +402,7 @@ const Avatar = React.memo(function Avatar() {
 const Badge = React.memo(({ label }) => <span className="badge">{label}</span>);
 ```
 
-### 7 — Remount by key
+#### 7 — Remount by key
 
 ```jsx
 // ❌ DEAD MEMO — the parent remounts it.
@@ -291,7 +415,7 @@ const Badge = React.memo(({ label }) => <span className="badge">{label}</span>);
 <Row key={index} item={item} />
 ```
 
-### 8 — JSX spread — NOT a dead memo
+#### 8 — JSX spread — NOT a dead memo
 
 ```jsx
 // ⚠️ The case everybody gets wrong.
@@ -305,14 +429,13 @@ const Badge = React.memo(({ label }) => <span className="badge">{label}</span>);
 <Row config={{ ...rest }} />
 ```
 
-
-## When it pays
+### When `React.memo` pays
 
 - **Stable props** plus an **expensive subtree**: large table rows, charts, editors, canvases, virtualised list items.
 - A list of N items where one changes and the other N−1 receive identical props.
 - The component sits under a parent that re-renders very often (a timer, a cursor position, a controlled text input).
 
-## Example — the case that fails, and the fix
+### Example — the case that fails, and the fix
 
 ```jsx
 // ❌ the memo never holds: three new references per render
@@ -346,16 +469,16 @@ function Parent() {
 
 ---
 
-# 2. `useMemo`
+## `useMemo`
 
-## What it is for
+### What it is for
 
 Two different jobs, and mixing them up is why the hook gets misused:
 
 1. **Skip an expensive calculation** between renders.
 2. **Keep a stable reference** so that something downstream can compare it — a memoised child, a deps array, a context value. **This is the more common legitimate use.**
 
-## What it generates underneath
+### What it generates underneath
 
 No wrapper, no component, no queue. Hooks live as a **linked list of hook objects on the fiber** (`fiber.memoizedState`), one node per hook call, **in call order** — that is the whole reason for the rules of hooks.
 
@@ -369,14 +492,17 @@ On the next render React walks to the same position in the list and compares dep
 
 So the cost of a `useMemo` that never recomputes is still: one array allocated, N `Object.is` calls, one closure kept alive. Small, but not zero — and **not** a microtask, **not** async, **not** build time.
 
+> [!important] Memoisation creates zero microtasks
+> A microtask is a promise reaction, `queueMicrotask` or a `MutationObserver` callback. `React.memo` and `useMemo` are **synchronous work inside the render phase** — same call stack. And nothing about memoisation touches the bundler, so there is no build-time cost either. The real cost is a shallow comparison per prop, a retained closure, and a deps array allocated on every render.
+
 > [!warning] `useMemo` is not a semantic guarantee
 > React documents that it **may throw the cached value away** (for example for off-screen content). Code must stay correct if the factory runs again. Never put a side effect, a subscription, a fetch or an ID generator inside `useMemo`.
 
-## Which design pattern it is
+### Which design pattern it is
 
-**Memoisation** (function-result caching), the same family as the `single-flight` note in [[Design Patterns#Single-flight]] — there the cache holds a promise in flight, here it holds a value while the deps do not change. Not GoF. The GoF neighbour is **Proxy** in its caching variant: same interface, an interception in front.
+**Memoisation** (function-result caching), the same family as [[Design Patterns#Single-flight]] — there the cache holds a promise in flight, here it holds a value while the deps do not change. Not GoF. The GoF neighbour is **Proxy** in its caching variant: same interface, an interception in front.
 
-## When it does nothing
+### When `useMemo` does nothing
 
 | Situation                                                                              | Why                                                        | Code                                                 |
 | -------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
@@ -388,9 +514,9 @@ So the cost of a `useMemo` that never recomputes is still: one array allocated, 
 | —                                                                                      | Two shapes that **look** useless and are not               | [[#6 — Looks useless but is not\|→ example 6]]       |
 | —                                                                                      | The one that is an actual bug, not dead weight             | [[#7 — The one that is a real bug\|→ example 7]]     |
 
-## The same table, as code — useMemo
+### The same table, as code — useMemo
 
-### 1 — Cheap calculation
+#### 1 — Cheap calculation
 
 ```jsx
 // ❌ THEATRE — the hook costs more than the work it saves.
@@ -411,7 +537,7 @@ const total = price * qty;
 > [!tip] The rule of thumb
 > If I cannot name roughly how many milliseconds the calculation takes, it is not expensive enough to memoise. Sorting 10.000 rows, parsing, building an index, a regex over a big string: yes. Arithmetic, a template string, a small `.map`: no.
 
-### 2 — Primitive with no identity
+#### 2 — Primitive with no identity
 
 ```jsx
 // ❌ a number has no identity to protect.
@@ -425,7 +551,7 @@ const count = useMemo(() => items.length, [items]);
 const count = items.length;
 ```
 
-### 3 — Deps that change every render
+#### 3 — Deps that change every render
 
 ```jsx
 // The parent writes the prop inline:  <Report filters={{ from, to }} />
@@ -450,7 +576,7 @@ const filters = useMemo(() => ({ from, to }), [from, to]);
 > [!warning] How to spot it without a profiler
 > A `useMemo` whose deps contain an **object, array or function built inside a render** is almost always recomputing every time. Read the deps array first, not the factory.
 
-### 4 — Nothing downstream compares it
+#### 4 — Nothing downstream compares it
 
 ```jsx
 function Page({ data }) {
@@ -466,7 +592,7 @@ function Page({ data }) {
 > [!important] The precision that matters here
 > `useMemo` has **two** jobs: saving an expensive calculation, and keeping a stable reference. This row is only about the second one. If the calculation is genuinely expensive, `useMemo` pays **even when the child is not memoised** — the work is skipped either way. It is dead only when the hook exists *purely* for an identity that nobody reads.
 
-### 5 — The component remounts
+#### 5 — The component remounts
 
 ```jsx
 // ❌ the key changes on every render → React unmounts and mounts a new fiber.
@@ -478,7 +604,7 @@ function Page({ data }) {
 // or a conditional parent that swaps the component type.
 ```
 
-### 6 — Looks useless but is not
+#### 6 — Looks useless but is not
 
 ```jsx
 // ✅ NOT dead — the value goes into a deps array.
@@ -493,7 +619,7 @@ const value = useMemo(() => ({ user, logout }), [user, logout]);
 <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 ```
 
-### 7 — The one that is a real bug
+#### 7 — The one that is a real bug
 
 ```jsx
 // ❌ NOT dead weight — genuinely broken. React documents that it MAY throw the
@@ -513,11 +639,10 @@ useEffect(() => {
 }, [url]);
 ```
 
-> [!important] Same principle as in §1
-> Removing every `useMemo` from a codebase must leave the behaviour **identical**. If something breaks, that `useMemo` was doing a job it should never have had — holding an identity, or running a side effect. That is the line between "dead weight" (rows 1–5) and "a bug" (this one).
+> [!important] The line between dead weight and a bug
+> Removing every `useMemo` from a codebase must leave the behaviour **identical**. If something breaks, that `useMemo` was doing a job it should never have had — holding an identity, or running a side effect. That is the line between "dead weight" (the first five rows) and "a bug" (this one).
 
-
-## When it pays
+### When `useMemo` pays
 
 - Real computation: sorting or grouping thousands of rows, parsing, building an index, a heavy `reduce`, a regex over a big string.
 - **Referential stability** for: a memoised child's prop, another hook's deps array, a **context value**.
@@ -537,17 +662,11 @@ const sorted = useMemo(
 );
 ```
 
-```jsx
-// ❌ theatre
-const total = useMemo(() => price * qty, [price, qty]);
-const label = useMemo(() => `${first} ${last}`, [first, last]);
-```
-
 ---
 
-# 3. `useCallback`
+## `useCallback`
 
-## What it is for
+### What it is for
 
 Keep the **same function reference** across renders. Nothing else.
 
@@ -555,19 +674,19 @@ Keep the **same function reference** across renders. Nothing else.
 useCallback(fn, deps)  ===  useMemo(() => fn, deps)
 ```
 
-Already written in [[Questions for interviews#What is useMemo in React]]. Underneath it is the **same hook slot mechanism** as `useMemo`; the only difference is that the stored value is the function itself instead of the result of calling it.
+Underneath it is the **same hook slot mechanism** as `useMemo`; the only difference is that the stored value is the function itself instead of the result of calling it.
 
 > [!important] The mechanical detail that people miss
 > The arrow function **is still created on every render** — it is allocated and then thrown away when the deps match. `useCallback` does not prevent the allocation; it prevents the **new reference from being handed to anyone**. Which is exactly why wrapping everything in `useCallback` is not free and not "more efficient by default".
 
-## When it pays
+### When it pays
 
 - The function is a prop of a **memoised** child.
 - The function is in the **deps array** of a `useEffect`, `useMemo` or a custom hook (otherwise the effect re-runs every render).
 - The function is registered manually (`addEventListener`, an observer, a subscription) and must be the same reference to be removed.
 - It goes inside a **context value**.
 
-## When it does nothing
+### When it does nothing
 
 - Passed to a **DOM element**: `<button onClick={handler}>` — the DOM node is reused, React only swaps the stored handler. No benefit.
 - The child is not memoised.
@@ -576,7 +695,7 @@ Already written in [[Questions for interviews#What is useMemo in React]]. Undern
 
 ---
 
-# 4. The reference-identity table (the root of all of this)
+## The reference-identity table (the root of all of this)
 
 `Object.is` compares **references** for objects, functions and arrays. In JS, every literal written inside the render body is a **new reference every render**.
 
@@ -595,7 +714,7 @@ Already written in [[Questions for interviews#What is useMemo in React]]. Undern
 
 ---
 
-# 5. What beats memoising (the senior half of the answer)
+## What beats memoising (the senior half of the answer)
 
 Blanket memoisation usually **hides** the real cause: state is too high in the tree, or one context is too fat. Structural fixes first.
 
@@ -619,19 +738,19 @@ function Timer({ children }) {
 ```
 
 > [!info] The pattern behind this one
-> This is **composition / inversion of control** — the same principle as [[Design Patterns#Dependency inversion vs dependency injection vs inversion of control]] and [[Assessment Questions#Why is composition better than inheritance in React?]]. It removes the re-render **without any memoisation at all**. Bringing this up is what separates the Senior answer from the Mid answer.
+> This is **composition / inversion of control** — the same principle as [[Design Patterns#Dependency inversion vs dependency injection vs inversion of control]] and [[Design Patterns#Composition over inheritance]]. It removes the re-render **without any memoisation at all**. Bringing this up is what separates the senior answer from the mid one.
 
-**c) Split the context.** One context for the rarely-changing value, another for the frequently-changing one. Context has no selectors: any change re-renders **every** consumer ([[Assessment Questions#Why do we need a state container like Redux, if React has state and Context?]]).
+**c) Split the context.** One context for the rarely-changing value, another for the frequently-changing one. Context has no selectors: any change re-renders **every** consumer ([[State Management#Why a container, if React already has state and Context]]).
 
 **d) Use a store with selectors** (Redux `useSelector`, Zustand) when the state is genuinely global: the subscription is fine-grained, so only the components reading that slice re-render.
 
-**e) Virtualise the list.** For thousands of rows the answer is not memoising 5.000 rows, it is rendering 20 ([[Assessment Questions#A component with thousands of rows — how do you avoid the performance problem?]]).
+**e) Virtualise the list.** For thousands of rows the answer is not memoising 5.000 rows, it is rendering 20 — see [[#A component with thousands of rows — how do you avoid the performance problem?]].
 
 **f) Stable `key`s.** An index key or a random key forces remounts and destroys every memo underneath.
 
 ---
 
-# 6. How I prove the memo is paying for itself
+## How I prove the memo is paying for itself
 
 > [!important] The process, not the trick
 > **Measure → find the phase → change one thing → measure the same interaction again → write the number in the PR.**
@@ -647,7 +766,7 @@ function Timer({ children }) {
 
 ---
 
-# 7. React 19 and the Compiler
+## React 19 and the Compiler
 
 - **React 19 makes `ref` a normal prop** (no `forwardRef` needed), so `ref` now travels inside the props object.
 - **React Compiler** memoises automatically at build time: it analyses the component and inserts the caching where it is actually needed. In a codebase with the compiler on, **hand-written `useMemo`/`useCallback`/`React.memo` are mostly noise** — and a codebase memoised by hand everywhere becomes debt to remove.
@@ -655,9 +774,151 @@ function Timer({ children }) {
 
 ---
 
-# 8. The interview block
+# 3. Rendering strategies and performance
 
-> [!question] Short answer for the interview (2–4 sentences, memorise)
+## Server-side rendering
+
+SSR renders the maximum HTML possible **in the server**, so the browser receives real content instead of an empty root div that has to bootstrap everything. With a state management library, the state is normally serialized and sent already initialized — and then hydration attaches the behaviour.
+
+**Benefits**
+- SEO: the crawlers get the content and the meta tags.
+- Faster first paint, better perceived performance.
+
+**Drawbacks**
+- Harder to configure, and there are **two flows** to test — the one rendered in the client and the one rendered in the server.
+- The APIs that only exist in the browser (`window`, `document`, `localStorage`, service workers) do not exist in the server, so they need a guard or a **facade of the platform** ([[Design Patterns#Facade]]).
+
+> [!tip] The guard
+> Same problem as [[JavaScript#`window` vs `global`]]. `globalThis` and `typeof window !== "undefined"` are the normal guards.
+
+## Libraries and frameworks for SSR
+
+- **React** → **Next.js** (the standard), Remix, or `renderToPipeableStream` of `react-dom/server` by hand.
+- **Angular** → Angular Universal.
+- **Vue** → Nuxt.
+
+It is **SSR** — server-side rendering. SSL is the certificate and the encryption, a completely different thing, and mixing up the two acronyms in an interview is expensive for how small the slip is.
+
+## Hydration, explained to a non-technical PM
+
+> The server sends a finished **picture** of the page, so it appears fast — but a picture has no buttons.
+> The browser then downloads the app's JavaScript and walks the whole page attaching the behaviour to every element.
+> Until that pass finishes, clicks land on something that **looks** like a button but has nothing wired to it yet.
+> The bigger the page and the more JavaScript we ship, the longer that gap lasts.
+> We shrink it by shipping less JavaScript, splitting it so the visible part wires up first, and prioritising what users touch soonest.
+> The trade-off is real: server rendering buys the fast *appearance*, and we pay for it in that interactive delay.
+
+**The technical layer behind it**: the gap is the **uncanny valley** — visible but not interactive — and it shows up as bad **INP**. Fixes: less JS, code splitting, islands / partial hydration, progressive hydration, RSC.
+
+> [!warning] The trap in this question
+> Answering "the server has to build the UI before showing you" explains **TTFB**, not the dead-click gap. The question says the page is *already visible*. The answer is about the window between paint and interactivity.
+
+## The rendering strategies in one line each
+
+| Strategy | What it does |
+|---|---|
+| **CSR** | Ship JS, render in the browser |
+| **SSR** | HTML per request |
+| **SSG** | HTML at build time |
+| **ISR** | SSG + revalidation |
+| **Streaming SSR** | Send HTML in chunks as it is produced |
+| **RSC** | Components that never ship JS to the client |
+
+## A component with thousands of rows — how do you avoid the performance problem?
+
+**First, measure**, to know if the problem is the paint time or the scripting time. Then:
+
+- **Virtualization** — render only the rows that are visible. React: `react-window`, TanStack Virtual. Angular: `cdk-virtual-scroll-viewport` of the CDK.
+- **Move the calculation off the main thread** if the cost is computing the data.
+- **Pagination or infinite scroll** if the product allows it.
+- **Memoisation** — `React.memo`, `useMemo`, stable keys. Last, not first.
+
+> [!danger] Web Worker, not Service Worker
+> - **Web Worker** → runs JS in another thread. **This is the one for heavy calculations.**
+> - **Service Worker** → a proxy between the app and the network: cache, offline, push notifications. It cannot make a calculation faster.
+>
+> They get confused constantly, and it is an easy question to lose points on.
+
+## How I improved the performance of a React app
+
+The process, which is the reusable part:
+
+1. **Detect** — the app felt slow, and the developers reported it.
+2. **Measure** — React DevTools Profiler, and `why-did-you-render` to find unnecessary re-renders. The Performance tab of Chrome DevTools for paint time and scripting time.
+3. **Find the cause** — a **tree component** where any change of a prop re-rendered the whole tree, even from a deep node.
+4. **Fix** — a new version of the component without that problem.
+5. **Prove it** — measure again and compare before and after.
+6. **Share** — a demo and documentation, then work with the team that owns the code to integrate the fix.
+
+On the server side, another improvement used the **Performance API** of Node (`perf_hooks`) and won **4 seconds** in the worst case.
+
+> [!tip] Why this answer is strong
+> It follows measure → find → fix → measure again → communicate. Never answer a performance question with a list of tricks; answer with the **process**.
+
+---
+
+# 4. Data and mutations
+
+## Optimistic UI: three mutations in flight and one fails
+
+The three steps: **write to the cache → fire the request → on error roll back to the snapshot**, then invalidate and refetch so the server stays the source of truth.
+
+The part people miss — **the concurrency**:
+
+- **Per-item optimistic state**, never a global "saving" flag, so N in-flight mutations do not collide.
+- **Out-of-order responses**: last-write-wins by request id, or cancel superseded requests.
+- **Per-item rollback**, not a global rollback that would discard the two that succeeded.
+- **Retry safely**: idempotency keys. Never blindly retry a non-idempotent write.
+- **When not to be optimistic**: payments, irreversible actions, anything with server-side validation the client cannot predict.
+
+TanStack Query's `onMutate` / `onError` / `onSettled` is this shape built in — see [[State Management#Libraries worth learning]].
+
+## PropTypes vs Flow vs TypeScript
+
+|  | PropTypes | Flow | TypeScript |
+|---|---|---|---|
+| When it checks | **Runtime** (dev only) | Compile time | Compile time |
+| Scope | Only the React props | All the code | All the code |
+| Today | Removed from React 19 | Practically dead | **The standard** |
+
+The point that connects them: **TypeScript's types disappear at runtime**, so TS does not validate what an API returns. PropTypes *did* check at runtime, which is why the two used to live together. Today the real answer is TS + a runtime validator like Zod for external data — [[TypeScript Boundary]].
+
+### Simple React app: PropTypes or TypeScript?
+
+For somebody who already knows the tooling, TypeScript — the setup cost is small once you have done it before. For somebody starting, or for a quick proof of concept, the setup can be more obstacle than help.
+
+---
+
+# 5. Security in React
+
+## Is React safe against XSS by default?
+
+**Right**: React **escapes automatically** every value interpolated in JSX. `{userInput}` can never inject HTML.
+
+**Wrong** — that covers only text. The escape hatches:
+
+| Hole | Example | Fix |
+|---|---|---|
+| **`dangerouslySetInnerHTML`** | `<div dangerouslySetInnerHTML={{ __html: comment }} />` | Sanitize with **DOMPurify** first |
+| **URL in `href` / `src`** | `<a href={userInput}>` with `javascript:alert(1)` | Validate the protocol: only `http:`, `https:`, `mailto:` |
+| **Spreading props onto a DOM node** | `<div {...userObject} />` — the user sends `dangerouslySetInnerHTML` | Never spread an object that comes from outside |
+| **A ref writing HTML** | `ref.current.innerHTML = userInput` | Same rule as `dangerouslySetInnerHTML` |
+| **State serialized into SSR HTML** | `window.__STATE__ = ${JSON.stringify(state)}` where the state contains `</script>` | Escape `<`, `>`, `&` in the serialization |
+| **Injection through `style`** | `style={{ background: userInput }}` with `url(javascript:...)` | Old browsers only, still on the list |
+| **A third-party component** | The library uses `innerHTML` internally | Read the code, or trust nothing |
+
+Angular is the same shape: safe by default, escape hatch `bypassSecurityTrustHtml`.
+
+> [!question] Short answer for the interview
+> "He is right that React escapes by default — everything interpolated in JSX is escaped. But that covers only text. The holes are the escape hatches: `dangerouslySetInnerHTML`, a `href` or `src` with a `javascript:` URL, spreading user-controlled props onto a DOM element, writing `innerHTML` through a ref, and the state serialized into the HTML in SSR. For rich text the answer is DOMPurify, for URLs protocol validation, and CSP as the second wall."
+
+The general XSS and CSRF picture is in [[Security]].
+
+---
+
+# 6. The interview block
+
+> [!question] Short answer for memoisation (2–4 sentences, memorise)
 > "`React.memo` shallow-compares props with `Object.is`; `useMemo` caches a value while its deps are equal; `useCallback` is `useMemo(() => fn, deps)`. They do nothing when a prop is a new reference on every render — an inline callback, an object literal, `children` — or when the re-render comes from the component's own state or from context, because `memo` only blocks parent-driven renders. So before memoising I profile the interaction in the DevTools Profiler on a production build and check whether commit time is really the problem; usually the better fix is moving the state down, passing the heavy part as `children`, or splitting the context. If the memo stays, I show the before and after commit duration for the same interaction."
 
 ## The follow-ups the panel will chain
@@ -671,6 +932,23 @@ function Timer({ children }) {
 | "Is `useMemo` a guarantee?" | No. React may discard the cache; the code must stay correct if it recomputes |
 | "Cost of memoising everything?" | Comparisons and allocations on every render, retained memory, stale-deps bugs, and it hides the real structural cause |
 | "Wasted renders — is that jank?" | Different layer. Render/commit is React; layout and paint are the browser below it |
+| "Is `useState` async?" | No. Batching plus a closure over a render-constant. Not a timer |
+| "Where does the error boundary not help?" | Async code, promise rejections, event handlers, SSR. Render-time only |
+
+## Recall triggers
+
+| When I hear / say… | The words that must come out |
+|---|---|
+| "unnecessary re-renders" | **three causes**: own state · parent · context |
+| "I use `React.memo`" | it only blocks the **parent** one |
+| "deps array for `React.memo`" | **there is none** — it compares all props, shallowly |
+| "`children` as a prop" | always a **new element object** → the memo cannot hold |
+| "`useState` is async" | **no** — batching + a closure over a render constant |
+| "hydration" | the gap between **visible and interactive**, measured by INP |
+| "move it to a worker" | **Web** Worker for computation; Service Worker is a network proxy |
+| "thousands of rows" | **virtualise** — render 20, not 5.000 |
+| "React is XSS-safe" | only for **interpolated text**; name the escape hatches |
+| "error boundary" | **render-time errors only**, and it must be a class |
 
 ## Drill — say these out loud until they are automatic
 
@@ -683,13 +961,20 @@ function Timer({ children }) {
 7. Memoisation is **synchronous render work** — no microtasks, no build cost.
 8. First fix is **structural** (state down, `children`, split context), memoisation second.
 9. Proof = **Profiler, production build, same interaction, before and after**.
+10. Hooks arrived in **16.8**. `useEffect` runs **after the paint**; `useLayoutEffect` **before** it.
+11. The three lifecycle names: `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`.
+12. `areEqual` returning `true` means **skip** — the inverse of `shouldComponentUpdate`.
 
 ---
 
-# 9. Still to study from here
+# Still to study
 
-- [ ] `useDeferredValue` and `startTransition` — the React 18 priority model, and how they differ from memoising ([[Mock Interviews Knowledge Base#Still unanswered across all four sessions — expect them again]]).
-- [ ] The rules of hooks explained **from the linked list on the fiber**, not as a rule to obey.
-- [ ] Reconciliation and `key`: why an index key breaks state and every memo under it.
-- [ ] React Compiler: what it memoises and what it refuses to memoise.
-- [ ] `<Profiler>` API and rendering metrics in CI.
+- [ ] `useDeferredValue` and `startTransition` — the React 18 priority model, and how they differ from memoising
+- [ ] The rules of hooks explained **from the linked list on the fiber**, not as a rule to obey
+- [ ] Reconciliation and `key`: why an index key breaks state and every memo under it
+- [ ] React Compiler: what it memoises and what it refuses to memoise
+- [ ] `<Profiler>` API and rendering metrics in CI
+- [ ] React Server Components: the serialization boundary, and what `"use client"` actually marks
+- [ ] Suspense for data fetching, and error boundaries that work with it
+- [ ] `useSyncExternalStore` — subscribing to an external store safely under concurrent rendering
+- [ ] Custom hooks: testing them, and when a hook should be a component instead
