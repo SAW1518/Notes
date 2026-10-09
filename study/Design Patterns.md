@@ -3,39 +3,15 @@ title: Design Patterns
 tags:
   - study
   - interview
-  - promotion
   - design-patterns
   - principles
-parent: "[[The Best Notes of the F Word]]"
-source: extracted from [[Assessment Questions]] and [[The Best Notes of the F Word]]
 ---
 
 # Design Patterns
 
-Everything about design patterns that was spread in the vault, in one place.
-Related: [[Assessment Questions]] · [[The Best Notes of the F Word]] · [[Questions for interviews]]
+Patterns, the principles behind them, and where each one already lives in a front-end stack.
 
-> [!info]- Where every part of this note comes from
-> Nothing here is invented. This is the map of the extraction:
->
-> | Section | Extracted from |
-> |---|---|
-> | Categories, favorite pattern, RxJS | [[Assessment Questions#2. Technical — Design patterns & principles]] |
-> | Anti-patterns, functional patterns | [[Assessment Questions#Name some anti-patterns you try to avoid]] |
-> | Composition vs inheritance | [[Assessment Questions#Why is composition better than inheritance in React?]] |
-> | SOLID, IoC / DIP / DI, good code | [[Assessment Questions#Explain the SOLID principles]] |
-> | State management | [[Assessment Questions#Why do we need a state container like Redux, if React has state and Context?]] |
-> | The checklist of pending topics | [[The Best Notes of the F Word#Design patterns]] and the Level Up plan |
-> | Single-flight | [[Mock Interview Session 01#Q3 — The token-refresh race]] |
->
-> The **code examples are new** — the vault only had the names of the patterns, without code. All of them are verified in Node v22 ✅
-
-> [!warning]- 5 traps inside this material (read this first)
-> 1. **Observer and pub-sub are not the same thing.** The vault says "observer, also known as pub-sub". In the observer the subject knows its observers; in pub-sub there is a **broker** in the middle and the two sides do not know each other. RxJS is observer, an event bus is pub-sub.
-> 2. **A `Promise` is not really a monad.** The vault says "very close" and that is the honest answer. `then` flattens automatically, so a `Promise<Promise<T>>` can not exist — verified in Node ✅. A real monad keeps the two levels and needs `flatMap` to join them.
-> 3. **Redux is not a Gang of Four pattern.** It is the **Flux** architecture. Inside it there are GoF ideas: the store notifies its subscribers (observer), the actions are commands, and the middleware is a chain.
-> 4. **In JavaScript a singleton is normally just a module.** An ES module is evaluated **one time** and cached, so exporting an object already gives us a singleton — verified in Node ✅. We do not need the `getInstance()` class of Java.
-> 5. **"My favorite is the strategy pattern" needs a real example ready.** The next question is always "where did you use it?". Without a case from our own project the answer sounds memorized.
+All the code examples are verified in Node v22 ✅
 
 ---
 
@@ -49,10 +25,10 @@ The Gang of Four defined three categories:
 | **Structural** | How the objects are composed | **Facade** (wrapping an API), Adapter, Proxy, Decorator |
 | **Behavioral** | How the objects communicate | **Strategy**, Observer, Command |
 
-In architectural terms, the pattern of **state management** is the one most used in front-end applications.
+In architectural terms, the pattern of **state management** is the one most used in front-end applications — see [[State Management]].
 
-> [!tip] Where we already use them in front-end (addition)
-> This table is not in the vault, but it is the follow-up question after the categories:
+> [!tip] Where we already use them in front-end
+> This is the follow-up question after the categories:
 >
 > | Pattern | Where it already is in our stack |
 > |---|---|
@@ -86,8 +62,6 @@ createUser("admin"); // { name: 'ana', canDelete: true }
 createUser("guest"); // { name: 'ana', canDelete: false }
 ```
 
-Verified in Node ✅
-
 ## Singleton
 
 One instance shared by all the application.
@@ -103,7 +77,7 @@ function getConfig() {
 getConfig() === getConfig(); // true
 ```
 
-But in JavaScript we almost never write this, because **the modules are already singletons**:
+But in JavaScript we almost never write this, because **the modules are already singletons**. An ES module is evaluated **one time** and cached, so exporting an object already gives us a singleton — we do not need the `getInstance()` class of Java:
 
 ```js
 // config.mjs — this file is evaluated only one time
@@ -133,15 +107,13 @@ new QueryBuilder().from("users").where("age > 18").build();
 // 'SELECT * FROM users WHERE age > 18'
 ```
 
-Verified in Node ✅
-
 ---
 
 # Structural
 
 ## Facade
 
-**Wrapping an API.** We give one simple interface over several low level calls. This is the example the vault uses for the category.
+**Wrapping an API.** We give one simple interface over several low level calls.
 
 ```js
 const storage = {
@@ -157,7 +129,7 @@ storage.save("user", { name: "ana" }); // the caller does not know about JSON
 
 Verified in Node ✅ (with a `Map` in the place of `localStorage`, which only exists in the browser)
 
-The same idea appears in [[Assessment Questions#Explain server-side rendering]]: the browser APIs do not exist in the server, so we need **a guard or a facade of the platform**.
+The same idea appears in SSR: the browser APIs do not exist in the server, so we need **a guard or a facade of the platform** — see [[React#Server-side rendering]].
 
 ## Adapter
 
@@ -169,8 +141,6 @@ const toViewModel = (u) => ({ fullName: `${u.first_name} ${u.last_name}` });
 
 toViewModel(apiUser); // { fullName: 'ana lopez' }
 ```
-
-Verified in Node ✅
 
 > [!note] Facade vs Adapter
 > The **facade** simplifies — it hides many calls behind one. The **adapter** translates — it makes two incompatible interfaces work together. The facade is for us, the adapter is for the compatibility.
@@ -190,9 +160,7 @@ safeUser.name;  // 'ana'
 safeUser.email; // 'unknown'
 ```
 
-Verified in Node ✅
-
-The **Service Worker** is also a proxy, but of the network — see [[Assessment Questions#How do you handle security threats in your app?]].
+The **Service Worker** is also a proxy, but of the network — see [[Security]].
 
 ## Decorator
 
@@ -209,8 +177,6 @@ const sum = (a, b) => a + b;
 withLog(sum)(2, 3); // logs 'sum [2,3] → 5', returns 5
 ```
 
-Verified in Node ✅
-
 In React this is the **HOC** (higher order component), and `React.memo` is a decorator too: it receives a component and returns the same component with the memoization added.
 
 ---
@@ -219,9 +185,9 @@ In React this is the **HOC** (higher order component), and `React.memo` is a dec
 
 ## Strategy
 
-The favorite pattern of the answer in the session. We have several algorithms with the **same interface** and we choose one in runtime.
+We have several algorithms with the **same interface** and we choose one in runtime.
 
-> JavaScript, and specially TypeScript, are very good for it, because a strategy can be simply an object of functions with a shared interface, without any hierarchy of classes.
+JavaScript, and specially TypeScript, are very good for it, because a strategy can be simply an object of functions with a shared interface, without any hierarchy of classes.
 
 ```js
 const shipping = {
@@ -236,8 +202,6 @@ getCost("express", 4); // 10
 getCost("free", 4);    // 0
 ```
 
-Verified in Node ✅
-
 In TypeScript the shared interface becomes explicit, and this is the part worth saying out loud:
 
 ```ts
@@ -248,8 +212,51 @@ const shipping: Record<string, ShippingStrategy> = { /* ... */ };
 > [!question] Short answer for the interview
 > "My favorite is the strategy pattern, a behavioral one. It replaces a big `switch` with an object of functions that share the same interface, so adding a new case is adding a key, not modifying the existing code — it respects the open/closed principle. In JavaScript I do not need a hierarchy of classes for it, and in TypeScript I can type the interface of the strategy with a `type`, so the compiler checks that every strategy has the same signature."
 
-> [!tip] Prepare the real example
-> Think about one case from our own project — the shipping costs, the validations by country, the different renders by type of user, the export in PDF / CSV / Excel. Without a concrete example the answer is incomplete.
+### Facade vs Strategy — the pair that gets confused
+
+| | What is behind the door | It hides | The test |
+|---|---|---|---|
+| **Facade** | **One** thing | The **depth** — many low-level calls become one call | There is **nothing to swap** |
+| **Strategy** | **N** interchangeable things | The **variation** — the caller passes a key instead of writing a branch | I can **swap the implementation at runtime** and the caller does not change |
+
+Both end in "one simple call". That is why they get confused.
+
+### The real case — social login
+
+"My favorite is the strategy pattern" always gets the follow-up *"where did you use it?"*. Social login with Google, Facebook and Apple. **The design had both patterns, and saying that is the senior answer:**
+
+1. **A facade per provider** — `googleAuth`, `facebookAuth`, `appleAuth`, all with the same shape `signIn(): Promise<Session>`. Each hides the depth of one SDK: its redirect, its token format, its error codes.
+2. **A strategy to select** — a map keyed by provider name. The click handler becomes `providers[name].signIn()`, with zero branching.
+
+```js
+const providers = {
+  google:   { signIn: () => "session:google" },
+  facebook: { signIn: () => "session:facebook" },
+  apple:    { signIn: () => "session:apple" },
+};
+const signIn = (name) => providers[name].signIn();
+```
+
+**What it bought the team** — quantified, not "it is easier":
+
+- **Open/closed** — adding Apple was **one new module plus one key**. **No existing file was edited.** That is the **O** of SOLID (see [[#SOLID]]).
+- **Testability** — the handler depends on the `AuthProvider` shape, so it can be tested with a fake instead of mocking three real SDKs.
+- **Blast radius of one** — when a provider changes its SDK, one file changes.
+
+**When it is the wrong choice** — "too much complexity" is a feeling, not a criterion:
+
+- **The variants are not really interchangeable.** The moment one provider needs an extra argument or returns a different shape, the shared interface is a lie and `if (name === "apple")` comes back to the caller. **This is the one that kills the design.**
+- **Two options that will never be three** — a normal `if` reads better. YAGNI.
+- **The variants share 90% of the logic** — that is **template method**, or just a parameter.
+- **The choice is fixed at build time** — that is configuration or DI, not strategy.
+
+> [!tip] The follow-up after that
+> *"Where is the new provider registered, and what stops two modules registering the same key?"* → **One registry module**, and the key typed as a **union of literals**, never `string`:
+> ```ts
+> type ProviderName = "google" | "facebook" | "apple";
+> const providers: Record<ProviderName, AuthProvider> = { /* ... */ };
+> ```
+> `Record<ProviderName, ...>` forces every provider to be implemented, and a typo in a key is a compile error.
 
 ## Observer
 
@@ -297,17 +304,14 @@ bus.emit("user:login", "ana"); // 'welcome ana'
 bus.emit("user:logout", "ana"); // nobody listens, nothing happens
 ```
 
-Verified in Node ✅
+Observer and pub-sub are **not** synonyms, even though they are often named together. The difference is who knows who:
 
-> [!danger] Correction of the vault
-> [[Assessment Questions#What pattern is behind RxJS?]] says "the observer pattern, also known as pub-sub". They are **not** synonyms:
->
-> | | Who knows who | Example |
-> |---|---|---|
-> | **Observer** | The subject has the list of its observers | RxJS, the `subscribe` of Redux |
-> | **Pub-sub** | A broker in the middle, the two sides are decoupled | An event bus, a message queue |
->
-> The note already had this nuance in a small callout. It is worth saying it in the interview, because it is the detail that separates "I know the name" from "I know the pattern".
+| | Who knows who | Example |
+|---|---|---|
+| **Observer** | The subject has the list of its observers | RxJS, the `subscribe` of Redux |
+| **Pub-sub** | A broker in the middle, the two sides are decoupled | An event bus, a message queue |
+
+Worth saying in the interview — it is the detail that separates "I know the name" from "I know the pattern".
 
 ## Command
 
@@ -324,9 +328,7 @@ const execute = (state, action) => commands[action.type](state, action.payload);
 execute(["a"], { type: "add", payload: "b" }); // ['a', 'b']
 ```
 
-Verified in Node ✅
-
-This is exactly a **Redux action + reducer**. And because every command is an object with a name, we get the **time travel** of the devtools — see [[Assessment Questions#Why do we need a state container like Redux, if React has state and Context?]].
+This is exactly a **Redux action + reducer**. And because every command is an object with a name, we get the **time travel** of the devtools — see [[State Management]].
 
 ---
 
@@ -338,7 +340,7 @@ Several callers ask for **the same operation at the same time**. Instead of doin
 
 It is also called *request deduplication*, *request coalescing*, or *promise memoization*. What we cache is the promise, not the result.
 
-The problem, with the case of the session — the token expires and five requests in flight receive a 401 at the same time:
+The problem — the token expires and five requests in flight receive a 401 at the same time:
 
 ```
 GET /user    → 401 ─┐
@@ -441,7 +443,7 @@ This is what **TanStack Query** does internally with its query keys.
 > 1. **Mark the retried request.** Retry with the new token, another 401, refresh, retry… infinite loop. The second 401 goes to logout, not to another refresh.
 > 2. **The `/refresh` call has to skip the auth layer.** If it goes through its own interceptor, a 401 in the refresh triggers a refresh, and that is infinite recursion.
 
-> [!danger] It is not a Gang of Four pattern
+> [!note] It is not a Gang of Four pattern
 > Single-flight is a **concurrency idiom**, not one of the 23. The same honesty as with Redux and Flux — it is better to say it than to be corrected.
 >
 > Where it comes from: the name is from the Go community (`golang.org/x/sync/singleflight`). Conceptually it is **memoization applied to a promise**, with a lifetime of "while it is in flight" instead of for ever. The nearest GoF relative is the **singleton**, but scoped to one operation instead of to one object.
@@ -449,13 +451,11 @@ This is what **TanStack Query** does internally with its query keys.
 > [!question] Short answer for the interview
 > "Single-flight means that when several callers need the same operation at the same time, only the first one starts it and the rest await the same promise. I use it for the refresh of the token: with five concurrent 401s, without it we send five refreshes, and as the refresh token normally rotates, the first one invalidates it and the other four fail, so the user is logged out alone. I save the promise in a module variable and clear it in `finally`, not in `then`, so a failed refresh does not leave the slot poisoned. It works because there is no `await` between checking the variable and assigning it, so that block is atomic in the event loop. With several tabs the module variable is not enough and I move the lock to Web Locks or `BroadcastChannel`."
 
-The layers around this pattern — transport, auth, domain, feature — and what deliberately **stays out** of them are in [[Mock Interview Session 01#Q3 — The token-refresh race]].
+The layers around this pattern — transport, auth, domain, feature — are in [[JavaScript#Design the API layer for a multi-team codebase]].
 
 ---
 
 # Functional patterns
-
-From [[Assessment Questions#Name some patterns from the functional programming paradigm]]:
 
 - **Monads** — containers that represent a specific behavior. The **Maybe** monad represents a value that can exist or not (the equivalent of the `Optional` of Java).
 - **Currying and partial application**.
@@ -485,16 +485,14 @@ maybe({ city: "Madrid" }).map((u) => u.city).getOr("no city"); // 'Madrid'
 maybe(null).map((u) => u.city).getOr("no city");               // 'no city'
 ```
 
-Verified in Node ✅ — the three of them.
-
-> [!danger] Correction — the `Promise` and the monads
-> The vault says "the `Promise` is also very close to a monad". The word **close** is correct and it is better not to say that it **is** one:
+> [!warning] A `Promise` is close to a monad, but it is not one
+> Say **close**, not *is*:
 >
 > ```js
 > Promise.resolve(Promise.resolve(1)).then((v) => typeof v); // 'number'
 > ```
 >
-> Verified in Node ✅ — the promise **flattens** by itself, so a `Promise<Promise<number>>` can not exist. A real monad keeps the two levels. Also, `then` does the work of `map` and of `flatMap` at the same time. The honest answer is: "it has the shape of a monad, but it does not respect all the laws".
+> Verified in Node ✅ — the promise **flattens** by itself, so a `Promise<Promise<number>>` can not exist. A real monad keeps the two levels and needs `flatMap` to join them. Also, `then` does the work of `map` and of `flatMap` at the same time. The honest answer is: "it has the shape of a monad, but it does not respect all the laws".
 
 > [!question] Short answer for the interview
 > "The patterns of functional programming that I use every day are the pure functions and the immutability — in React they are obligatory, because the render depends on a new reference to detect the change. Then the composition with `pipe`, the currying to fix the first arguments, and the higher order functions like `map` or `filter`. The monads are the most theoretical one: a `Maybe` represents a value that can be there or not, and it avoids the chains of `if (x !== null)`."
@@ -502,8 +500,6 @@ Verified in Node ✅ — the three of them.
 ---
 
 # Anti-patterns
-
-From [[Assessment Questions#Name some anti-patterns you try to avoid]]:
 
 | Anti-pattern | What it is | How we solve it |
 |---|---|---|
@@ -515,25 +511,23 @@ From [[Assessment Questions#Name some anti-patterns you try to avoid]]:
 | **Magic numbers / strings** | Values without a name | Named constants, `as const`, enums |
 | **Premature optimization** | Optimizing without measuring first | Measure → find → fix → measure |
 
-> [!note] The one that could not be remembered in the session
-> The answer said "a class which tries to do multiple things... a sub-version of the God object". The name is **Blob**, or **Swiss Army Knife** when it is an interface that tries to cover every case. It is the same idea as breaking the single responsibility principle.
+> [!note] The names that are easy to forget
+> "A class which tries to do multiple things" is a **Blob**, or a **Swiss Army Knife** when it is an interface that tries to cover every case. Same idea as breaking the single responsibility principle.
 
 ---
 
 # Composition over inheritance
 
-> [!tip] Why inheritance breaks, in detail
-> This section is the React answer. The mechanism underneath — Liskov, the fragile base class, mixins and the diamond — is in [[OOP in JavaScript and TypeScript#7. Inheritance: what actually breaks]].
-
-From [[Assessment Questions#Why is composition better than inheritance in React?]]:
-
-Because it gives us **loose coupling**. We can replace or modify each unit without impacting the rest. The inheritance creates rigid hierarchies: a change in the parent affects all the descendants, and JS/React does not work well with deep hierarchies of classes.
+Composition gives us **loose coupling**. We can replace or modify each unit without impacting the rest. Inheritance creates rigid hierarchies: a change in the parent affects all the descendants, and JS/React does not work well with deep hierarchies of classes.
 
 The tools that React gives us for the composition:
 
 - **`children`** and slots as props.
 - **Custom hooks** to reuse the logic.
 - **Context** for the inversion of control — we declare the context above and we compose it into the component.
+
+> [!tip] Why inheritance breaks, in detail
+> The mechanism underneath — Liskov, the fragile base class, mixins and the diamond — is in [[TypeScript#Inheritance: what actually breaks]].
 
 ---
 
@@ -578,44 +572,22 @@ They sound the same and they are three different levels:
 > [!question] Short answer for the interview
 > "IoC is the general principle — the flow of control is inverted and the framework calls me. Dependency inversion is the SOLID principle of depending on abstractions. And dependency injection is one concrete technique to implement it, passing the dependencies from outside instead of creating them inside."
 
----
+## What is good code
 
-# State management
-
-> In architectural terms, the pattern of state management is the one most used in front-end applications.
-
-Why we need a container like Redux, if React already has state and Context — from [[Assessment Questions#Why do we need a state container like Redux, if React has state and Context?]]:
-
-- **Single source of truth** — one place describes the state, and so it describes the view.
-- **Less cognitive complexity** — the actions have names that describe what the user did.
-- **Devtools and time travel** — we can replay the steps and debug in any point.
-- **Selectors** — we subscribe to a *slice* of the state. The Context re-renders **all** the consumers on any change.
-- **Pure functions by force** — the reducers have to be pure, and a pure function is easy to unit test.
-
-> [!danger] Correction — Redux is not a GoF pattern
-> Redux is the **Flux** architecture, not one of the 23 patterns of the Gang of Four. But it is built with them, and this is a good thing to say:
->
-> | Piece of Redux | Pattern |
-> |---|---|
-> | The action `{ type, payload }` | **Command** |
-> | `store.subscribe()` | **Observer** |
-> | The middleware (`thunk`, `saga`) | A chain of decorators |
-> | The reducer | A pure function — `reduce` / fold |
->
-> The details of every piece are in [[Questions for interviews#Redux]].
+- It does **one** thing per unit, and the name says which one.
+- It is **measurable**: complexity, line and file length, arity — enforced by the linter, not by opinion.
+- It is **testable without mocks of half the world** — if a test needs five mocks, the coupling is the bug.
+- It is **boring**: the next person reads it once and knows what it does.
 
 ---
 
 # Still to study
 
-> [!todo]- These topics are only a title in the vault
-> They appear in the Level Up career plan (see [[The Best Notes of the F Word]]) without any definition. I did not invent them — tell me and I fill them in, one by one.
->
-> - [ ] **Event-driven architecture** — *Software Design, Advanced*
-> - [ ] **Micro-frontends** — *Software Design + JavaScript Top Frameworks*
-> - [ ] **Integration patterns, messaging patterns and enterprise application patterns** — *Software Design*
-> - [x] **OOP vs FP vs RP (reactive)**, pros and cons — *Software Design* → [[OOP in JavaScript and TypeScript#11. OOP vs FP vs RP]]
-> - [ ] **Cross-cutting concerns** and how to solve them for a whole solution — *Software Design*
-> - [ ] **Compound components** — the vault itself says it is the "composition pattern that is missing in the notes"
-> - [x] **Object patterns and composition** — *JavaScript, Advanced* → [[OOP in JavaScript and TypeScript#8. Composition, mixins and delegation]]
-> - [x] **Decorators in TypeScript**: TS decorators vs esNext decorators, and the pitfalls — *TypeScript, Advanced* → [[TypeScript Type System#14. Decorators, in four lines]]
+- [ ] **Event-driven architecture**
+- [ ] **Micro-frontends**
+- [ ] **Integration patterns, messaging patterns and enterprise application patterns**
+- [ ] **Cross-cutting concerns** and how to solve them for a whole solution
+- [ ] **Compound components** — the composition pattern still missing from these notes
+- [x] **OOP vs FP vs RP (reactive)**, pros and cons → [[TypeScript#OOP vs FP vs RP]]
+- [x] **Object patterns and composition** → [[TypeScript#Composition, mixins and delegation]]
+- [x] **Decorators in TypeScript**: TS decorators vs esNext decorators, and the pitfalls → [[TypeScript#Decorators, in four lines]]

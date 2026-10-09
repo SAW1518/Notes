@@ -1,25 +1,36 @@
 ---
-title: Grid
+title: CSS
 tags:
   - study
   - css
+  - flexbox
   - grid
   - interview
-parent: "[[CSS]]"
-original: "[[Notion Import/Grid|Notion version]]"
 ---
 
-# Grid
+# CSS
 
-Part of [[CSS]].
-
-> [!warning]- 4 things that were wrong in the original (read this first)
-> 1. **`span` is not a property.** It is a **keyword** that we use inside `grid-row-start`, `grid-column-start`, etc.
-> 2. **The breakpoints were inverted.** It said "> 430px → 1 column" and "< 430px → 2 columns". It is the opposite: less space = less columns.
-> 3. **`grid-row-end: 1` does not work.** The `end` line has to be **bigger** than the `start` line. To occupy the row 1 it is `grid-row-end: 2`.
-> 4. **`fr` does not split "the 100% of the space".** It splits the space that is **free**, after the fixed sizes and the `gap`.
+Layout in two parts: **Flexbox** for one dimension, **Grid** for two.
 
 ## Quick reference
+
+### Flexbox
+
+| Property | Where | What it does |
+|---|---|---|
+| `display: flex` | **parent** | Turns the element into a flex container |
+| `flex-direction` | **parent** | `row` (default) or `column` |
+| `flex-wrap` | **parent** | `nowrap` (default) or `wrap` |
+| `flex-flow` | **parent** | Shorthand of the two above |
+| `justify-content` | **parent** | Aligns on the **main** axis |
+| `align-items` | **parent** | Aligns on the **cross** axis |
+| `gap` | **parent** | Space between the items |
+| `flex-grow` | **item** | How much it grows. `0` by default |
+| `flex-shrink` | **item** | How much it shrinks. `1` by default |
+| `flex-basis` | **item** | The size it starts from. `auto` by default |
+| `flex` | **item** | Shorthand of the three above |
+
+### Grid
 
 | Property | What it does |
 |---|---|
@@ -27,12 +38,291 @@ Part of [[CSS]].
 | `grid-template-columns` | Defines the **columns** |
 | `grid-template-rows` | Defines the **rows** |
 | `grid-auto-rows` | Size of the rows created **automatically** |
+| `grid-auto-flow` | Direction where new items are added |
 | `gap` | Space **between** the cells |
 | `repeat(n, value)` | Avoids repeating the same value n times |
 | `minmax(min, max)` | A track with a minimum and a maximum size |
 | `grid-column` / `grid-row` | **Where** an item is placed and how much it occupies |
 
 ---
+
+# 1. Flexbox
+
+## The container
+
+`flex` is set on the **parent**, and it provides a container that can be oriented vertical or horizontal:
+
+```css
+flex-direction: column;
+flex-direction: row;    /* ← default */
+```
+
+## flex-wrap
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .parent {
+            display: flex;
+            flex-direction: row; /* default row */
+            flex-wrap: nowrap;
+            border: 4px solid black;
+            width: 200px;
+        }
+        .item {
+            border: 1px solid;
+            opacity: .9;
+            width: 100px;
+            height: 100px;
+            background: #09f;
+        }
+        .item:first-child {
+            background: yellow;
+        }
+        .item:last-child {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="parent">
+        <div class="item">primero</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </section>
+</body>
+
+</html>
+```
+
+![[flex-01.png]]
+*With `nowrap`: the 3 items stay in one line and they get squeezed.*
+
+`flex-wrap: nowrap` is **the default**. With it the flex container always maintains its width and height, and it **adjusts the children**. The 3 items want 100px each (300px in total) but the container only has 200px, so they shrink.
+
+If we change the property to `flex-wrap: wrap`, the children will do a line break:
+
+![[flex-02.png]]
+*With `wrap`: every item goes to its own line.*
+
+> [!question] Why only 1 item per line, if 2 of 100px fit in 200px?
+> Because of the **border**. By default `box-sizing` is `content-box`, so the real width of each item is `100px + 1px + 1px = 102px`.
+> Two items would be `204px`, and the container only has `200px`. It is not enough for 2, so only 1 enters per line.
+> With `box-sizing: border-box` the item would measure exactly 100px and **2 would fit** per line.
+
+## flex-direction + flex-wrap
+
+`flex-flow` is the shorthand of the two:
+
+```css
+.parent {
+    display: flex;
+    flex-flow: row wrap; /* flex-direction: row; flex-wrap: wrap; */
+    border: 4px solid black;
+    width: 200px;
+}
+```
+
+## Properties of the items
+
+These 3 go on the **children**, not on the parent.
+
+### flex: initial (the default values)
+
+```css
+flex-grow: 0;      /* by default the elements do NOT grow */
+flex-shrink: 1;    /* by default the elements CAN reduce their size */
+flex-basis: auto;  /* the starting size is the width/height of the item */
+```
+
+Those 3 values together are `flex: initial`, which is the same as `flex: 0 1 auto`.
+
+- **`flex-grow: 0`** → if there is free space, the item does **not** take it.
+- **`flex-shrink: 1`** → if there is no space, the item **can** become smaller than its `flex-basis`.
+- **`flex-basis: auto`** → the size it starts from is the `width` (in `row`) or the `height` (in `column`).
+
+### flex: 1
+
+```html
+<html lang="en">
+
+<head>
+    <style>
+        .parent {
+            display: flex;
+            flex-flow: row nowrap;
+            border: 4px solid black;
+            width: 200px;
+        }
+        .item {
+            border: 1px solid;
+            opacity: .9;
+            width: 100px;
+            height: 200px;
+            background: #09f;
+            box-sizing: border-box;
+            flex: 1;
+        }
+        .item:first-child {
+            background: yellow;
+        }
+        .item:last-child {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="parent">
+        <div class="item">primero</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </section>
+</body>
+
+</html>
+```
+
+![[flex-03.png]]
+*With `flex: 1` the 3 items end with exactly the same width.*
+
+`flex: 1` is **not** an abbreviation of the default values. It changes **two** of the three:
+
+| Shorthand | grow | shrink | basis |
+|---|---|---|---|
+| `flex: initial` (the default) | 0 | 1 | `auto` |
+| **`flex: 1`** | **1** | 1 | **`0%`** |
+| `flex: auto` | 1 | 1 | `auto` |
+| `flex: none` | 0 | 0 | `auto` |
+
+With `flex: 1` the item now grows, and it starts from **zero**.
+
+> [!important] Why is `flex-basis: 0` so important?
+> Because the `width: 100px` of the item **stops counting**. Every item starts at 0 and then they split the space in equal parts.
+> - With `flex: 1` (basis `0`) → all the items end **equal**, even if one has more text.
+> - With `flex: auto` (basis `auto`) → the one with more content ends **bigger**.
+>
+> This is why in the screenshot "primero" measures the same as "2" and "3", even if its text is longer.
+
+### flex: 1, 2, 3
+
+It distributes the **weight** of the elements. If in general we have `flex: 1` and one has a bigger one like `flex: 2`, that one will take twice as much as the rest.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .parent {
+            display: flex;
+            flex-flow: row nowrap;
+            border: 4px solid black;
+            width: 200px;
+        }
+        .item {
+            border: 1px solid;
+            opacity: .9;
+            width: 100px;
+            height: 200px;
+            background: #09f;
+            box-sizing: border-box;
+            flex: 1;
+        }
+        .item:first-child {
+            background: yellow;
+            flex: 2;
+        }
+        .item:last-child {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="parent">
+        <div class="item">primero</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </section>
+</body>
+
+</html>
+```
+
+![[flex-04.png]]
+*`flex: 2` + `flex: 1` + `flex: 1` → the first one is the double.*
+
+The maths: we sum all the flex (`2 + 1 + 1 = 4`) and each item takes its part. In a container of 200px → **100px, 50px, 50px**.
+
+> [!warning] This only works exactly because the basis is 0
+> With `flex: 2` the basis is `0%`, so the `2` applies to the **total** space.
+> If the basis were `auto`, the `2` would only apply to the **free space** that is left after the content, and the result would not be a clean double.
+
+## Aligning the items
+
+Distributing the items is only half of flexbox. Aligning them is the half that gets asked in interviews.
+
+### The two axes
+
+Everything in flexbox depends on the `flex-direction`:
+
+```
+flex-direction: row  (default)      flex-direction: column
+
+  main axis  →→→→→→                   cross axis →→→→→→
+  ┌──────────────────┐                ┌──────────────────┐
+  │  [1]  [2]  [3]   │ ↓ cross        │  [1]             │ ↓ main
+  │                  │   axis         │  [2]             │   axis
+  └──────────────────┘                │  [3]             │
+                                      └──────────────────┘
+```
+
+- **`justify-content`** → aligns on the **main** axis
+- **`align-items`** → aligns on the **cross** axis
+
+When we change to `column`, the two swap. This is the part that confuses everybody.
+
+### justify-content and align-items
+
+```css
+.parent {
+  display: flex;
+  justify-content: center;     /* flex-start | flex-end | center |
+                                  space-between | space-around | space-evenly */
+  align-items: center;         /* stretch (default) | flex-start | flex-end | center | baseline */
+  gap: 16px;                   /* space between the items */
+}
+```
+
+> [!tip] To center something in the middle of the screen
+> ```css
+> .parent {
+>   display: flex;
+>   justify-content: center;
+>   align-items: center;
+>   height: 100vh;
+> }
+> ```
+> These 4 lines are the classic answer to "how do you center a div".
+
+> [!note] `gap` also works in flex
+> For a long time `gap` was only for grid, but today it works in flexbox in all the modern browsers. It is much better than putting `margin` on the children.
+
+> [!question] Short answer for the interview
+> "In flex I put `display: flex` on the parent, I choose the direction with `flex-direction`, and the children are distributed with `flex`, which is the shorthand of grow, shrink and basis. The detail that people miss is that `flex: 1` means `1 1 0%`: as the basis is zero, all the items end with the same size no matter their content. And to align, `justify-content` works on the main axis and `align-items` on the cross axis, and they swap when the direction is `column`."
+
+---
+
+# 2. Grid
 
 ## grid-template-columns
 
@@ -86,7 +376,7 @@ Each value creates **one column**. Here we have 4 columns, so every 4 items a ne
 
 ## Fractions (`fr`)
 
-The `fr` unit splits the **free space** between the tracks that use `fr`.
+The `fr` unit splits the **free space** between the tracks that use `fr` — not the total space. It splits what is **left** after the fixed sizes and the gaps.
 
 ```css
 grid-template-columns: 1fr;          /* 1 column, 100% of the space */
@@ -97,13 +387,14 @@ grid-template-columns: 2fr 1fr;      /* 2fr is 66%, 1fr is 33% */
 
 The maths is easy: we sum all the `fr` and each track receives its part. In `2fr 1fr` the total is `3fr`, so `1fr` = 1/3 = 33%.
 
-> [!warning] Correction: it is the FREE space, not the total
-> The original said that `fr` splits "the 100% of the space". It splits what is **left** after the fixed sizes and the gaps:
-> ```css
-> grid-template-columns: 100px 1fr 1fr;
-> gap: 20px;
-> ```
-> In a container of 500px: the `1fr` do **not** split 500px. They split `500 - 100 - 40 (2 gaps) = 360px`, so each one is 180px.
+Mixed with fixed tracks the difference shows up:
+
+```css
+grid-template-columns: 100px 1fr 1fr;
+gap: 20px;
+```
+
+In a container of 500px: the `1fr` do **not** split 500px. They split `500 - 100 - 40 (2 gaps) = 360px`, so each one is 180px.
 
 ### grid-template-columns: 1fr
 
@@ -387,8 +678,7 @@ when the viewport grows, grid fills the space with columns automatically. We are
 
 ### The breakpoints
 
-> [!danger] Correction: the original had them inverted
-> The original note said "> 430px → 1 column" and "< 430px → 2 columns". It is the opposite: **less space = less columns**.
+Less space = less columns:
 
 | Width of the screen | Columns |
 |---|---|
@@ -409,7 +699,7 @@ The maths of where those numbers come from: 2 columns need `200 + 200 + 16 (gap)
 
 ### auto-fill vs auto-fit
 
-This was not in the original note and it is a **classic interview question**. They look the same until the screen is very wide:
+A **classic interview question**. They look the same until the screen is very wide:
 
 ```css
 repeat(auto-fill, minmax(200px, 1fr))  /* creates EMPTY columns */
@@ -513,8 +803,8 @@ For example we have this grid:
 ![[grid-23.png]]
 *The base grid, before moving anything.*
 
-> [!danger] Correction: `grid-row-end: 1` does not work
-> The original had `grid-row-start: 1; grid-row-end: 1;`. The `end` line has to be **bigger** than the `start` one, if not the browser ignores it and uses `span 1`. To occupy the row 1 it is `grid-row-end: 2`. I already fixed it in the code above.
+> [!warning] The `end` line must be bigger than the `start` line
+> `grid-row-start: 1; grid-row-end: 1;` does not work — the browser ignores it and falls back to `span 1`. To occupy the row 1 it is `grid-row-end: 2`.
 
 And if we need the first cell to be empty, we move the first element to the column 2:
 
@@ -580,8 +870,7 @@ This way of resizing the elements can be weird, because we have to think in abso
 ![[grid-28.png]]
 *The same result, but easier to read: "occupy 2 rows".*
 
-> [!warning] Correction: `span` is not a property
-> The original said "the property `span`". `span` is a **keyword** (a value) that we write **inside** the properties `grid-row-start`, `grid-column-start`, `grid-row-end`, `grid-column-end`, `grid-row` and `grid-column`.
+`span` is a **keyword** (a value), not a property. We write it **inside** `grid-row-start`, `grid-column-start`, `grid-row-end`, `grid-column-end`, `grid-row` and `grid-column`.
 
 ```css
 .content div:first-child {
@@ -611,3 +900,29 @@ This way of resizing the elements can be weird, because we have to think in abso
 
 > [!question] Short answer for the interview
 > "Grid is 2 dimensions, rows and columns at the same time, and flex is only 1. In grid the container defines the tracks with `grid-template-columns` and `grid-template-rows`, and the items are placed with `grid-column` and `grid-row`, which work with the **lines** of the grid, not with the tracks. For responsive layouts the best tool is `repeat(auto-fit, minmax(200px, 1fr))`, because it adapts the number of columns alone, without media queries."
+
+---
+
+# 3. flex vs grid
+
+| | Flexbox | Grid |
+|---|---|---|
+| Dimensions | **1** (a row **or** a column) | **2** (rows **and** columns at the same time) |
+| Who decides | The **content** | The **container** |
+| Good for | Navbars, toolbars, groups of buttons, cards in a line | Full page layouts, galleries, bento |
+
+> [!question] Short answer for the interview
+> "Flexbox is one dimension and grid is two. I reach for flex when the content decides the sizes — a navbar, a toolbar, a row of buttons — and for grid when the container decides them: a page layout, a gallery, a bento. They compose: a grid for the page, flex inside each cell."
+
+---
+
+# Still to fill
+
+- [ ] Box model and `box-sizing: border-box`
+- [ ] Specificity and the cascade
+- [ ] Units: `rem` vs `em` vs `px` vs `%` vs `vw`/`vh` vs `ch`
+- [ ] Positioning: `static`, `relative`, `absolute`, `fixed`, `sticky`
+- [ ] Stacking context and `z-index`
+- [ ] Container queries (`@container`) — the replacement for most media queries
+- [ ] Logical properties (`inline-start`, `block-end`) and why they beat `left`/`right`
+- [ ] Custom properties (CSS variables) and theming

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Utils/Create SSH git key.md",
+                "file": "study/State Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Create SSH git key"
+              "title": "State Management"
             }
           },
           {
@@ -200,6 +200,11 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "study/Design Patterns.md",
+    "study/State Management.md",
+    "study/CSS.md",
+    "study/Patrones_reales_para_Node_22_y_React.m4a",
+    "Utils/Create SSH git key.md",
     "study/Study Notes/Soft Skills and Processes to study.md",
     "study/attachments/grid-28.png",
     "study/attachments/grid-27.png",
@@ -212,7 +217,6 @@
     "study/attachments/grid-20.png",
     "study/attachments/grid-19.png",
     "study/attachments",
-    "Utils/Create SSH git key.md",
     "Work/01 Commands/Kafka — kcat and consumer groups.md",
     "Study/Study Notes/vanates/# Frontend Engineer – POS+ | NordstromUntitled.md",
     "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
@@ -235,9 +239,6 @@
     "Study/Study Notes/Mock Interviews Knowledge Base.md",
     "Study/Study Notes/Study prompt.md",
     "Study/Study Notes/Design Patterns.md",
-    "Study/Study Notes/Mock Interview Session 04.md",
-    "Study/Study Notes/Mock Interview Session 03.md",
-    "Study/Study Notes/Mock Interview Session 02.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
