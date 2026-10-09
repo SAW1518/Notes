@@ -18,6 +18,8 @@ Hard constraints live in `.claude/rules/`. The one that matters most: **nothing 
 
 One exception: `[!question] Short answer for the interview` callouts stay. Those are study aids, not corrections.
 
+The other exception is `Sesiones/`: one log per practice session, written by the agent running `Study prompt.md` (its section 10). Mistakes and corrections live there and nowhere else — never copy a session log's "what I said" into a topic note; fold the correct fact in as prose.
+
 **Notes are in English**, even though we talk in Spanish.
 
 **On an approved multi-step task, keep going** without asking for a go-ahead between steps. Keep the verification (link audits, anchor checks, counts) and keep reporting what changed. Still stop for a real fork: an irreversible delete with a dependency, or a decision that changes the shape of the output.

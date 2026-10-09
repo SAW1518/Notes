@@ -8,7 +8,7 @@ tags:
 
 Training for the technical interviews of the positions I am proposed to at EPAM. [[Study prompt]] runs the practice sessions against the notes in `Vacantes/` and the topic notes below.
 
-Reference notes for frontend interviews. Everything here is **verified** — no mock-interview transcripts, no "what I got wrong last time", no corrections in the margin. Where a note used to carry a correction, the corrected fact is now the text.
+Reference notes for frontend interviews. Everything here is **verified** — no "what I got wrong last time", no corrections in the margin. The one exception is `Sesiones/`, the practice-session logs. Where a note used to carry a correction, the corrected fact is now the text.
 
 Code examples marked ✅ were run in Node v22.
 
@@ -35,6 +35,10 @@ One note per position, extracted from EPAM OneHub (Opportunities → Positions �
 - **Reading backend code** (Java/Spring Boot, Python/Go) — Hyatt, Nordstrom, Flywheel
 
 To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `next_step`, `extracted`), add new positions here.
+
+# The practice sessions — `Sesiones/`
+
+One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the agent as the session runs: every question with its verdict, what was wrong, the short answer, and a running **Where to improve** list (technical · answer habits · English). This is the only place in the vault that records mistakes. Read the latest one before the next session; move anything worth keeping into the topic note as plain, correct prose.
 
 ---
 
