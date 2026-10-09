@@ -13,25 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/README.md",
+                "file": "Work/01 Commands/Kafka — kcat and consumer groups.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Kafka — kcat and consumer groups"
             }
           },
           {
-            "id": "384bc3eace5f8dcd",
+            "id": "f0888170e0e660c3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Work/02 Environments/Polyphonic — URLs by environment.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Polyphonic — URLs by environment"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -109,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
+                "file": "Work/02 Environments/Polyphonic — URLs by environment.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -187,58 +192,58 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "cmdr:Open in Terminal: Open in terminal": false,
-      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
+      "cmdr:Open in Terminal: Open in terminal": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f6a88b52bdfd0ab3",
+  "active": "f0888170e0e660c3",
   "lastOpenFiles": [
-    "study/CLAUDE.md",
-    "study/Arrays.md",
-    "study/_archive/The Best Notes of the F Word.md",
-    "study/_archive/Questions for interviews.md",
-    "study/_archive/NDM-SXP Frontend Engineer - POS Nordstrom.md",
-    "study/_archive/Mock Interviews Knowledge Base.md",
-    "study/_archive/Mock Interview Session 04.md",
-    "study/_archive/Mock Interview Session 03.md",
-    "study/_archive/Mock Interview Session 02.md",
-    "study/_archive/Mock Interview Session 01.md",
-    "study/_archive/Assessment Questions.md",
-    "study/_archive",
-    "study/Browser Platform.md",
-    "study/TypeScript.md",
-    "study/Study prompt.md",
-    "study/Vocabulary Drill.md",
-    "study/JavaScript.md",
-    "study/README.md",
-    "study/Interview Questions.md",
-    "study/Testing and Process.md",
-    "study/Security.md",
-    "study/React.md",
-    "study/TypeScript Boundary.md",
-    "study/State Management.md",
-    "study/Design Patterns.md",
-    "study/CSS.md",
-    "study/Patrones_reales_para_Node_22_y_React.m4a",
-    "Utils/Create SSH git key.md",
-    "study/attachments/grid-28.png",
-    "study/attachments/grid-27.png",
-    "study/attachments/grid-26.png",
-    "study/attachments/grid-25.png",
-    "study/attachments/grid-24.png",
-    "study/attachments/grid-23.png",
-    "study/attachments/grid-22.png",
-    "study/attachments/grid-21.png",
-    "study/attachments/grid-20.png",
-    "study/attachments/grid-19.png",
-    "study/attachments",
+    "Work/02 Environments/Check deployed version.md",
+    "Work/01 Commands/Run services locally.md",
+    "Work/01 Commands/Ports and processes.md",
+    "Work/01 Commands/Kafka — kcat and consumer groups.md",
+    "Work/01 Commands/Git.md",
+    "conflict-files-obsidian-git.md",
+    "Study/_archive/Questions for interviews.md",
+    "Study/CLAUDE.md",
+    "Study/_archive/The Best Notes of the F Word.md",
+    "Study/TypeScript Boundary.md",
+    "Study/Vocabulary Drill.md",
+    "Work/adjuntos/PR templete - Attachment.png",
+    "Work/05 Debug/2026-06-25 — Monarch preingestion 422.md",
+    "Work/04 Project/PFM-446 — Hide OR field in Monarch.md",
+    "Work/04 Project/Links — Jira, Confluence, pipelines.md",
+    "Work/03 Prompts/PR description.md",
+    "Work/02 Environments/Utils Users.md",
+    "Work/02 Environments/Test users.md",
+    "Work/02 Environments/Polyphonic — URLs by environment.md",
+    "Work/How I find things.md",
+    "Work/Dashboard.base",
+    "Work/Screenshot 2026-07-31 at 11.28.48 a.m..png",
+    "Work/UTILES.md",
+    "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
+    "Study/_archive/NDM-SXP Frontend Engineer - POS Nordstrom.md",
+    "Study/_archive/Mock Interviews Knowledge Base.md",
+    "Study/_archive/Mock Interview Session 04.md",
+    "Study/_archive/Mock Interview Session 03.md",
+    "Study/_archive/Mock Interview Session 02.md",
+    "Study/_archive",
+    "Study/attachments/grid-28.png",
+    "Study/attachments/grid-27.png",
+    "Study/attachments/grid-26.png",
+    "Study/attachments/grid-25.png",
+    "Study/attachments/grid-24.png",
+    "Study/attachments/grid-23.png",
+    "Study/attachments/grid-22.png",
+    "Study/attachments/grid-21.png",
+    "Study/attachments",
     "Study/Study Notes/vanates",
     "Untitled.canvas",
     "Untitled.base",
