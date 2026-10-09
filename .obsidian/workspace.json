@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/README.md",
+                "file": "Study/Study prompt.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Study prompt"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299.27734375
+    "width": 201.91666793823242
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -188,8 +188,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "03af9e62f428b734",
+  "active": "f6a88b52bdfd0ab3",
   "lastOpenFiles": [
+    "Study/Vacantes/Flywheel.md",
+    "Study/Vacantes",
+    "Study/README.md",
     "Study/TypeScript Boundary.md",
     "Study/Vocabulary Drill.md",
     "Study/Arrays.md",
@@ -218,8 +221,6 @@
     "Study/Study Notes/vanates/NDM-SXP Frontend Engineer - POS Nordstrom.md",
     "Study/_archive/NDM-SXP Frontend Engineer - POS Nordstrom.md",
     "Study/_archive/Mock Interviews Knowledge Base.md",
-    "Study/_archive/Mock Interview Session 04.md",
-    "Study/_archive/Mock Interview Session 03.md",
     "Study/_archive",
     "Study/attachments/grid-28.png",
     "Study/attachments/grid-27.png",
