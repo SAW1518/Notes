@@ -1,33 +1,22 @@
 ---
-title: TypeScript at the Boundary
+title: TypeScript Boundary
 tags:
   - study
   - interview
-  - promotion
   - typescript
   - validation
   - architecture
-parent: "[[The Best Notes of the F Word]]"
-source: "created after Study Session 05 Q3 (2026-09-17). Closes item 4 of [[Mock Interviews Knowledge Base#Still unanswered across all four sessions — expect them again]] and the TypeScript hole in the rubric (10%, asked zero times in four mock sessions)"
 ---
 
-# TypeScript at the Boundary
+# TypeScript Boundary
 
 Why the compiler cannot protect the app from the network, and what runtime validation actually does about it.
 
-Related: [[The Best Notes of the F Word#Pros and cons of JS vs TS]] · [[Assessment Questions#Pros and cons of TypeScript]] · [[Assessment Questions#Compare PropTypes, Flow and TypeScript]] · [[Mock Interviews Knowledge Base]]
-
-> [!danger]- What went wrong on 2026-09-17 (read this first)
-> The knowledge was there. The **retrieval** was not. That is a different problem and it needs a different fix — see [[#11. Recall triggers — the actual fix for this one]].
->
-> 1. **Said:** *"in the compilation stage the bundler adds js type validation"* → **false**. `tsc`, esbuild, swc and Babel **strip** the types and emit **nothing** in their place. No check, no guard, no assertion, zero bytes. Self-corrected one message later ("nothing runs, the types are deleted") — that retraction saved the question, but the sentence should never have been said.
-> 2. **Never named a validator.** Zod was already written down in my own vault, in [[The Best Notes of the F Word#Pros and cons of JS vs TS]], in the short answer I had memorised. It did not come out under pressure.
-> 3. **Never answered what `res.json()` returns.** It is `Promise<any>` — and that `any` *is* the hole.
-> 4. **Assumed the backend had changed.** The sharper answer: `createdAt: Date` was **never** true, not even on day one.
+The other half of the language — `type` vs `interface`, unions and narrowing, generics, utility types, the two declaration spaces, and the class side — is in [[TypeScript]].
 
 ---
 
-# 0. The one sentence
+# The one sentence
 
 > [!important] The mental model
 > **TypeScript describes what I *believe*. Only code that runs can establish what is *true*.**
@@ -36,9 +25,9 @@ Related: [[The Best Notes of the F Word#Pros and cons of JS vs TS]] · [[Assessm
 
 ---
 
-# 1. Why the compiler cannot help here
+# Why the compiler cannot help here
 
-## a) The types are erased
+## The types are erased
 
 ```ts
 // what I write
@@ -50,9 +39,9 @@ const user: User = await res.json();
 const user = await res.json();
 ```
 
-Type annotations are not compiled into checks — they are **deleted**. TypeScript is a *development-time* tool: its entire output is editor feedback and a build that fails. At runtime the app is plain JavaScript, exactly as if it had never been typed.
+Type annotations are not compiled into checks — they are **deleted**. `tsc`, esbuild, swc and Babel **strip** the types and emit **nothing** in their place: no check, no guard, no assertion, zero bytes. TypeScript is a *development-time* tool: its entire output is editor feedback and a build that fails. At runtime the app is plain JavaScript, exactly as if it had never been typed.
 
-## b) `res.json()` returns `any`
+## `res.json()` returns `any`
 
 ```ts
 const res  = await fetch('/api/profile');
@@ -61,7 +50,7 @@ const user: User = await res.json();   // ✅ compiles — and checks NOTHING
 
 `Response.json()` is typed `Promise<any>` in the DOM lib. **`any` is assignable to everything**, so that line type-checks not because TypeScript verified the shape, but because I explicitly told it to stop looking. The compiler is not failing; it is obeying.
 
-## c) JSON has no `Date`
+## JSON has no `Date`
 
 ```ts
 interface User {
@@ -70,18 +59,20 @@ interface User {
 }
 ```
 
-`JSON.parse` can only ever produce: **string, number, boolean, null, object, array**. There is no date type in JSON, so `createdAt` was a **string at runtime** while every `.toISOString()` call in the codebase believed it was a `Date`. The crash was not caused by a backend change — it was always there, waiting for the right data.
+`JSON.parse` can only ever produce: **string, number, boolean, null, object, array**. There is no date type in JSON, so `createdAt` is a **string at runtime** while every `.toISOString()` call in the codebase believes it is a `Date`.
+
+The sharp framing: a crash like that is **not** caused by a backend change. `createdAt: Date` was never true, not even on day one — the data just had not been wrong enough yet to notice.
 
 > [!tip] The tell
 > If a type annotation sits on data I did not construct **myself, in this process**, it is a lie until something proves otherwise.
 
-## d) Structural typing has no runtime tag
+## Structural typing has no runtime tag
 
 TypeScript types are structural and exist only in the type space. There is no marker on the object at runtime, so nothing can ask "are you really a `User`?" later. The only moment to establish it is **when the data arrives**.
 
 ---
 
-# 2. Where the boundaries are
+# Where the boundaries are
 
 Every one of these hands the app `any` or a comfortable lie:
 
@@ -98,11 +89,11 @@ Every one of these hands the app `any` or a comfortable lie:
 | An `<input>` value, a file, a pasted payload             | a string that claims to be a number                    |
 
 > [!question] The senior framing
-> These are **trust boundaries**, the same idea as in security ([[The Best Notes of the F Word#Ataques XSS (Cross-Site Scripting)]]). Validation goes exactly where trust changes hands — not sprinkled everywhere, and never omitted there.
+> These are **trust boundaries**, the same idea as in security ([[Security#XSS — Cross-Site Scripting]]). Validation goes exactly where trust changes hands — not sprinkled everywhere, and never omitted there.
 
 ---
 
-# 3. `unknown` instead of `any`
+# `unknown` instead of `any`
 
 `any` switches the type system **off** and spreads: everything derived from it is `any` too, silently, across files. `unknown` keeps the type system **on** and forces a narrowing step before use.
 
@@ -132,7 +123,7 @@ const user = UserSchema.parse(raw); // ✅ now it is a User, and it was CHECKED
 
 ---
 
-# 4. Parse, don't validate
+# Parse, don't validate
 
 Two shapes look similar and are not:
 
@@ -156,9 +147,9 @@ The difference in one line: **a validator returns a boolean, a parser returns a 
 
 ---
 
-# 5. Zod in practice
+# Zod in practice
 
-## a) The schema is the source of truth — the type is inferred from it
+## The schema is the source of truth — the type is inferred from it
 
 ```ts
 import { z } from 'zod';
@@ -180,7 +171,7 @@ export type User = z.infer<typeof UserSchema>;   // ← the type comes FROM the 
 > [!important] Why this is the whole point
 > Writing an `interface` **and** a validator separately means two sources of truth that drift apart on the first hurried PR. With `z.infer` there is **one** declaration: the runtime check and the compile-time type cannot disagree, because they are the same object.
 
-## b) `parse` vs `safeParse`
+## `parse` vs `safeParse`
 
 ```ts
 // parse → returns the value or THROWS a ZodError
@@ -197,7 +188,7 @@ const user = result.data;        // fully typed, fully checked
 
 Rule of thumb: **`safeParse` at an application boundary** where a failure must become a UI state, **`parse`** where a failure is genuinely a bug and should reach the error tracker as an exception.
 
-## c) The features that actually come up
+## The features that actually come up
 
 ```ts
 // coercion at the edge, so the inside of the app can hold real types
@@ -225,7 +216,7 @@ const rows = raw
 // …and count + log the dropped ones, otherwise data disappears silently
 ```
 
-## d) Where it goes in the app
+## Where it goes in the app
 
 One layer, not scattered:
 
@@ -251,7 +242,7 @@ This is the **facade** over the network from [[Design Patterns#Facade]] — one 
 
 ---
 
-# 6. What happens when parsing fails (the part people forget)
+# What happens when parsing fails (the part people forget)
 
 Adding a validator does not make bad data disappear — it makes it **loud**. That is an improvement only if the failure is designed:
 
@@ -268,15 +259,15 @@ Adding a validator does not make bad data disappear — it makes it **loud**. Th
 
 ---
 
-# 7. Where NOT to validate
+# Where NOT to validate
 
 - **Between internal functions.** The compiler already covers that; a schema there is noise.
-- **In hot loops or on very large lists.** Parsing 50.000 rows on the main thread is a jank source ([[Mock Interviews Knowledge Base#Scrolling is janky. Layout and paint dominate the frame. What is happening and how do you fix it?]]). Validate the envelope, sample the rows, or parse in a Web Worker.
+- **In hot loops or on very large lists.** Parsing 50.000 rows on the main thread is a jank source ([[Browser Platform#Scrolling is janky — layout and paint dominate the frame]]). Validate the envelope, sample the rows, or parse in a Web Worker.
 - **Everywhere, by reflex.** Cost: Zod 3 is roughly **13KB gzipped** and not very tree-shakable; Zod 4 and Valibot are markedly smaller. On a bundle-sensitive app that is a real line item — a reason to pick Valibot, not a reason to skip validation.
 
 ---
 
-# 8. Contracts: codegen and contract tests
+# Contracts: codegen and contract tests
 
 | Layer | What it buys | What it does **not** buy |
 |---|---|---|
@@ -289,7 +280,7 @@ Adding a validator does not make bad data disappear — it makes it **loud**. Th
 
 ---
 
-# 9. The alternatives (one line each)
+# The alternatives (one line each)
 
 | Tool | Shape | When |
 |---|---|---|
@@ -305,7 +296,7 @@ Adding a validator does not make bad data disappear — it makes it **loud**. Th
 
 ---
 
-# 10. Doing it by hand, when no dependency is allowed
+# Doing it by hand, when no dependency is allowed
 
 ```ts
 // type predicate: narrows in an if
@@ -338,9 +329,9 @@ raw.email;              // ✅ User from here on
 
 ---
 
-# 11. Recall triggers — the actual fix for this one
+# Recall triggers
 
-The knowledge was present and did not surface. Retrieval is trained with **triggers**, not with more reading.
+This topic fails in interviews for a retrieval reason, not a knowledge one — the words are known and do not surface under pressure. Retrieval is trained with **triggers**, not with more reading.
 
 | When I hear / say… | The word that must come out |
 |---|---|
@@ -369,7 +360,7 @@ The knowledge was present and did not surface. Retrieval is trained with **trigg
 
 ---
 
-# 12. Drill — say these out loud
+# Drill — say these out loud
 
 1. **Types are erased.** The bundler adds **no** validation. Zero bytes.
 2. `res.json()` → **`any`** → assignable to everything → nothing is checked.
@@ -384,12 +375,9 @@ The knowledge was present and did not surface. Retrieval is trained with **trigg
 
 ---
 
-# Still to study from here
+# Still to study
 
-- [x] `satisfies` and `as const` — narrowing config objects without widening → [[TypeScript Type System#4. Literal types, widening, `as const` and `satisfies`]]
-- [x] tsconfig flags that shrink the lie surface: `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `useUnknownInCatchVariables` → [[TypeScript Type System#13. tsconfig — the flags that shrink the lie surface]]
-- [x] Branded / nominal types (`type UserId = string & { __brand: 'UserId' }`) and where they beat a plain alias → [[TypeScript Type System#10. Structural vs nominal typing, and branded types]]
+- [x] `satisfies` and `as const` — narrowing config objects without widening → [[TypeScript#Literal types, widening, `as const` and `satisfies`]]
+- [x] tsconfig flags that shrink the lie surface → [[TypeScript#tsconfig — the flags that shrink the lie surface]]
+- [x] Branded / nominal types and where they beat a plain alias → [[TypeScript#Structural vs nominal typing, and branded types]]
 - [ ] tRPC and end-to-end type safety without codegen — and its boundary: it only works when both ends are mine.
-
-> [!tip] The other half of TypeScript
-> Everything that is **not** about the boundary — `type` vs `interface`, unions and narrowing, generics, utility types, the two declaration spaces — is in [[TypeScript Type System]]. The class side of the language is in [[OOP in JavaScript and TypeScript]].

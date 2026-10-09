@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/State Management.md",
+                "file": "study/TypeScript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "State Management"
+              "title": "TypeScript"
             }
           },
           {
@@ -200,8 +200,10 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
-    "study/Design Patterns.md",
+    "study/TypeScript Boundary.md",
+    "study/TypeScript.md",
     "study/State Management.md",
+    "study/Design Patterns.md",
     "study/CSS.md",
     "study/Patrones_reales_para_Node_22_y_React.m4a",
     "Utils/Create SSH git key.md",
@@ -237,8 +239,6 @@
     "Study/Study Notes/Utils.md",
     "Study/Study Notes/Assessment Questions.md",
     "Study/Study Notes/Mock Interviews Knowledge Base.md",
-    "Study/Study Notes/Study prompt.md",
-    "Study/Study Notes/Design Patterns.md",
     "Untitled.canvas",
     "Untitled.base",
     "Untitled 1.base",
