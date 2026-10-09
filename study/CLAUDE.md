@@ -2,18 +2,7 @@
 
 Obsidian interview-prep vault. Reference notes for frontend interviews.
 
-## Rule: nothing about this project lives outside this vault
-
-**Absolute.** This vault is synced between two Macs; anything written outside it exists on one machine only and silently desyncs.
-
-That means **never** write project context, memory, notes or decisions to:
-
-- `~/.claude/projects/*/memory/` — the default auto-memory directory. Disabled for this project via `autoMemoryEnabled: false` in `.claude/settings.json`.
-- `~/.claude/` anywhere else, `/tmp`, or any path outside this repo.
-
-When asked to remember something about this project, it goes **in the vault**: this file for working rules, or a note for subject matter. See the `vault-memory` skill.
-
-The scratchpad directory is fine for genuinely throwaway intermediates — never for anything that must survive the session.
+Hard constraints live in `.claude/rules/`. The one that matters most: **nothing about this project is written outside this vault** — it syncs between two Macs.
 
 ## How these notes work
 
