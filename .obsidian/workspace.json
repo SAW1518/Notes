@@ -11,14 +11,12 @@
             "id": "03af9e62f428b734",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "audio",
               "state": {
-                "file": "Study/Study prompt.md",
-                "mode": "source",
-                "source": false
+                "file": "Study/Patrones_reales_para_Node_22_y_React.m4a"
               },
-              "icon": "lucide-file",
-              "title": "Study prompt"
+              "icon": "lucide-file-audio",
+              "title": "Patrones_reales_para_Node_22_y_React"
             }
           }
         ]
@@ -188,8 +186,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f6a88b52bdfd0ab3",
+  "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Study prompt.md",
     "Study/Vacantes/Hyatt.md",
     "Study/Vacantes/Porter Airlines.md",
     "Study/Vacantes/Securin.md",
@@ -218,7 +217,6 @@
     "Work/03 Prompts/PR description.md",
     "Work/02 Environments/Utils Users.md",
     "Work/02 Environments/Test users.md",
-    "Work/How I find things.md",
     "Work/Dashboard.base",
     "Work/Screenshot 2026-07-31 at 11.28.48 a.m..png",
     "Study/_archive",
