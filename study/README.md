@@ -6,9 +6,35 @@ tags:
 
 # Interview Study Vault
 
+Training for the technical interviews of the positions I am proposed to at EPAM. [[Study prompt]] runs the practice sessions against the notes in `Vacantes/` and the topic notes below.
+
 Reference notes for frontend interviews. Everything here is **verified** — no mock-interview transcripts, no "what I got wrong last time", no corrections in the margin. Where a note used to carry a correction, the corrected fact is now the text.
 
 Code examples marked ✅ were run in Node v22.
+
+---
+
+# The positions — `Vacantes/`
+
+One note per position, extracted from EPAM OneHub (Opportunities → Positions → Applications). Each has the stack, must-haves, responsibilities, what the interview will probe, a coverage table against these notes, and its own `# Still to study`.
+
+| Note | Client · project | Level | What it is really about |
+|---|---|---|---|
+| **[[Flywheel]]** | Flywheel.io · FLYW-SRE | A2–A3 | React + TS medical imaging viewer, API boundary, Vitest/Playwright, Angular, DICOM/OHIF |
+| **[[Nordstrom]]** | Nordstrom · NDM-SXP | A2–A3 | React point-of-sale, React Testing Library, Material UI, Claude Code |
+| **[[Securin]]** | Securin · SCRN-ENG | A3–A4 | Lead frontend, performance, mentoring, GenAI and AI security |
+| **[[Porter Airlines]]** | Porter Airlines · PRTR-DMOD | A2–A3 | Public airline web, design systems, WCAG 2.1 AA, SEO, A/B testing |
+| **[[Hyatt]]** | Hyatt · HYAT-LIFE | A3–A4 | Next.js/SSR in depth, Java/Spring Boot endpoints, client communication |
+
+**Gaps more than one position needs**, so they come first:
+- **Gen AI Assisted Development** — Nordstrom, Securin, Porter
+- **Next.js / rendering strategies in depth** — Hyatt, Porter (SEO)
+- **Testing tooling** (RTL, Vitest, Playwright) — Nordstrom, Flywheel, Securin
+- **Design systems and compound components** — Porter, Securin, Nordstrom (MUI)
+- **WCAG 2.1 AA and accessible forms** — Porter, Hyatt
+- **Reading backend code** (Java/Spring Boot, Python/Go) — Hyatt, Nordstrom, Flywheel
+
+To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `next_step`, `extracted`), add new positions here.
 
 ---
 
@@ -53,9 +79,10 @@ Code examples marked ✅ were run in Node v22.
 
 **Before an interview**, in this order:
 
-1. **[[Vocabulary Drill]]** — ten minutes. The pairs are where points get lost, and they are the cheapest to fix.
-2. **[[Interview Questions]]** — cover the answer column, answer out loud, follow the link on anything you half-knew.
-3. The topic note for whatever the role actually asks for.
+1. **The position note** in `Vacantes/` — re-read "What the interview will probe" and its `# Still to study`.
+2. **[[Vocabulary Drill]]** — ten minutes. The pairs are where points get lost, and they are the cheapest to fix.
+3. **[[Interview Questions]]** — cover the answer column, answer out loud, follow the link on anything you half-knew.
+4. **[[Study prompt]]** with that position set — rehearse out loud.
 
 **The rule that matters**: recognising an answer is not retrieving it. If it did not come out of your mouth, you do not have it yet.
 
@@ -81,7 +108,7 @@ Beat 2 is what separates a mid answer from a senior one. Beat 4 is the one almos
 
 # Roadmap — what is not written yet
 
-From the Level Up plan for Senior Software Engineer. Checked items have a note; unchecked ones do not exist yet. Each note also carries its own `# Still to study` section with the finer-grained gaps.
+From the Level Up plan for Senior Software Engineer. Checked items have a note; unchecked ones do not exist yet. **Priority now comes from the positions**: write first what the "Gaps more than one position needs" list above asks for; a roadmap item no position needs can wait. Each note also carries its own `# Still to study` section with the finer-grained gaps.
 
 ## Covered
 

@@ -1,12 +1,14 @@
 # CLAUDE.md
 
-Obsidian interview-prep vault. Reference notes for frontend interviews.
+Obsidian interview-prep vault. Training for the technical interviews of the EPAM positions I am proposed to — not for measuring my level, which is settled (senior frontend).
 
 Hard constraints live in `.claude/rules/`. The one that matters most: **nothing about this project is written outside this vault** — it syncs between two Macs.
 
 ## How these notes work
 
 `README.md` is the index: the 14 topic notes, the conventions, and the roadmap of what is not written yet. Read it before adding or merging anything.
+
+`Vacantes/` holds one note per position, extracted from OneHub. They are the source of *what* `Study prompt.md` asks; the topic notes are the source of *how deep*. A gap only one client needs goes in that position's `# Still to study`; a gap several need goes in the topic note and in README's "Gaps more than one position needs".
 
 `_archive/` is provenance only — the old mock-interview sessions and superseded sources. Never study material, never a source for new notes.
 
@@ -25,4 +27,5 @@ One exception: `[!question] Short answer for the interview` callouts stay. Those
 - Obsidian resolves `![[grid-01.png]]` by **filename anywhere in the vault**, so images work from `attachments/` with no path.
 - JS internal-slot notation (`[[Environment]]`, `[[Prototype]]`, `[[HomeObject]]`) must stay inside backticks or a fence, or Obsidian turns it into a broken wikilink.
 - When auditing links: strip fenced blocks before parsing but **keep inline code** — heading anchors legitimately contain backticks, e.g. ``[[TypeScript#`this` — the five rules]]``.
+- **Extracting from OneHub with Claude in Chrome** (`onehub.epam.com/opportunities/positions/applications`): the content lives in shadow roots, so `get_page_text` and `read_page` return nothing — walk `el.shadowRoot` recursively in `javascript_tool` and skip `STYLE` children. JS results are cut at ~1000 chars: keep the text in `window.__d` and read it in `slice()` chunks via `browser_batch`. Strip URLs and `?&=` from returned text or the tool blocks it. "View details" uses `window.open`: stub it to collect the position IDs, then open `/opportunities/positions/<id>`. Click "Show additional work requirements" before extracting — nice-to-haves and work conditions hide behind it. The application stage (Proposed, etc.) is only visible as a colour in a screenshot.
 - `Patrones_reales_para_Node_22_y_React.m4a` (63 MB, root) is untranscribed by choice — the only file here that is not searchable.
