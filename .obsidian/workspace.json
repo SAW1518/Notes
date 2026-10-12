@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Sesiones/2026-10-09 Session 2.md",
+                "file": "Study/Browser Platform.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-09 Session 2"
+              "title": "Browser Platform"
             }
           }
         ]
@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -191,11 +190,12 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Arrays.md",
+    "Study/Sesiones/2026-10-09 Session 2.md",
     "conflict-files-obsidian-git.md",
     "Work/02 Environments/Test users.md",
     "Work/01 Commands/Ports and processes.md",
     "Utils/Create SSH git key.md",
-    "Study/Sesiones/2026-10-09 Session 2.md",
     "Study/Patrones_reales_para_Node_22_y_React.m4a",
     "Study/Sesiones/2026-10-09 Session 1.md",
     "Study/Sesiones",
@@ -209,7 +209,6 @@
     "Study/README.md",
     "Study/TypeScript Boundary.md",
     "Study/Vocabulary Drill.md",
-    "Study/Arrays.md",
     "Study/attachments/flex-02.png",
     "Work/02 Environments/Polyphonic — URLs by environment.md",
     "Work/02 Environments/Check deployed version.md",
