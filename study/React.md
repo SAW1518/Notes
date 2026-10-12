@@ -24,6 +24,8 @@ An in-memory tree of plain objects that describes what the UI should look like. 
 
 The point is not that it is fast — a direct DOM write is faster. The point is that it makes a **declarative** API possible: the component describes the result, and React works out the minimum set of mutations.
 
+The "previous tree" is not the DOM: React diffs against its **current fiber tree**, builds a `workInProgress` draft in an interruptible render phase, and writes to the DOM only in the synchronous commit. The full mechanism — elements vs fibers, the two trees, the phases, lanes, and how it changed since React 16 — is in [[React Internals]].
+
 ## Hooks — what they are and what problem they solve
 
 Hooks let us use state and other React features inside a **function component**, without writing a class. They arrived in **React 16.8** (February 2019).
@@ -1070,8 +1072,8 @@ The general XSS and CSRF picture is in [[Security]].
 # Still to study
 
 - [ ] `useDeferredValue` and `startTransition` — the React 18 priority model, and how they differ from memoising
-- [ ] The rules of hooks explained **from the linked list on the fiber**, not as a rule to obey
-- [ ] Reconciliation and `key`: why an index key breaks state and every memo under it
+- [x] The rules of hooks explained **from the linked list on the fiber** → [[React Internals#10. Rules of hooks, from the fiber]]
+- [x] Reconciliation and `key`: why an index key breaks state → [[React Internals#6. Reconciliation: the diff rules]]
 - [ ] React Compiler: what it memoises and what it refuses to memoise
 - [ ] `<Profiler>` API and rendering metrics in CI
 - [ ] React Server Components: the serialization boundary, and what `"use client"` actually marks

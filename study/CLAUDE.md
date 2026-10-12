@@ -6,7 +6,7 @@ Hard constraints live in `.claude/rules/`. The one that matters most: **nothing 
 
 ## How these notes work
 
-`README.md` is the index: the 14 topic notes, the conventions, and the roadmap of what is not written yet. Read it before adding or merging anything.
+`README.md` is the index: the 15 topic notes, the conventions, and the roadmap of what is not written yet. Read it before adding or merging anything.
 
 `Vacantes/` holds one note per position, extracted from OneHub. They are the source of *what* `Study prompt.md` asks; the topic notes are the source of *how deep*. A gap only one client needs goes in that position's `# Still to study`; a gap several need goes in the topic note and in README's "Gaps more than one position needs".
 
