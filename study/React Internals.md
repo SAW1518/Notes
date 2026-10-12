@@ -23,13 +23,13 @@ The day-to-day side (hooks, re-renders, memoisation) is in [[React]]. What the b
 
 "Virtual DOM" is the community name, and it blurs three different objects. The React team talks about **elements**, **fibers** and **host nodes**.
 
-| | React element | Fiber | DOM node |
-|---|---|---|---|
-| What it is | What JSX compiles to | React's internal unit of work | The real browser node |
-| Created | **New on every render** | Once per component instance / host node, then **reused** | Once, by the renderer |
-| Lifetime | Thrown away after the render | As long as the component is mounted | As long as the fiber |
-| Mutable? | No — frozen in development | Yes | Yes |
-| Holds state? | No | **Yes** — props, hooks, effects, pending work | Its own DOM state (focus, scroll, value) |
+|              | React element                | Fiber                                                    | DOM node                                 |
+| ------------ | ---------------------------- | -------------------------------------------------------- | ---------------------------------------- |
+| What it is   | What JSX compiles to         | React's internal unit of work                            | The real browser node                    |
+| Created      | **New on every render**      | Once per component instance / host node, then **reused** | Once, by the renderer                    |
+| Lifetime     | Thrown away after the render | As long as the component is mounted                      | As long as the fiber                     |
+| Mutable?     | No — frozen in development   | Yes                                                      | Yes                                      |
+| Holds state? | No                           | **Yes** — props, hooks, effects, pending work            | Its own DOM state (focus, scroll, value) |
 
 An element is a cheap, immutable description:
 
