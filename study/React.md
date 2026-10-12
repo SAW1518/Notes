@@ -859,6 +859,103 @@ On the server side, another improvement used the **Performance API** of Node (`p
 
 # 4. Data and mutations
 
+## Fetching in an effect: out-of-order responses and `AbortController`
+
+A fetch effect keyed on a search query has a race. The user types "so", which starts request A on slow Wi-Fi. Then they type "sock", which starts request B. B lands first and shows the right results; A lands later and **overwrites** them with the results for "so". Debouncing reduces the number of requests but does not fix the ordering — a slow earlier response can still arrive last.
+
+The fix is to cancel the stale request in the effect's cleanup.
+
+```tsx
+useEffect(() => {
+  if (!query) {
+    setResults([]);
+    return;
+  }
+  const controller = new AbortController();
+  const url = `/api/stores/${encodeURIComponent(storeId)}/products?q=${encodeURIComponent(query)}`;
+
+  fetch(url, { signal: controller.signal })
+    .then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json() as Promise<Product[]>;
+    })
+    .then((data) => {
+      setResults(data);
+      setError(null);
+    })
+    .catch((e) => {
+      if (e.name !== 'AbortError') setError('Search failed. Try again.');
+    });
+
+  return () => controller.abort();
+}, [storeId, query]);
+```
+
+### What `AbortController` is
+
+A built-in object (browser and Node) with two parts: `controller.signal`, handed to whoever does the work, and `controller.abort()`, which cancels it. `fetch` watches the signal; when it is aborted, `fetch` stops the request and its promise **rejects with an `AbortError`** — also if the abort lands while the body is still being read by `r.json()`.
+
+The `AbortError` check in `.catch` is required. Without it, every superseded search shows "Search failed", although it was cancelled on purpose.
+
+### Why a `return` written after the `fetch` can cancel it
+
+Two facts make it work:
+
+1. **`return () => controller.abort()` does not abort anything.** It creates a function and hands it to React, which stores it. `return controller.abort()` — without the arrow — would abort immediately.
+2. **`fetch` does not wait.** It starts the request and returns a promise at once, so the effect reaches its `return` microseconds later while the request is still on the network.
+
+React runs the stored cleanup **before the next run of the effect** (and on unmount). The new effect does not cancel the old one — React does, using the function the old run left behind:
+
+```
+query = "so"     effect #1: create controllerA, start fetch A, return cleanupA
+                 React stores cleanupA — nobody calls it yet
+
+query = "sock"   React runs cleanupA() → controllerA.abort()
+                   fetch A (still in flight) rejects with AbortError
+                 effect #2: create controllerB, start fetch B, return cleanupB
+                 React stores cleanupB
+```
+
+Each cleanup aborts the right controller because of the **closure**: every run creates its own `controller`, and the arrow returned in that run captures that one. `cleanupA` only knows `controllerA`.
+
+React's side, reduced to its shape:
+
+```js
+let storedCleanup = null;
+
+function onDepsChange() {
+  if (storedCleanup) storedCleanup();  // 1. clean up the previous run
+  storedCleanup = yourEffect();        // 2. run the new one and keep its return
+}
+```
+
+StrictMode runs every effect twice in development (mount → cleanup → mount), so a fetch effect without a cleanup shows up as a duplicated request there.
+
+### The alternative: an ignore flag
+
+```tsx
+useEffect(() => {
+  let ignore = false;
+  fetchProducts(query).then((data) => {
+    if (!ignore) setResults(data);
+  });
+  return () => {
+    ignore = true;
+  };
+}, [query]);
+```
+
+This also fixes the race — the stale response arrives but is dropped. The difference: the request still completes over the network, while `abort()` actually cancels it. The flag works with any promise, including APIs that take no `signal`.
+
+### Other uses of the same signal
+
+- **Removing listeners:** `addEventListener('keydown', onKey, { signal })` — one `abort()` in the cleanup removes every listener registered with that signal.
+- **Timeouts:** `fetch(url, { signal: AbortSignal.timeout(5000) })`.
+- **Libraries:** Axios, Node streams and TanStack Query's `queryFn` accept or provide the same `signal`.
+
+> [!question] Short answer for the interview
+> "An `AbortController` gives me a signal I pass to `fetch`, and an `abort()` method to cancel it. In a fetch effect I create one per run and abort it in the cleanup. React runs the previous run's cleanup before the next one, so when the query changes the stale request is aborted before the new one starts, and an old slow response can never overwrite newer results. In the catch I ignore `AbortError`, because that is an intentional cancel, not a failure. Debounce alone doesn't fix this — it reduces requests, not their ordering."
+
 ## Optimistic UI: three mutations in flight and one fails
 
 The three steps: **write to the cache → fire the request → on error roll back to the snapshot**, then invalidate and refetch so the server stays the source of truth.
@@ -949,6 +1046,8 @@ The general XSS and CSRF picture is in [[Security]].
 | "thousands of rows" | **virtualise** — render 20, not 5.000 |
 | "React is XSS-safe" | only for **interpolated text**; name the escape hatches |
 | "error boundary" | **render-time errors only**, and it must be a class |
+| "fetch in `useEffect`" | **race** → `AbortController`, abort in the **cleanup**, ignore `AbortError` |
+| "debounce fixes it" | it cuts **requests**, not their **ordering** |
 
 ## Drill — say these out loud until they are automatic
 
@@ -964,6 +1063,7 @@ The general XSS and CSRF picture is in [[Security]].
 10. Hooks arrived in **16.8**. `useEffect` runs **after the paint**; `useLayoutEffect` **before** it.
 11. The three lifecycle names: `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`.
 12. `areEqual` returning `true` means **skip** — the inverse of `shouldComponentUpdate`.
+13. The cleanup is **stored, not run** — React calls it **before the next run** and on unmount.
 
 ---
 

@@ -57,7 +57,7 @@ One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the
 
 | Note | What is in it |
 |---|---|
-| **[[React]]** | Virtual DOM · hooks and the lifecycle mapping · `useEffect` vs `useLayoutEffect` · **re-renders and memoisation** in full (the three causes, every dead-memo case with code, what beats memoising, how to prove it) · rendering strategies and hydration · optimistic UI · XSS escape hatches |
+| **[[React]]** | Virtual DOM · hooks and the lifecycle mapping · `useEffect` vs `useLayoutEffect` · **re-renders and memoisation** in full (the three causes, every dead-memo case with code, what beats memoising, how to prove it) · rendering strategies and hydration · fetch races and `AbortController` · optimistic UI · XSS escape hatches |
 | **[[State Management]]** | Why a container at all · Redux end to end · server state vs client state vs URL state · **libraries worth learning**, in order of payoff |
 | **[[CSS]]** | Flexbox (the two axes, `flex: 1` is `1 1 0%`) · Grid (`fr` splits the **free** space, `repeat(auto-fit, minmax())`, bento, lines not tracks) · flex vs grid · 32 screenshots |
 
