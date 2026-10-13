@@ -190,6 +190,7 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/retos-sandbox/app/CurrencyBadge.tsx",
     "Study/Retos/retos-sandbox/AGENTS.md",
     "Study/Retos/retos-sandbox/package-lock.json",
     "Study/Retos/retos-sandbox/node_modules/next/web-vitals.d.ts",
@@ -225,7 +226,6 @@
     "Study/Retos/retos-sandbox/node_modules/eslint-plugin-jsx-a11y/docs/rules/prefer-tag-over-role.md",
     "Study/Retos/retos-sandbox/node_modules/eslint-plugin-jsx-a11y/docs/rules/no-static-element-interactions.md",
     "Study/Retos/retos-sandbox/node_modules/eslint-plugin-jsx-a11y/docs/rules/no-redundant-roles.md",
-    "Study/Retos/retos-sandbox/node_modules/eslint-plugin-jsx-a11y/docs/rules/no-onchange.md",
     "Study/Retos/retos-sandbox/public/window.svg",
     "Study/Retos/retos-sandbox/public/vercel.svg",
     "Study/Retos/retos-sandbox/public/next.svg",
