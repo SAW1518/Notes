@@ -42,7 +42,7 @@ One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the
 
 # The challenges — `Retos/`
 
-Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in a throwaway sandbox outside the vault and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
+Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project; `node_modules/` and `.next/` are git-ignored, so run `npm install` on each Mac) and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
 
 | Reto | Concept | Positions |
 |---|---|---|

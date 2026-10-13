@@ -24,11 +24,14 @@ Background: [[React Internals]] (what hydration does with fibers) · [[React#Hyd
 
 ---
 
-## Setup — a sandbox outside the vault
+## Setup — the sandbox
 
-The vault holds notes only, so the code goes in a throwaway project:
+The code lives in `Retos/retos-sandbox/`, a Next.js project. Its source is committed and syncs to the other Mac; `node_modules/` and `.next/` are git-ignored, so run `npm install` there before the first `npm run dev`.
+
+To create it from scratch:
 
 ```bash
+cd Retos
 npx create-next-app@latest retos-sandbox
 cd retos-sandbox
 npm run dev

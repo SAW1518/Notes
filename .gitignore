@@ -1,0 +1,3 @@
+# Dependencies and build output of code sandboxes (e.g. study/Retos/retos-sandbox)
+node_modules/
+.next/

@@ -10,7 +10,7 @@ Hard constraints live in `.claude/rules/`. The one that matters most: **nothing 
 
 `Vacantes/` holds one note per position, extracted from OneHub. They are the source of *what* `Study prompt.md` asks; the topic notes are the source of *how deep*. A gap only one client needs goes in that position's `# Still to study`; a gap several need goes in the topic note and in README's "Gaps more than one position needs".
 
-`Retos/` holds hands-on challenges, one note per concept, numbered (`01 …`). Levels go predict → break → fix → client case → say it out loud; solutions sit in folded callouts (`> [!success]-`); code is written in a sandbox outside the vault. Add each new reto to README's table.
+`Retos/` holds hands-on challenges, one note per concept, numbered (`01 …`). Levels go predict → break → fix → client case → say it out loud; solutions sit in folded callouts (`> [!success]-`); code is written in `Retos/retos-sandbox/` (Next.js). Its source is committed; `node_modules/` and `.next/` are ignored by the root `.gitignore` — never commit them. Add each new reto to README's table.
 
 `_archive/` is provenance only — the old mock-interview sessions and superseded sources. Never study material, never a source for new notes.
 
