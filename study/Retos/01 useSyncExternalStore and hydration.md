@@ -82,8 +82,10 @@ export function CurrencyBadge() {
 
 Before running anything, open the browser console and run `localStorage.setItem('currency', 'EUR')`. Then **answer on paper**:
 
-1. Which letters (A, B, C, D) appear in the **terminal**? Which in the **browser console**?
+1. Which letters (A, B, C, D) appear in the **terminal**? Which in the **browser console**? :
+ABD console C in terminal
 2. `subscribe` and `getSnapshot` both touch `window` / `localStorage`. Why doesn't the server crash with `window is not defined`?
+
 3. What does the badge show in the HTML the server sends? And a moment later?
 4. How many times does `D · render` run in the browser, and **why** the extra one?
 

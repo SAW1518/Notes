@@ -1,8 +1,8 @@
 'use client';
 
 
-import { WindSong } from "next/font/google";
 import { useSyncExternalStore } from "react";
+
 
 function subscribe (onChange: ()=> void) {
 console.log('A subscribe')
@@ -10,17 +10,18 @@ window.addEventListener('storage', onChange)
 return () => window.removeEventListener('storage', onChange)
 }
 
-function getServerSnapshot(){
- console.log('B getServerSnapshot')
+function getSnapshot(){
+ console.log('B getSnapshot')
  return localStorage.getItem('currency') ?? 'USD'
 }
 
-function getServer(){
+function getServerSnapshot(){
  console.log('C render')
  return 'USD'
 }
 
 export function CurrencyBadge() {
  console.log('D render')
- const currency 
+ const currency = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+ return <span>{currency}</span>
 }
