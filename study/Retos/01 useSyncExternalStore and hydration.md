@@ -85,8 +85,9 @@ Before running anything, open the browser console and run `localStorage.setItem(
 1. Which letters (A, B, C, D) appear in the **terminal**? Which in the **browser console**? :
 ABD console C in terminal
 2. `subscribe` and `getSnapshot` both touch `window` / `localStorage`. Why doesn't the server crash with `window is not defined`?
-
+because window dont exist en the server
 3. What does the badge show in the HTML the server sends? And a moment later?
+brcuas thes the inial values 
 4. How many times does `D · render` run in the browser, and **why** the extra one?
 
 Now render `<CurrencyBadge />` in `app/page.tsx`, reload the page, and check your answers.
