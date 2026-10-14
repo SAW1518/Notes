@@ -124,8 +124,13 @@ export function NaivePrice() {
 With `EUR` still in `localStorage`, render it and reload.
 
 1. What error do you see, and where?
+is the hidatetion error the and is happenong because the first time all good USD are put id anyway but in a rerrender stem the balue that comes frome localStorage are difrent the error ins en cosole
 2. Write down, in two lines, what the server rendered, what the browser's first render produced, and why React refuses that.
+first render Price in USD
+secund render  Price in EUR
+because are diferent
 3. Change `localStorage` to `USD` and reload. Does the error go away? What does that tell you about how this bug shows up in production?
+the error is fixd
 
 > [!success]- Solution — Level 1
 > 1. A **hydration error** in the Next.js dev overlay and the console: the server-rendered text did not match the client.
