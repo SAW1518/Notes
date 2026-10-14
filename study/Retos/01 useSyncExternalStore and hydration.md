@@ -89,7 +89,10 @@ because we are puting a defut value in a server and we just call window when the
 3. What does the badge show in the HTML the server sends? And a moment later?
 USD -> EUR
 4. How many times does `D · render` run in the browser, and **why** the extra one?
-2av en la consola 1 en la termimal
+2 en la consola 1 en la termimal
+consola fhist time hidartion
+consola secund time reerender
+consola: hidartion
 
 Now render `<CurrencyBadge />` in `app/page.tsx`, reload the page, and check your answers.
 
@@ -268,7 +271,7 @@ Answer these out loud, in English, without looking. Then open the fold.
 
 ## Done when
 
-- [ ] Level 0 predicted on paper, then checked against the terminal and the console
+- [x] Level 0 predicted on paper, then checked against the terminal and the console
 - [ ] Level 1 error reproduced and explained in two lines
 - [ ] Level 2 passing all four requirements, traps answered
 - [ ] Level 3 banner appears and disappears with DevTools offline mode
