@@ -83,13 +83,13 @@ export function CurrencyBadge() {
 Before running anything, open the browser console and run `localStorage.setItem('currency', 'EUR')`. Then **answer on paper**:
 
 1. Which letters (A, B, C, D) appear in the **terminal**? Which in the **browser console**? :
-ABD console CD in terminal
+ABDC console CD in terminal
 2. `subscribe` and `getSnapshot` both touch `window` / `localStorage`. Why doesn't the server crash with `window is not defined`?
-because we are puting a defut value in a server 
+because we are puting a defut value in a server and we just call window when the hidratation is done
 3. What does the badge show in the HTML the server sends? And a moment later?
 USD -> EUR
 4. How many times does `D · render` run in the browser, and **why** the extra one?
-2 en la consola 1 en la termimal
+2av en la consola 1 en la termimal
 
 Now render `<CurrencyBadge />` in `app/page.tsx`, reload the page, and check your answers.
 
