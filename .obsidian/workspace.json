@@ -201,6 +201,8 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/retos-sandbox/public/currency.ts",
+    "Study/Retos/retos-sandbox/app/currency.ts",
     "Study/Retos/retos-sandbox/app/NaivePrice.tsx",
     "Work/02 Environments/Test users.md",
     "Work/02 Environments/Utils Users.md",
@@ -217,8 +219,6 @@
     "study/Retos/retos-sandbox/tsconfig.json",
     "study/Retos/retos-sandbox/public",
     "study/Retos/retos-sandbox/package.json",
-    "study/Retos/retos-sandbox/package-lock.json",
-    "study/Retos/retos-sandbox/next.config.ts",
     "study/Retos/retos-sandbox/README.md",
     "study/Retos/retos-sandbox/AGENTS.md",
     "study/Retos/01 useSyncExternalStore and hydration.md",

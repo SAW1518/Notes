@@ -2,17 +2,13 @@
 
 
 import { useSyncExternalStore } from "react";
+import { useStoredCurrency } from "./currency";
 
 
 function subscribe (onChange: ()=> void) {
 console.log('A subscribe')
 window.addEventListener('storage', onChange)
 return () => window.removeEventListener('storage', onChange)
-}
-
-function getSnapshot(){
- console.log('B getSnapshot')
- return localStorage.getItem('currency') ?? 'USD'
 }
 
 function getServerSnapshot(){
@@ -22,6 +18,6 @@ function getServerSnapshot(){
 
 export function CurrencyBadge() {
  console.log('D render')
- const currency = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+ const currency = useSyncExternalStore(subscribe, useStoredCurrency, getServerSnapshot)
  return <span>{currency}</span>
 }
