@@ -278,7 +278,7 @@ Answer these out loud, in English, without looking. Then open the fold.
 ## Done when
 
 - [x] Level 0 predicted on paper, then checked against the terminal and the console
-- [ ] Level 1 error reproduced and explained in two lines
+- [x] Level 1 error reproduced and explained in two lines
 - [ ] Level 2 passing all four requirements, traps answered
 - [ ] Level 3 banner appears and disappears with DevTools offline mode
 - [ ] Level 4 answered out loud without notes
