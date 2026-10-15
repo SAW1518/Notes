@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Retos/01 useSyncExternalStore and hydration.md",
+                "file": "Work/02 Environments/Test users.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 useSyncExternalStore and hydration"
+              "title": "Test users"
             }
           },
           {
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -201,6 +200,7 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/01 useSyncExternalStore and hydration.md",
     "Study/Retos/retos-sandbox/public/currency.ts",
     "Study/Retos/retos-sandbox/app/currency.ts",
     "Study/Retos/retos-sandbox/app/NaivePrice.tsx",
@@ -218,7 +218,6 @@
     "study/Retos/retos-sandbox/app/CurrencyBadge.tsx",
     "study/Retos/retos-sandbox/tsconfig.json",
     "study/Retos/retos-sandbox/public",
-    "study/Retos/retos-sandbox/package.json",
     "study/Retos/retos-sandbox/README.md",
     "study/Retos/retos-sandbox/AGENTS.md",
     "study/Retos/01 useSyncExternalStore and hydration.md",
