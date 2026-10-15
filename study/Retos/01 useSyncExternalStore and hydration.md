@@ -8,7 +8,7 @@ tags:
 positions:
   - Hyatt
   - Nordstrom
-status: todo
+status: in-progress
 ---
 
 # Reto 01 — `useSyncExternalStore` and hydration
@@ -274,6 +274,16 @@ Answer these out loud, in English, without looking. Then open the fold.
 > "`'use client'` doesn't mean client-only — the component is server-rendered first, then hydrated, and hydration needs the browser's first render to match the server's HTML. So I never read `window` or `localStorage` during render. For browser-only data I use `useSyncExternalStore`: the server and the hydration render use `getServerSnapshot`, and only after hydration does React call `getSnapshot` and subscribe, so the value updates without a mismatch. If the flash matters, as with a currency on a hotel page, I move the preference to a cookie so the server can render the right value from the start."
 
 ---
+
+## Where I left off
+
+Paused 2026-10-15, in the middle of Level 2. `app/currency.ts` exists, but the level is not passing yet. To resume:
+
+1. Make `useStoredCurrency` the whole hook: move `subscribe`, `getSnapshot` (with `?? 'USD'`) and `getServerSnapshot` into `currency.ts`, and call `useSyncExternalStore` inside it.
+2. Make `setStoredCurrency` notify the same tab, and make `subscribe` listen for that notification.
+3. Use `useStoredCurrency()` in both `CurrencyBadge` and `NaivePrice`.
+4. Test in incognito: "Set GBP" changes both components, and there is no hydration error.
+5. Answer the three Level 2 traps.
 
 ## Done when
 
