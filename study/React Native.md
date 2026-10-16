@@ -191,6 +191,9 @@ eas build:configure             # creates eas.json: development, preview, produc
 eas build --profile development --platform android
 ```
 
+> [!warning] `Failed to connect to /192.168.x.x:8081` — `ECONNREFUSED` in the development build
+> The app is up but Metro isn't. `run:android --no-bundler`, or closing the `expo start` terminal, leaves the installed app pointing at a server nobody is running. Start it with `npx expo start` and press `a`. If Metro is running and the LAN IP is still refused, it's the same VPN/firewall problem as Expo Go above: `npx expo start --localhost` plus `adb reverse tcp:8081 tcp:8081`.
+
 EAS prints a link and QR; install the build on a phone or emulator, then `npx expo start` and open the project from it. The `preview` profile is the same idea without dev tools, for QA; `production` is what goes to the stores ([[#10. Build and release|Part 2 §10]]).
 
 ---
