@@ -13,7 +13,77 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/React Native.md",
+                "file": "study/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "ba1afd9af9e15d83",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study/React Native.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React Native"
+            }
+          },
+          {
+            "id": "c5328903873fd7a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study/React Native.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React Native"
+            }
+          },
+          {
+            "id": "ccf79d9dc7073763",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study/React Native.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React Native"
+            }
+          },
+          {
+            "id": "5f5c80f8c2ec672c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study/React Native.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "React Native"
+            }
+          },
+          {
+            "id": "058585e4700a98f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "study/React Native.md",
                 "mode": "source",
                 "source": false
               },
@@ -31,7 +101,8 @@
               "title": "New tab"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -93,7 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 449.5663871765137
+    "width": 299.27734375
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -198,54 +269,54 @@
       "bases:Create new base": false
     }
   },
-  "active": "03af9e62f428b734",
+  "active": "058585e4700a98f9",
   "lastOpenFiles": [
-    "Study/Retos/retos-expo/expo-env.d.ts",
-    "Study/Retos/retos-expo/AGENTS.md",
-    "Study/Retos/retos-expo/package-lock.json",
-    "Study/Retos/retos-expo/node_modules/uuid/dist/bin/uuid",
-    "Study/Retos/retos-expo/node_modules/update-browserslist-db/cli.js",
-    "Study/Retos/retos-expo/node_modules/regjsparser/bin/parser",
-    "Study/Retos/retos-expo/node_modules/mime/cli.js",
-    "Study/Retos/retos-expo/node_modules/loose-envify/cli.js",
-    "Study/Retos/retos-expo/node_modules/acorn/bin/acorn",
-    "Study/Retos/retos-expo/node_modules/lan-network/dist/lan-network-cli.js",
-    "Study/Retos/retos-expo/node_modules/fb-dotslash/bin/dotslash",
-    "Study/Retos/retos-expo/node_modules/is-docker/cli.js",
-    "Study/Retos/retos-expo/node_modules/expo-image/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-image/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo-modules-core/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-modules-core/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/react-native/README.md",
-    "Study/Retos/retos-expo/node_modules/expo/node_modules/@expo/cli/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/README.md",
-    "Study/Retos/retos-expo/node_modules/@expo/ui/README.md",
-    "Study/Retos/retos-expo/node_modules/@expo/ui/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo/node_modules/@expo/cli/node_modules/@expo/router-server/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-font/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-font/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo-router/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native-web/node_modules/@react-native/normalize-colors/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/node_modules/hermes-estree/README.md",
-    "Study/Retos/retos-expo/node_modules/@expo/metro/node_modules/metro-config/README.md",
-    "Study/Retos/retos-expo/node_modules/metro-config/node_modules/metro/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-router/node_modules/@radix-ui/react-roving-focus/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-constants/node_modules/@expo/env/README.md",
-    "Study/Retos/retos-expo/node_modules/expo/node_modules/@expo/env/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/node_modules/babel-plugin-syntax-hermes-parser/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/node_modules/hermes-parser/README.md",
-    "Study/Retos/retos-expo/node_modules/metro-config/node_modules/metro/src/integration_tests/basic_bundle/test.png",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xxhdpi/ic_resume.png",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xxxhdpi/ic_resume.png",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xhdpi/ic_resume.png",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-hdpi/ic_resume.png",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-mdpi/ic_resume.png",
-    "Study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/loader.png",
-    "Study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/close.png",
-    "Study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/chevron-right.png",
-    "Study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/chevron-left.png",
+    "study/Retos/retos-expo/expo-env.d.ts",
+    "study/Retos/retos-expo/node_modules/expo-image/LICENSE",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/AndroidManifest.xml",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/debug/AndroidManifest.xml",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/debug",
+    "study/Retos/retos-expo/node_modules/react-native/React/third-party.xcconfig",
+    "study/Retos/retos-expo/node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy",
+    "study/Retos/retos-expo/node_modules/react-native/React/Resources",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/jni/third-party/glog/CMakeLists.txt",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/jni/third-party/folly/CMakeLists.txt",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/jni/third-party/folly",
+    "study/Retos/retos-expo/node_modules/expo-image/README.md",
+    "study/Retos/retos-expo/node_modules/expo-image/CHANGELOG.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xxxhdpi/ic_resume.png",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xxhdpi/ic_resume.png",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-xhdpi/ic_resume.png",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-mdpi/ic_resume.png",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/res/devsupport/drawable-hdpi/ic_resume.png",
+    "study/Retos/retos-expo/node_modules/react-native/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/jni/first-party/jni-hack/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/runtime/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/Renderer/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/chevron-right.png",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/chevron-left.png",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/loader.png",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/close.png",
+    "study/Retos/retos-expo/node_modules/react-native/Libraries/LogBox/UI/LogBoxImages/alert-triangle.png",
+    "study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/README.md",
+    "study/Retos/retos-expo/node_modules/react-native/ReactApple/README.md",
+    "study/Retos/retos-expo/node_modules/expo-modules-core/README.md",
+    "study/Retos/retos-expo/node_modules/expo-modules-core/CHANGELOG.md",
+    "study/Retos/retos-expo/node_modules/react-native-web/README.md",
+    "study/Retos/retos-expo/node_modules/@react-native/debugger-frontend/README.md",
+    "study/Retos/retos-expo/node_modules/react-native-reanimated/README.md",
+    "study/Retos/retos-expo/node_modules/react-native-reanimated/android/README.md",
+    "study/Retos/retos-expo/node_modules/expo-router/README.md",
+    "study/Retos/retos-expo/node_modules/react-native-screens/windows/README.md",
+    "study/Retos/retos-expo/node_modules/react-native-screens/README.md",
+    "study/Retos/retos-expo/node_modules/expo/node_modules/@expo/cli/README.md",
+    "study/Retos/retos-expo/node_modules/react-native-gesture-handler/README.md",
+    "study/Retos/retos-expo/node_modules/typescript/SECURITY.md",
+    "study/Retos/retos-expo/node_modules/typescript/README.md",
+    "study/Retos/retos-expo/node_modules/@expo/ui/README.md",
+    "study/Retos/retos-expo/node_modules/@expo/ui/CHANGELOG.md",
     "Untitled.canvas"
   ]
 }
