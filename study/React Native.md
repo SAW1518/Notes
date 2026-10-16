@@ -81,7 +81,7 @@ brew install --cask zulu@17
 brew install --cask android-studio
 ```
 
-If `java -version` doesn't show 17 afterwards, run `brew info --cask zulu@17`, open the folder it prints and double-click the `.pkg` installer. Then add to `~/.zshrc`:
+If `java -version` doesn't show 17 afterwards, run `brew info --cask zulu@17`, open the folder it prints and double-click the `.pkg` installer. Then add to the **end** of `~/.zshrc` — below SDKMAN's init, if it is there, because SDKMAN sets `JAVA_HOME` to its own JDK and the last export wins. Gradle reads `JAVA_HOME`, not the `java` on `PATH`, so `java -version` can keep saying 25 while builds use 17:
 
 ```bash
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
@@ -174,6 +174,13 @@ npx expo install expo-dev-client
 npx expo run:android            # prebuild → android/, Gradle build, installs on the running emulator
 npx expo run:ios                # prebuild → ios/, pod install, Xcode build, installs on the Simulator
 ```
+
+Two failures mean step 3's exports are missing from the shell that ran the build:
+
+- `SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable` — `ANDROID_HOME` is unset.
+- `Execution failed for task ':react-native-worklets:configureCMakeDebug[arm64-v8a]'` / `A restricted method in java.lang.System has been called` — Gradle ran on JDK 24+ (here SDKMAN's 25) instead of 17.
+
+Fix `~/.zshrc`, open a new terminal, stop the daemon that started on the wrong JDK (`cd android && ./gradlew --stop`) and run `run:android` again. Don't fix it in `android/local.properties` or `android/gradle.properties`: prebuild regenerates `android/`.
 
 The first build takes several minutes; later ones are incremental. From then on `npx expo start` opens the app itself instead of Expo Go — JavaScript changes still hot-reload, and only a native change (a new native library, a config plugin, `app.json` native fields) needs `run:*` again. The generated `ios/` and `android/` are ignored in this vault: prebuild regenerates them from config.
 
