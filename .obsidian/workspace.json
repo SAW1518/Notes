@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Retos/02 PokedexRN from 2022 to 2026.md",
+                "file": "Study/React Native.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02 PokedexRN from 2022 to 2026"
+              "title": "React Native"
             }
           },
           {
@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 449.5663871765137
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -200,12 +200,13 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/02 PokedexRN from 2022 to 2026.md",
+    "Study/Retos/01 useSyncExternalStore and hydration.md",
+    "Study/React Native.md",
     "Study/Vacantes/OXXO.md",
     "Study/Retos/retos-sandbox/README.md",
-    "Study/Retos/02 PokedexRN from 2022 to 2026.md",
     "Study/Retos/retos-sandbox/AGENTS.md",
     "Work/02 Environments/Test users.md",
-    "Study/Retos/01 useSyncExternalStore and hydration.md",
     "Study/Retos/retos-sandbox/public/currency.ts",
     "Study/Retos/retos-sandbox/app/currency.ts",
     "Study/Retos/retos-sandbox/app/NaivePrice.tsx",
@@ -240,7 +241,6 @@
     "study/_archive/NDM-SXP Frontend Engineer - POS Nordstrom.md",
     "study/_archive/Mock Interviews Knowledge Base.md",
     "study/_archive/Mock Interview Session 04.md",
-    "study/_archive/Mock Interview Session 03.md",
     "study/attachments/grid-28.png",
     "study/attachments/grid-27.png",
     "study/attachments/grid-26.png",
