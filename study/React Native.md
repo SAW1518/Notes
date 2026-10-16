@@ -81,7 +81,7 @@ brew install --cask zulu@17
 brew install --cask android-studio
 ```
 
-If `java -version` doesn't show 17 afterwards, run `brew info --cask zulu@17`, open the folder it prints and double-click the `.pkg` installer. Then add to `~/.zshrc`:
+If `java -version` doesn't show 17 afterwards, run `brew info --cask zulu@17`, open the folder it prints and double-click the `.pkg` installer. Then add to the **end** of `~/.zshrc` — below SDKMAN's init, if it is there, because SDKMAN sets `JAVA_HOME` to its own JDK and the last export wins. Gradle reads `JAVA_HOME`, not the `java` on `PATH`, so `java -version` can keep saying 25 while builds use 17:
 
 ```bash
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
@@ -113,12 +113,15 @@ pod --version
 
 **5. VS Code** — install the **Expo Tools** extension (autocomplete and validation for `app.json`, `eas.json`), plus ESLint and Prettier.
 
-**6. Expo account and EAS CLI** — not needed until builds and over-the-air updates:
+**6. Expo account and EAS CLI** — not needed for Expo Go or a local development build; needed for EAS builds and over-the-air updates. Run it in a real terminal (Terminal.app, iTerm), not from inside Obsidian:
 
 ```bash
-npx expo login
 npm install --global eas-cli
+eas login                # opens the browser — "Continue with Google" works here
+eas whoami
 ```
+
+`npx expo login` only takes a username and password in the terminal, so an account created with Google or GitHub can't use it. `eas login` logs in through the browser by default; `eas login --device` prints a code to enter on any browser if none opens. The session lives in `~/.expo` and is shared by `eas` and `npx expo`.
 
 ## Smoke test
 
@@ -129,7 +132,14 @@ cd retos-expo
 npx expo start
 ```
 
-In the terminal: `i` opens the iOS Simulator, `a` the Android emulator (start the emulator first), `j` opens React Native DevTools, `r` reloads. On an Android phone, scan the QR with Expo Go. If a screen appears in each, the Mac is ready.
+Start the Android emulator before pressing `a`. Expo tries to boot it, but a cold first boot outlasts its wait and it fails with `No Android connected device found, and no emulators could be started automatically`:
+
+```bash
+emulator -avd <name> &          # name from `emulator -list-avds`; or Android Studio → Device Manager → ▶
+adb devices                     # wait for "emulator-5554  device"
+```
+
+In the terminal: `i` opens the iOS Simulator, `a` the Android emulator, `j` opens React Native DevTools, `r` reloads. On an Android phone, scan the QR with Expo Go. If a screen appears in each, the Mac is ready.
 
 The SDK 57 template puts the routes in `src/app/`, not `app/` — Expo Router accepts either.
 
@@ -145,6 +155,48 @@ The SDK 57 template puts the routes in `src/app/`, not `app/` — Expo Router ac
 
 > [!tip] Fix the environment with the tool, not by hand
 > `npx expo-doctor` checks the project's dependencies against its SDK. `npx expo install <pkg>` installs the version that matches the SDK — use it instead of `npm install` for anything native.
+
+## Development build
+
+Expo Go proves the Mac works; teams work in a **development build** — the project's own debug app, with `expo-dev-client` and any native library ([[#3. Expo — the framework|Part 2 §3]]). Two ways to make one, and a team uses both:
+
+| | Local: `npx expo run:*` | Cloud: `eas build --profile development` |
+|---|---|---|
+| Compiles on | This Mac (Gradle, Xcode + CocoaPods) | Expo's servers |
+| Used by | The developer changing native code, iterating fast | The whole team and QA, including people without Xcode or Android Studio |
+| Installs on | The local emulator, Simulator or a USB device | Any phone, through a link or QR (internal distribution) |
+| Needs | Steps 1–4 | Step 6 — the Expo account |
+
+**Local**, from the smoke-test project:
+
+```bash
+npx expo install expo-dev-client
+npx expo run:android            # prebuild → android/, Gradle build, installs on the running emulator
+npx expo run:ios                # prebuild → ios/, pod install, Xcode build, installs on the Simulator
+```
+
+Two failures mean step 3's exports are missing from the shell that ran the build:
+
+- `SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable` — `ANDROID_HOME` is unset.
+- `Execution failed for task ':react-native-worklets:configureCMakeDebug[arm64-v8a]'` / `A restricted method in java.lang.System has been called` — Gradle ran on JDK 24+ (here SDKMAN's 25) instead of 17.
+
+On iOS, `xcodebuild: error: Could not resolve package dependencies` (exit code 65) means Xcode is too old: `expo-modules-jsi` and `@expo/expo-modules-macros-plugin` are Swift packages with `swift-tools-version: 6.2`, which only Xcode 26 ships. Xcode 16.x gets through prebuild, CocoaPods and most of the compile, then fails there. Check `xcodebuild -version` and install Xcode 26.3 (step 2).
+
+For the Android errors: fix `~/.zshrc`, open a new terminal, stop the daemon that started on the wrong JDK (`cd android && ./gradlew --stop`) and run `run:android` again. Don't fix it in `android/local.properties` or `android/gradle.properties`: prebuild regenerates `android/`.
+
+The first build takes several minutes; later ones are incremental. From then on `npx expo start` opens the app itself instead of Expo Go — JavaScript changes still hot-reload, and only a native change (a new native library, a config plugin, `app.json` native fields) needs `run:*` again. The generated `ios/` and `android/` are ignored in this vault: prebuild regenerates them from config.
+
+**Cloud:**
+
+```bash
+eas build:configure             # creates eas.json: development, preview, production profiles
+eas build --profile development --platform android
+```
+
+> [!warning] `Failed to connect to /192.168.x.x:8081` — `ECONNREFUSED` in the development build
+> The app is up but Metro isn't. `run:android --no-bundler`, or closing the `expo start` terminal, leaves the installed app pointing at a server nobody is running. Start it with `npx expo start` and press `a`. If Metro is running and the LAN IP is still refused, it's the same VPN/firewall problem as Expo Go above: `npx expo start --localhost` plus `adb reverse tcp:8081 tcp:8081`.
+
+EAS prints a link and QR; install the build on a phone or emulator, then `npx expo start` and open the project from it. The `preview` profile is the same idea without dev tools, for QA; `production` is what goes to the stores ([[#10. Build and release|Part 2 §10]]).
 
 ---
 
