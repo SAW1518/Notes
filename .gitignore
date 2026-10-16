@@ -1,4 +1,4 @@
-# Dependencies and build output of code sandboxes (e.g. study/Retos/retos-sandbox)
+# Dependencies and build output of the code sandboxes (study/Retos/retos-sandbox, study/Retos/retos-expo) — any depth
 node_modules/
 .next/
 
