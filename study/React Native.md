@@ -131,6 +131,18 @@ npx expo start
 
 In the terminal: `i` opens the iOS Simulator, `a` the Android emulator (start the emulator first), `j` opens React Native DevTools, `r` reloads. On an Android phone, scan the QR with Expo Go. If a screen appears in each, the Mac is ready.
 
+The SDK 57 template puts the routes in `src/app/`, not `app/` — Expo Router accepts either.
+
+> [!warning] "Something went wrong" in Expo Go on the Android emulator
+> Expo Go connects to Metro through the Mac's LAN IP (`exp://192.168.x.x:8081`). A VPN, a corporate security agent or the macOS firewall can block that, and Expo Go only shows a generic error — the real one is in `adb logcat` (`Failed to download remote update` / `connectSocket`). Go through adb instead of the network:
+>
+> ```bash
+> npx expo start --localhost
+> adb reverse tcp:8081 tcp:8081    # emulator's 8081 → the Mac's 8081; lost when the emulator restarts
+> ```
+>
+> Then press `a` again (or open `exp://127.0.0.1:8081` in Expo Go).
+
 > [!tip] Fix the environment with the tool, not by hand
 > `npx expo-doctor` checks the project's dependencies against its SDK. `npx expo install <pkg>` installs the version that matches the SDK — use it instead of `npm install` for anything native.
 

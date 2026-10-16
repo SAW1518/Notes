@@ -40,7 +40,7 @@ npx expo install @tanstack/react-query expo-sqlite expo-image expo-network
 npx expo start
 ```
 
-The default template ships example screens. If `package.json` has a `reset-project` script, run `npm run reset-project`; otherwise delete the example routes in `app/` yourself.
+The default template ships example screens, and puts routes in `src/app/` — the layout below works the same under `src/`. If `package.json` has a `reset-project` script, run `npm run reset-project`; otherwise delete the example routes in `app/` yourself.
 
 `npx expo install` (not `npm install`) picks the versions that match the project's SDK. Everything in this reto runs in **Expo Go** — no native module outside the Expo SDK — so there is no development build to make.
 
