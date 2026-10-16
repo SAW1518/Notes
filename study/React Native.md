@@ -180,7 +180,9 @@ Two failures mean step 3's exports are missing from the shell that ran the build
 - `SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable` — `ANDROID_HOME` is unset.
 - `Execution failed for task ':react-native-worklets:configureCMakeDebug[arm64-v8a]'` / `A restricted method in java.lang.System has been called` — Gradle ran on JDK 24+ (here SDKMAN's 25) instead of 17.
 
-Fix `~/.zshrc`, open a new terminal, stop the daemon that started on the wrong JDK (`cd android && ./gradlew --stop`) and run `run:android` again. Don't fix it in `android/local.properties` or `android/gradle.properties`: prebuild regenerates `android/`.
+On iOS, `xcodebuild: error: Could not resolve package dependencies` (exit code 65) means Xcode is too old: `expo-modules-jsi` and `@expo/expo-modules-macros-plugin` are Swift packages with `swift-tools-version: 6.2`, which only Xcode 26 ships. Xcode 16.x gets through prebuild, CocoaPods and most of the compile, then fails there. Check `xcodebuild -version` and install Xcode 26.3 (step 2).
+
+For the Android errors: fix `~/.zshrc`, open a new terminal, stop the daemon that started on the wrong JDK (`cd android && ./gradlew --stop`) and run `run:android` again. Don't fix it in `android/local.properties` or `android/gradle.properties`: prebuild regenerates `android/`.
 
 The first build takes several minutes; later ones are incremental. From then on `npx expo start` opens the app itself instead of Expo Go — JavaScript changes still hot-reload, and only a native change (a new native library, a config plugin, `app.json` native fields) needs `run:*` again. The generated `ios/` and `android/` are ignored in this vault: prebuild regenerates them from config.
 
