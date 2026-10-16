@@ -195,6 +195,15 @@ eas build --profile development --platform android
 
 > [!warning] `Failed to connect to /192.168.x.x:8081` (`ECONNREFUSED`) or `java.net.SocketException: Connection reset` in the development build
 > The app is up but Metro isn't. With the LAN IP the connection is refused; with `adb reverse` in place the emulator's `127.0.0.1:8081` does connect — to adb's tunnel — and the tunnel resets it because nothing on the Mac listens on 8081 (`lsof -nP -iTCP:8081 -sTCP:LISTEN` prints nothing). `run:android --no-bundler`, or closing the `expo start` terminal, leaves the installed app pointing at a server nobody is running. Start it with `npx expo start` and press `a`. If Metro is running and the LAN IP is still refused, it's the same VPN/firewall problem as Expo Go above: `npx expo start --localhost` plus `adb reverse tcp:8081 tcp:8081`.
+>
+> `run:android` has no `--localhost`: it opens the app with `?url=http://<LAN IP>:8081` (logcat shows the `am start` line). Expo CLI already runs `adb reverse` for the port every time it opens an Android app, so only the hostname is wrong. Override it — `REACT_NATIVE_PACKAGER_HOSTNAME` is what Expo CLI's `UrlCreator` checks first:
+>
+> ```bash
+> REACT_NATIVE_PACKAGER_HOSTNAME=127.0.0.1 npx expo run:android
+> # or, with the build already installed and Metro running:
+> adb shell am start -a android.intent.action.VIEW \
+>   -d 'exp+retos-expo://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8081'
+> ```
 
 EAS prints a link and QR; install the build on a phone or emulator, then `npx expo start` and open the project from it. The `preview` profile is the same idea without dev tools, for QA; `production` is what goes to the stores ([[#10. Build and release|Part 2 §10]]).
 
