@@ -53,19 +53,24 @@ export NVM_DIR="$HOME/.nvm"
 **2. Xcode** (iOS Simulator). This Mac runs macOS 15.7, and the App Store's current Xcode (27) requires macOS Tahoe 26.6 or later. Two ways out:
 
 - Update macOS to 26.6+, then install Xcode from the App Store; or
-- Stay on 15.7 and download the latest **Xcode 26.x** from [developer.apple.com/download/all](https://developer.apple.com/download/all/) (a free Apple ID is enough). Unzip it into `/Applications`.
+- Stay on 15.7 and download **Xcode 26.3** from [developer.apple.com/download/all](https://developer.apple.com/download/all/) (a free Apple ID is enough). It is the last Xcode that runs on Sequoia: from 26.4 on, Xcode requires macOS Tahoe 26.2. The "Additional Tools for Xcode" download is not needed for React Native.
 
-Then:
+Installing from a `.xip`:
 
 ```bash
-sudo xcode-select --switch /Applications/Xcode.app   # or Xcode_26.x.app
+cd ~/Downloads
+xip -x Xcode_26.3_Apple_silicon.xip      # or double-click it; takes several minutes
+mv Xcode.app /Applications/Xcode.app
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -license accept
-xcodebuild -runFirstLaunch
+xcodebuild -runFirstLaunch                # installs the extra system components
+xcodebuild -downloadPlatform iOS          # the iOS Simulator runtime, several GB
 ```
 
-Open Xcode → **Settings → Components** (called Platforms on some versions) → install an **iOS Simulator** runtime. Check:
+(The same runtime can be installed from Xcode → **Settings → Components**.) Check:
 
 ```bash
+xcodebuild -version
 xcrun simctl list devices available | head
 ```
 
