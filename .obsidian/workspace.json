@@ -13,77 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "ba1afd9af9e15d83",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study/React Native.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "React Native"
-            }
-          },
-          {
-            "id": "c5328903873fd7a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study/React Native.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "React Native"
-            }
-          },
-          {
-            "id": "ccf79d9dc7073763",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study/React Native.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "React Native"
-            }
-          },
-          {
-            "id": "5f5c80f8c2ec672c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study/React Native.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "React Native"
-            }
-          },
-          {
-            "id": "058585e4700a98f9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "study/React Native.md",
+                "file": "Study/React Native.md",
                 "mode": "source",
                 "source": false
               },
@@ -101,8 +31,7 @@
               "title": "New tab"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -164,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299.27734375
+    "width": 288.4531059265137
   },
   "right": {
     "id": "99fdcf91c0c750d4",
@@ -269,54 +198,54 @@
       "bases:Create new base": false
     }
   },
-  "active": "058585e4700a98f9",
+  "active": "03af9e62f428b734",
   "lastOpenFiles": [
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesWorklets/artifacts/ExpoModulesWorklets-release.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesWorklets/artifacts/ExpoModulesWorklets-debug.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesWorklets/artifacts",
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesCore/artifacts/ExpoModulesCore-release.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesCore/artifacts/ExpoModulesCore-debug.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoModulesCore/artifacts",
-    "study/Retos/retos-expo/ios/Pods/ExpoImage/artifacts/ExpoImage-release.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoImage/artifacts/ExpoImage-debug.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoImage/artifacts",
-    "study/Retos/retos-expo/ios/Pods/ExpoFont/artifacts/ExpoFont-release.tar.gz",
-    "study/Retos/retos-expo/ios/Pods/ExpoFont/artifacts/ExpoFont-debug.tar.gz",
-    "study/Retos/retos-expo/ios/retosexpo/Images.xcassets/SplashScreenLogo.imageset/image@3x.png",
-    "study/Retos/retos-expo/ios/retosexpo/Images.xcassets/SplashScreenLogo.imageset/image@2x.png",
-    "study/Retos/retos-expo/ios/retosexpo/Images.xcassets/SplashScreenLogo.imageset/image.png",
-    "study/Retos/retos-expo/ios/retosexpo/expo.icon/Assets/grid.png",
-    "study/Retos/retos-expo/ios/retosexpo/expo.icon/Assets/expo-symbol 2.svg",
-    "study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_background.webp",
-    "study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_round.webp",
-    "study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_monochrome.webp",
-    "study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_foreground.webp",
-    "study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher.webp",
-    "study/Retos/retos-expo/node_modules/expo-dev-client/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-client/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-json-utils/README.md",
-    "study/Retos/retos-expo/node_modules/expo-json-utils/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-updates-interface/README.md",
-    "study/Retos/retos-expo/node_modules/expo-updates-interface/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-manifests/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-manifests/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-menu-interface/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-launcher/android/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-launcher/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-launcher/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-menu/README.md",
-    "study/Retos/retos-expo/node_modules/expo-dev-menu/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/expo-image/README.md",
-    "study/Retos/retos-expo/node_modules/expo-image/CHANGELOG.md",
-    "study/Retos/retos-expo/node_modules/react-native/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/jni/first-party/jni-hack/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/runtime/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactAndroid/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/Libraries/Renderer/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/README.md",
-    "study/Retos/retos-expo/node_modules/react-native/ReactApple/README.md",
-    "study/Retos/retos-expo/node_modules/expo-modules-core/README.md",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/prefab_package_header_only/prefab_publication.json/release",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/prefab_package_header_only/prefab_publication.json/debug",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/prefab_package_header_only/prefab_publication.json",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/prefab_package_header_only",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates",
+    "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build",
+    "Study/Retos/retos-expo/node_modules/react-native-worklets/android/build/intermediates/prefab_package_header_only/prefab_publication.json/release",
+    "Study/Retos/retos-expo/node_modules/react-native-worklets/android/build/intermediates/prefab_package_header_only/prefab_publication.json/debug",
+    "Study/Retos/retos-expo/node_modules/react-native-worklets/android/build/intermediates/prefab_package_header_only/prefab_publication.json",
+    "Study/Retos/retos-expo/node_modules/react-native-worklets/android/build/intermediates/prefab_package_header_only",
+    "Study/Retos/retos-expo/node_modules/react-native-worklets/android/build/intermediates",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_background.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-hdpi/ic_launcher_background.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xhdpi/ic_launcher_background.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.webp",
+    "Study/Retos/retos-expo/android/app/src/main/res/mipmap-mdpi/ic_launcher_background.webp",
+    "Study/Retos/retos-expo/node_modules/expo-dev-client/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-client/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-launcher/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-menu/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-launcher/android/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-menu/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-launcher/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-dev-menu-interface/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-updates-interface/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-updates-interface/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-manifests/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-manifests/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-json-utils/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-json-utils/CHANGELOG.md",
+    "Study/Retos/retos-expo/AGENTS.md",
+    "Study/Retos/retos-expo/node_modules/expo-image/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-image/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/expo-modules-core/README.md",
+    "Study/Retos/retos-expo/node_modules/expo-modules-core/CHANGELOG.md",
+    "Study/Retos/retos-expo/node_modules/react-native/README.md",
+    "Study/Retos/retos-expo/node_modules/expo/node_modules/@expo/cli/README.md",
+    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation/README.md",
+    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/README.md",
+    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/README.md",
+    "Study/Retos/retos-expo/node_modules/@expo/ui/README.md",
     "Untitled.canvas"
   ]
 }
