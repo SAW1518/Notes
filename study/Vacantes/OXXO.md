@@ -59,7 +59,7 @@ React Native up to ~2022: CLI (`react-native init`), Redux, React Navigation. My
 
 Versions as of October 2026: React Native 0.87 stable (August 2026), 0.88 in release candidate; Expo SDK 57 stable (RN 0.86, React 19.2), SDK 58 in beta on RN 0.88 RC.
 
-Hands-on: [[02 PokedexRN from 2022 to 2026]] rebuilds the 2022 app on Expo and walks through every one of these rows that it touches.
+The full guide, with setup from zero: [[React Native]]. Hands-on: [[02 PokedexRN from 2022 to 2026]] rebuilds the 2022 app on Expo and walks through every one of these rows that it touches.
 
 ## Coverage in the vault
 
@@ -69,7 +69,7 @@ Hands-on: [[02 PokedexRN from 2022 to 2026]] rebuilds the 2022 app on Expo and w
 | React 19 APIs (`use`, actions, `useOptimistic`, Compiler) | [[React]] | Partial |
 | TypeScript | [[TypeScript]] · [[TypeScript Boundary]] | Covered |
 | Server state | [[State Management]] | Partial — no TanStack Query in depth |
-| React Native, Expo, New Architecture | [[02 PokedexRN from 2022 to 2026]] | Partial — one reto, no topic note |
+| React Native, Expo, New Architecture | [[React Native]] · [[02 PokedexRN from 2022 to 2026]] | Covered at refresher depth — Part 0 setup, Part 1 recall, Part 2 what changed |
 | Hydration (Expo Router web, Next.js) | [[01 useSyncExternalStore and hydration]] · [[React#Hydration, explained to a non-technical PM]] | Covered for web |
 | Testing strategy | [[Testing and Process#1. Testing]] | Partial — no RNTL, no mobile E2E |
 | Mobile accessibility | [[Browser Platform#3. Accessibility and focus management]] | Partial — web only |

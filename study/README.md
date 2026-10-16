@@ -70,6 +70,7 @@ Hands-on exercises for a concept that did not stick from reading alone. Each one
 | **[[React]]** | Virtual DOM · hooks and the lifecycle mapping · `useEffect` vs `useLayoutEffect` · **re-renders and memoisation** in full (the three causes, every dead-memo case with code, what beats memoising, how to prove it) · rendering strategies and hydration · fetch races and `AbortController` · optimistic UI · XSS escape hatches |
 | **[[React Internals]]** | Elements vs fibers · the stack reconciler and why Fiber replaced it · `current` / `workInProgress` double buffering · render phase (`beginWork` / `completeWork`, bailout) and commit phase order · the diff rules and keys · reconciler vs renderer · lanes, the scheduler and concurrent rendering · rules of hooks from the fiber · one update end to end · timeline 0.14 → 19.2 |
 | **[[State Management]]** | Why a container at all · Redux end to end · server state vs client state vs URL state · **libraries worth learning**, in order of payoff |
+| **[[React Native]]** | Coming back after four years: setting up a Mac from zero · what the 2022 bridge-era app shows I knew (runtime model, core components, styling, `FlatList`, navigation, storage, platform differences) · what changed (New Architecture, Hermes, Expo, Expo Router, TanStack Query, sync storage, EAS, testing) |
 | **[[CSS]]** | Flexbox (the two axes, `flex: 1` is `1 1 0%`) · Grid (`fr` splits the **free** space, `repeat(auto-fit, minmax())`, bento, lines not tracks) · flex vs grid · 32 screenshots |
 
 ## Architecture and platform
@@ -137,6 +138,7 @@ From the Level Up plan for Senior Software Engineer. Checked items have a note; 
 - [x] **Common security knowledge** — XSS, CSRF, tokens, CSP → [[Security]]
 - [x] **Software Engineering Practices** — testing, CI/CD, review, estimation → [[Testing and Process]]
 - [x] **Work methodologies** — Scrum, waterfall, the situational questions → [[Testing and Process]]
+- [x] **JavaScript Cross-Mobile Platform** — React Native at refresher depth, setup to release → [[React Native]] (React Native only; deeper gaps in [[OXXO#Still to study]])
 - [x] **Browser APIs** — partially: `AbortController`, observers, `<dialog>`, Web Locks appear where they are used
 
 ## Not written yet
@@ -166,7 +168,6 @@ From the Level Up plan for Senior Software Engineer. Checked items have a note; 
 - [ ] **Node.js** and **Node.js Core** — streams, `cluster`, worker threads, `perf_hooks`, the module systems
 - [ ] **Web Application Hosting** — CDN, edge functions, containers, CI deploys, blue-green and canary
 - [ ] **Cloud Fundamentals** — the service model, IAM, object storage, managed databases, cost
-- [ ] **JavaScript Cross-Mobile Platform** — React Native, the bridge and the new architecture, Expo. **[[OXXO]] needs it** — its `# Still to study` has the breakdown; [[02 PokedexRN from 2022 to 2026]] is the hands-on part
 
 **Architecture and engineering**
 - [ ] **Event-driven architecture**, messaging and integration patterns

@@ -109,6 +109,7 @@ The attached vault is **reference material, all of it verified**. The only recor
 | `Arrays.md` | Array methods, what mutates, the traps |
 | `React.md` | Hooks and lifecycle, re-renders and memoisation, rendering strategies, optimistic UI, XSS hatches |
 | `State Management.md` | Redux, server vs client vs URL state, the library landscape |
+| `React Native.md` | Setup, the 2022 fundamentals, and what changed: New Architecture, Expo, Expo Router, TanStack Query, storage, EAS, testing |
 | `CSS.md` | Flexbox and Grid |
 | `Design Patterns.md` | GoF patterns, functional patterns, anti-patterns, SOLID, DIP/DI/IoC |
 | `Browser Platform.md` | Rendering pipeline and jank, Core Web Vitals, HTTP caching, accessibility and focus |

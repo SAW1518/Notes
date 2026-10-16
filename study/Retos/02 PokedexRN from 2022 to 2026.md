@@ -17,7 +17,7 @@ status: todo
 
 The original: [SAW1518/PokedexRN](https://github.com/SAW1518/PokedexRN) — React Native 0.66.4, React 17, CLI (`react-native init`), React Navigation 6 (tabs with a native stack per tab), axios + `retry-axios`, AsyncStorage, Flow, Jest 26. It lists Pokémon from the [PokeAPI](https://pokeapi.co), shows a detail screen, and has an unfinished Favorites tab.
 
-Background: [[Vacantes/OXXO]] (the 2022 → 2026 table) · [[01 useSyncExternalStore and hydration]] (Level 2 reuses its pattern) · [[JavaScript]] (error layers — why `try/catch` around a `.then` catches nothing).
+Background: [[React Native]] (the guide this reto practises) · [[Vacantes/OXXO]] (the 2022 → 2026 table) · [[01 useSyncExternalStore and hydration]] (Level 2 reuses its pattern) · [[JavaScript]] (error layers — why `try/catch` around a `.then` catches nothing).
 
 > [!warning] Do each level before opening its solution
 > The solutions are folded. Write your answer first — on paper for level 0, in the sandbox for the rest — then open the fold and compare.
@@ -25,6 +25,8 @@ Background: [[Vacantes/OXXO]] (the 2022 → 2026 table) · [[01 useSyncExternalS
 ---
 
 ## Setup — the Expo sandbox
+
+Install the tools first: [[React Native#Part 0 — Setting up a Mac from zero]].
 
 The code lives in `Retos/retos-expo/`, separate from the Next.js `retos-sandbox`. Its source is committed and syncs to the other Mac; `node_modules/`, `.expo/`, `ios/` and `android/` are git-ignored, so run `npm install` there first.
 
@@ -44,7 +46,7 @@ The default template ships example screens. If `package.json` has a `reset-proje
 
 Where to run it, from the `npx expo start` terminal:
 
-- **Phone:** scan the QR with Expo Go (same Wi-Fi as the Mac). Expo Go only runs the current SDK, which is what `create-expo-app@latest` gives you.
+- **Android phone:** scan the QR with Expo Go from the Play Store (same Wi-Fi as the Mac). Expo Go only runs the current SDK, which is what `create-expo-app@latest` gives you. On a physical **iPhone**, Expo Go now needs a paid Apple Developer Program membership — use the Simulator.
 - **iOS Simulator:** press `i` (needs Xcode).
 - **Android emulator:** press `a` (needs Android Studio and a running emulator).
 
