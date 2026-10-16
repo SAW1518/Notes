@@ -25,16 +25,17 @@ One note per position, extracted from EPAM OneHub (Opportunities → Positions �
 | **[[Securin]]** | Securin · SCRN-ENG | A3–A4 | Lead frontend, performance, mentoring, GenAI and AI security |
 | **[[Porter Airlines]]** | Porter Airlines · PRTR-DMOD | A2–A3 | Public airline web, design systems, WCAG 2.1 AA, SEO, A/B testing |
 | **[[Hyatt]]** | Hyatt · HYAT-LIFE | A3–A4 | Next.js/SSR in depth, Java/Spring Boot endpoints, client communication |
+| **[[OXXO]]** | OXXO (FEMSA) · via recruiter | not stated | React + React Native after four years away, Expo, GenAI features |
 
 **Gaps more than one position needs**, so they come first:
-- **Gen AI Assisted Development** — Nordstrom, Securin, Porter
+- **Gen AI Assisted Development** — Nordstrom, Securin, Porter, OXXO
 - **Next.js / rendering strategies in depth** — Hyatt, Porter (SEO)
-- **Testing tooling** (RTL, Vitest, Playwright) — Nordstrom, Flywheel, Securin
+- **Testing tooling** (RTL, Vitest, Playwright) — Nordstrom, Flywheel, Securin, OXXO (RNTL)
 - **Design systems and compound components** — Porter, Securin, Nordstrom (MUI)
 - **WCAG 2.1 AA and accessible forms** — Porter, Hyatt
 - **Reading backend code** (Java/Spring Boot, Python/Go) — Hyatt, Nordstrom, Flywheel
 
-To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `next_step`, `extracted`), add new positions here.
+To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `next_step`, `extracted`), add new positions here. [[OXXO]] came through a recruiter, not OneHub — its note is written from my own notes and refreshed by hand.
 
 # The practice sessions — `Sesiones/`
 
@@ -42,11 +43,12 @@ One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the
 
 # The challenges — `Retos/`
 
-Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project; `node_modules/` and `.next/` are git-ignored, so run `npm install` on each Mac) and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
+Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project) or, for React Native, `Retos/retos-expo/` (an Expo project). Build output is git-ignored (`node_modules/`, `.next/`, `.expo/`, and Expo's generated `ios/` and `android/`), so run `npm install` on each Mac and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
 
 | Reto | Concept | Positions |
 |---|---|---|
 | [[01 useSyncExternalStore and hydration]] | What runs on the server vs the browser, hydration mismatches, reading browser-only data safely | Hyatt, Nordstrom |
+| [[02 PokedexRN from 2022 to 2026]] | My 2022 React Native app rebuilt on Expo: bridge → JSI, Expo Router, TanStack Query, sync storage, offline | OXXO |
 
 ---
 
@@ -164,7 +166,7 @@ From the Level Up plan for Senior Software Engineer. Checked items have a note; 
 - [ ] **Node.js** and **Node.js Core** — streams, `cluster`, worker threads, `perf_hooks`, the module systems
 - [ ] **Web Application Hosting** — CDN, edge functions, containers, CI deploys, blue-green and canary
 - [ ] **Cloud Fundamentals** — the service model, IAM, object storage, managed databases, cost
-- [ ] **JavaScript Cross-Mobile Platform** — React Native, the bridge and the new architecture, Expo
+- [ ] **JavaScript Cross-Mobile Platform** — React Native, the bridge and the new architecture, Expo. **[[OXXO]] needs it** — its `# Still to study` has the breakdown; [[02 PokedexRN from 2022 to 2026]] is the hands-on part
 
 **Architecture and engineering**
 - [ ] **Event-driven architecture**, messaging and integration patterns

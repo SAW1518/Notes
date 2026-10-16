@@ -8,9 +8,9 @@ Hard constraints live in `.claude/rules/`. The one that matters most: **nothing 
 
 `README.md` is the index: the 15 topic notes, the conventions, and the roadmap of what is not written yet. Read it before adding or merging anything.
 
-`Vacantes/` holds one note per position, extracted from OneHub. They are the source of *what* `Study prompt.md` asks; the topic notes are the source of *how deep*. A gap only one client needs goes in that position's `# Still to study`; a gap several need goes in the topic note and in README's "Gaps more than one position needs".
+`Vacantes/` holds one note per position, extracted from OneHub — `OXXO.md` is the exception, written from recruiter notes. They are the source of *what* `Study prompt.md` asks; the topic notes are the source of *how deep*. A gap only one client needs goes in that position's `# Still to study`; a gap several need goes in the topic note and in README's "Gaps more than one position needs".
 
-`Retos/` holds hands-on challenges, one note per concept, numbered (`01 …`). Levels go predict → break → fix → client case → say it out loud; solutions sit in folded callouts (`> [!success]-`); code is written in `Retos/retos-sandbox/` (Next.js). Its source is committed; `node_modules/` and `.next/` are ignored by the root `.gitignore` — never commit them. Add each new reto to README's table.
+`Retos/` holds hands-on challenges, one note per concept, numbered (`01 …`). Levels go predict → break → fix → client case → say it out loud; solutions sit in folded callouts (`> [!success]-`); code is written in `Retos/retos-sandbox/` (Next.js) or, for React Native, `Retos/retos-expo/` (Expo). Their source is committed; `node_modules/`, `.next/`, `.expo/` and Expo's generated `ios/` / `android/` are ignored by the root `.gitignore` — never commit them. Add each new reto to README's table.
 
 `_archive/` is provenance only — the old mock-interview sessions and superseded sources. Never study material, never a source for new notes.
 

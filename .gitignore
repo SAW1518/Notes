@@ -1,3 +1,8 @@
 # Dependencies and build output of code sandboxes (e.g. study/Retos/retos-sandbox)
 node_modules/
 .next/
+
+# Expo sandbox (study/Retos/retos-expo): local state and the native folders prebuild regenerates
+.expo/
+study/Retos/retos-expo/ios/
+study/Retos/retos-expo/android/
