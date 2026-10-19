@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/React Native.md",
+                "file": "Work/02 Environments/Test users.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "React Native"
+              "title": "Test users"
             }
           },
           {
@@ -200,6 +200,9 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Work/03 Prompts/PR description.md",
+    "Work/02 Environments/Utils Users.md",
+    "Study/React Native.md",
     "Study/Retos/retos-expo/node_modules/react-native-gesture-handler/android/build/intermediates/cxx/Debug/2k20564k/logs/arm64-v8a/generate_cxx_metadata_909_timing.txt",
     "Study/Retos/retos-expo/android/app/build/intermediates/cxx/Debug/464i3n3x/logs/arm64-v8a/generate_cxx_metadata_913_timing.txt",
     "Study/Retos/retos-expo/node_modules/expo-modules-core/android/build/intermediates/cxx/Debug/2d2d232u/logs/arm64-v8a/generate_cxx_metadata_906_timing.txt",
@@ -210,7 +213,6 @@
     "Study/Retos/retos-expo/node_modules/react-native-gesture-handler/android/build/intermediates/cxx/Debug/2k20564k/logs/arm64-v8a/generate_cxx_metadata_679_timing.txt",
     "Study/Retos/retos-expo/android/app/build/intermediates/cxx/Debug/464i3n3x/logs/arm64-v8a/generate_cxx_metadata_686_timing.txt",
     "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/cxx/Debug/3g5s2x3v/logs/arm64-v8a/generate_cxx_metadata_680_timing.txt",
-    "Study/Retos/retos-expo/node_modules/expo-modules-core/android/build/intermediates/cxx/Debug/2d2d232u/logs/arm64-v8a/generate_cxx_metadata_690_timing.txt",
     "Study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_round.webp",
     "Study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_monochrome.webp",
     "Study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher_foreground.webp",
@@ -244,8 +246,6 @@
     "Study/Retos/retos-expo/node_modules/expo/node_modules/@expo/cli/README.md",
     "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation/README.md",
     "Study/Retos/retos-expo/node_modules/react-native/ReactApple/Libraries/RCTFoundation/README.md",
-    "Study/Retos/retos-expo/node_modules/react-native/ReactApple/README.md",
-    "Study/Retos/retos-expo/node_modules/@expo/ui/README.md",
     "Untitled.canvas"
   ]
 }
