@@ -14,6 +14,60 @@ Raw transcript of the real EPAM A2 → A3 assessment, pulled from the Stream rec
 
 Panel: Dzianis Spartak, Luiz Abbott, Ivan Stetsenko, Juan Perdomo.
 
+The study plan built from this transcript and the Level Up plan is [[Assessment Plan]].
+
+# Review — question by question
+
+✅ answered · ⚠️ partial or answered a different question · ❌ not answered. "Missing" is what a complete answer would have added.
+
+| # | Time | Question | | Missing |
+|---|---|---|---|---|
+| 1 | 00:10:12 | Global state change re-renders hundreds of components | ⚠️ | Profiler first, then the cause (context fan-out); fix with selectors, splitting the store or context, colocating state — memo last. Suggested "Redux Saga", which is a side-effect library and does not change renders |
+| 2 | 00:12:09 | API with several response shapes by status | ❌ | Answered runtime validation; the follow-up asked twice for compile time. Discriminated union + exhaustive `switch` with `never` — the committee's "couldn't explain the union type" |
+| 3 | 00:14:48 | Login and session across brands and domains, risks | ⚠️ | Named XSS and CSRF but not by name ("cookie read-only" = `HttpOnly`, "SRC token" = CSRF token); no SSO design (central IdP, OIDC, cookie scope, `SameSite`) |
+| 4 | 00:17:28 | SSR vs SSG vs CSR in Next.js | ⚠️ | Chose SSR for internal apps too; the usual split is SSG/ISR for public, mostly static pages, SSR for personalised SEO pages, CSR for internal tools behind login |
+| 5 | 00:19:28 | Agent vs a prompt to an LLM | ❌ | Answered about spec-driven work; an agent is a tool-use loop with observations and a goal |
+| 6 | 00:21:43 | Agent skill vs prompt instructions | ⚠️ | Good on reuse; missing on-demand loading and when one-off instructions are enough |
+| 7 | 00:23:27 | Subagents | ✅ | Plan first, parallel tasks, protect main context |
+| 8 | 00:25:01 | What MCP solves | ✅ | Could add tools/resources/prompts and N×M → N+M |
+| 9 | 00:26:29 | Architectural decision you influenced | ✅ | Interceptor vs redirect, with the trade-off; name the pattern |
+| 10 | 00:28:44 | Document the Kafka decision | ⚠️ | Started explaining Kafka; then Jira + AI summaries. Expected an ADR in the repo |
+| 11 | 00:30:25 | Cypress migration; unit vs component vs integration vs e2e | ⚠️ | Said it was not the team's decision; no criteria — the test pyramid |
+| 12 | 00:32:05 | Accessible custom modal | ⚠️ | `<dialog>` and ARIA, but not the focus rules: move focus in, trap it, Escape closes, return focus, `aria-modal`, labelled title |
+| 13 | 00:34:12 | Testing with screen readers | ❌ | Described unit tests; the question was manual VoiceOver/NVDA testing |
+| 14 | 00:35:00 | Quality gates before merge | ✅ | Pipeline checks listed; add coverage, Sonar gate, security scan, required reviewers |
+| 15 | 00:37:24 | Disagreement with a senior developer | ⚠️ | Process described, no concrete story and no outcome |
+| 16 | 00:39:53 | Why hydration is critical | ✅ | |
+| 17 | 00:41:08 | Critical rendering path | ❌ | Answered prefetching and "critical parts of the page" |
+| 18 | 00:42:56 | Micro-frontends pros and cons | ✅ | "iframes" came out as "A-frames" |
+| 19 | 00:45:34 | Prompt structure and strategy | ✅ | |
+| 20 | 00:47:15 | RAG — what and how | ⚠️ | Embeddings and vector DB named; no chunking, retrieval or augmentation steps |
+| 21 | 00:49:36 | SOLID | ⚠️ | Letters mixed ("E", "V"), I and D names not recalled |
+| 22 | 00:51:17 | FIRST principles | ❌ | Not known |
+| 23 | 00:51:39 | Testing pyramid | ❌ | Heard as "parameter"; not recognised — while it is written in [[Testing and Process]] |
+| 24 | 00:52:27 | Long polling over WebSocket | ❌ | Answered WebSocket use cases, then "I don't know" |
+| 25 | 00:54:49 | Content Security Policy | ⚠️ | Called it an HTML tag against "SSRF"; it is a response header (or meta tag) that mitigates XSS and injection |
+| 26 | 00:55:44 | HTTP/1.1 vs HTTP/2 | ⚠️ | Only "more simultaneous connections"; missing multiplexing over one connection, HPACK, prioritisation, server push |
+| 27 | 00:57:23 | Code-quality tools | ✅ | SonarQube, ESLint custom rules |
+| 28 | 00:58:33 | Technical debt — handling and distribution | ⚠️ | Handling good; distribution needed a second prompt — capacity share and owners |
+| 29 | 01:02:16 | A backend feature built end to end | ✅ | Cloud-agnostic storage for EU compliance |
+| 30 | 01:05:13 | Choosing Angular / Vue / React | ⚠️ | Team first is right; technical reasons thin, and "Angular when you can't use SSR" is not a reason |
+| 31 | 01:07:46 | When Vue | ❌ | "Animations" — not a differentiator |
+| 32 | 01:08:28 | AI pointed you the wrong way | ❌ | No concrete story |
+| 33 | 01:10:46 | Checking AI outside your expertise | ✅ | Domain experts, second sources |
+| 34 | 01:12:25 | When not to use AI | ✅ | Regulation, sensitive data, understanding |
+| 35 | 01:14:03 | Hand off a 60% feature to a junior | ⚠️ | Answered staffing for the bug first; then daily comments and sub-tasks; no KT session, no expectations or support |
+| 36 | 01:17:46 | Communication rated 3/5 | ✅ | Honest; English plan named |
+| 37 | 01:19:57 | Tough feedback | ⚠️ | Understand first — good; the feedback itself never delivered |
+| 38 | 01:21:50 | Repeated under-delivery | ⚠️ | Workload check and one-to-one; no escalation path |
+| 39 | 01:23:42 | Explaining to a non-technical PO | ✅ | |
+| 40 | 01:25:20 | PO quotes ChatGPT against you | ⚠️ | Open to the information — good; no way to reach a decision |
+
+**Where to improve**
+- **Technical**: TypeScript unions, critical rendering path, long polling, HTTP/2, FIRST, RAG pipeline — none of these were answered. The pyramid and SOLID are already written in the vault and still did not come out: the problem there is retrieval, not knowledge.
+- **Answer habits**: four times the answer went to a neighbouring question (2, 5, 10, 24). Restate the question in one line before answering. Behavioural answers described a process but no story with an outcome.
+- **English**: terms missed by ear (pyramid, long polling, RAG, quality gates, knowledge transfer); a lot of "the the the" while searching for a word. Shorter sentences, and the term first.
+
 ---
 
 **Jesus Uribe** 00:00:03

@@ -41,7 +41,11 @@ To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `ne
 
 One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the agent as the session runs: every question with its verdict, what was wrong, the short answer, and a running **Where to improve** list (technical · answer habits · English). This is the only place in the vault that records mistakes. Read the latest one before the next session; move anything worth keeping into the topic note as plain, correct prose.
 
-[[2026-09-25 Assessment Transcript]] is the raw transcript of the real A2 → A3 assessment (panel of three, ~90 min), pulled from the Stream recording. It lives here because it records what I actually said, mistakes included.
+[[2026-09-25 Assessment Transcript]] is the raw transcript of the real A2 → A3 assessment (panel of three, ~90 min), pulled from the Stream recording, with a question-by-question review on top. It lives here because it records what I actually said, mistakes included.
+
+# The next assessment — [[Assessment Plan]]
+
+The Level Up development plan from that assessment, contrasted with the transcript: the 20 plan items with their status in this vault, the priority tiers (TypeScript is the only tracked item), each topic broken down with the panel's question and what a complete answer covers, and a six-week schedule.
 
 # The challenges — `Retos/`
 
@@ -126,7 +130,7 @@ Beat 2 is what separates a mid answer from a senior one. Beat 4 is the one almos
 
 # Roadmap — what is not written yet
 
-From the Level Up plan for Senior Software Engineer. Checked items have a note; unchecked ones do not exist yet. **Priority now comes from the positions**: write first what the "Gaps more than one position needs" list above asks for; a roadmap item no position needs can wait. Each note also carries its own `# Still to study` section with the finer-grained gaps.
+From the Level Up plan for Senior Software Engineer. The post-assessment plan and its order of work are in [[Assessment Plan]]. Checked items have a note; unchecked ones do not exist yet. **Priority now comes from the positions**: write first what the "Gaps more than one position needs" list above asks for; a roadmap item no position needs can wait. Each note also carries its own `# Still to study` section with the finer-grained gaps.
 
 ## Covered
 
