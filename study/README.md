@@ -41,6 +41,8 @@ To refresh: re-extract from OneHub, update the note's frontmatter (`status`, `ne
 
 One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the agent as the session runs: every question with its verdict, what was wrong, the short answer, and a running **Where to improve** list (technical · answer habits · English). This is the only place in the vault that records mistakes. Read the latest one before the next session; move anything worth keeping into the topic note as plain, correct prose.
 
+[[2026-09-25 Assessment Transcript]] is the raw transcript of the real A2 → A3 assessment (panel of three, ~90 min), pulled from the Stream recording. It lives here because it records what I actually said, mistakes included.
+
 # The challenges — `Retos/`
 
 Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project) or, for React Native, `Retos/retos-expo/` (an Expo project). Build output is git-ignored (`node_modules/`, `.next/`, `.expo/`, and Expo's generated `ios/` and `android/`), so run `npm install` on each Mac and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
