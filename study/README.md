@@ -45,16 +45,24 @@ One file per [[Study prompt]] session, `YYYY-MM-DD Session N.md`, written by the
 
 # The next assessment — [[Assessment Plan]]
 
-The Level Up development plan from that assessment, contrasted with the transcript: the 20 plan items with their status in this vault, the priority tiers (TypeScript is the only tracked item), each topic broken down with the panel's question and what a complete answer covers, and a six-week schedule.
+The Level Up development plan from that assessment, contrasted with the transcript. **Self-contained on purpose**: every topic's content is on that page — the panel's question, what a complete answer covers, the short answer — so studying it never means jumping between notes. Its only links go to the retos 03–10, one per topic that is learnt hands-on. Priority tiers (TypeScript is the only tracked item) and a six-week schedule.
 
 # The challenges — `Retos/`
 
-Hands-on exercises for a concept that did not stick from reading alone. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project) or, for React Native, `Retos/retos-expo/` (an Expo project). Build output is git-ignored (`node_modules/`, `.next/`, `.expo/`, and Expo's generated `ios/` and `android/`), so run `npm install` on each Mac and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
+Hands-on exercises for a concept that did not stick from reading alone. Retos 03–10 come from the [[Assessment Plan]]. Each one is a set of levels — predict, break it, fix it, apply it to a client, say it out loud — with the code written in `Retos/retos-sandbox/` (a Next.js project) or, for React Native, `Retos/retos-expo/` (an Expo project). Build output is git-ignored (`node_modules/`, `.next/`, `.expo/`, and Expo's generated `ios/` and `android/`), so run `npm install` on each Mac and the solutions folded. Status lives in each note's frontmatter (`todo` / `done`).
 
 | Reto | Concept | Positions |
 |---|---|---|
 | [[01 useSyncExternalStore and hydration]] | What runs on the server vs the browser, hydration mismatches, reading browser-only data safely | Hyatt, Nordstrom |
 | [[02 PokedexRN from 2022 to 2026]] | My 2022 React Native app rebuilt on Expo: bridge → JSI, Expo Router, TanStack Query, sync storage, offline | OXXO |
+| [[03 TypeScript unions and a typed API client]] | Discriminated unions, `never` exhaustiveness, overloads vs conditional types, `infer`, mapped types, declaration merging — the Level Up artifact | Assessment (required) |
+| [[04 Critical rendering path]] | Render- vs parser-blocking, critical CSS, `defer` vs `async`, late-discovered LCP — with measured FCP/LCP | Assessment · Porter, Hyatt |
+| [[05 Polling, SSE and WebSockets]] | One feed four ways, reconnection, upload progress, the HTTP/1.1 six-connection limit, HTTP/2 and HTTP/3 | Assessment · Nordstrom |
+| [[06 Test pyramid and FIRST]] | A suite that breaks every FIRST letter, fixed with injection and fake timers; tests placed on the pyramid | Assessment · Nordstrom, Flywheel |
+| [[07 SOLID by refactoring]] | One checkout refactor per letter, verified with tests; pattern names in your own stories | Assessment |
+| [[08 RAG and agents from scratch]] | Chunking with overlap, toy vs real embeddings, recall@k evals, the augmented prompt, an agent loop | Assessment · OXXO, Securin, Nordstrom, Porter |
+| [[09 Quality gates, ADRs and deployments]] | A gate chain broken gate by gate, a CI file, an ADR, deployment strategies, technical debt | Assessment |
+| [[10 Hand-off and hard conversations]] | Hand-off document and KT session, SBI feedback, pushing to a decision, a STAR story bank | Assessment |
 
 ---
 

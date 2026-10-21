@@ -588,7 +588,7 @@ They sound the same and they are three different levels:
 - [ ] **Integration patterns, messaging patterns and enterprise application patterns**
 - [ ] **Cross-cutting concerns** and how to solve them for a whole solution
 - [ ] **Compound components** — the composition pattern still missing from these notes
-- [ ] **SOLID in depth** — one frontend example and one violation per letter ([[Assessment Plan#5. SOLID in depth — Tier 2]])
+- [ ] **SOLID in depth** — one frontend example and one violation per letter ([[07 SOLID by refactoring]])
 - [x] **OOP vs FP vs RP (reactive)**, pros and cons → [[TypeScript#OOP vs FP vs RP]]
 - [x] **Object patterns and composition** → [[TypeScript#Composition, mixins and delegation]]
 - [x] **Decorators in TypeScript**: TS decorators vs esNext decorators, and the pitfalls → [[TypeScript#Decorators, in four lines]]

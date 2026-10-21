@@ -298,9 +298,9 @@ The case: product wanted notification state in **`localStorage`**; the repo rule
 - [ ] Observability for a frontend: error tracking, RUM, session replay, and what to sample
 - [ ] Incident process: severity levels, on-call, blameless postmortems, action items that actually close
 - [ ] DORA metrics: deployment frequency, lead time, change failure rate, MTTR
-- [ ] FIRST principles of a unit test — fast, independent, repeatable, self-validating, timely ([[Assessment Plan#4. Testing: the pyramid and FIRST — Tier 2]])
-- [ ] Handing off a half-done task: the written hand-off, the KT session, expectations and support ([[Assessment Plan#6. Handing off a half-done task — Tier 2]])
-- [ ] ADRs and design reviews: documenting a decision so a new engineer understands why
+- [ ] FIRST principles of a unit test — fast, independent, repeatable, self-validating, timely ([[06 Test pyramid and FIRST]])
+- [ ] Handing off a half-done task: the written hand-off, the KT session, expectations and support ([[10 Hand-off and hard conversations]])
+- [ ] ADRs and design reviews: documenting a decision so a new engineer understands why ([[09 Quality gates, ADRs and deployments]])
 - [ ] Deployment strategies: rolling, blue-green, canary, feature flags, rollback
 - [ ] Git workflow details: Husky + lint-staged hooks, release tags and semver, pruning branches
 - [ ] Situational: tough feedback, repeated under-delivery, the PO who quotes ChatGPT — and pushing a disagreement to a decision
