@@ -188,8 +188,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "f6a88b52bdfd0ab3",
+  "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/05 Polling, SSE and WebSockets.md",
+    "Study/Retos/04 Critical rendering path.md",
+    "Study/Retos/03 TypeScript unions and a typed API client.md",
     "Study/Assessment Plan.md",
     "Study/Sesiones/2026-09-25 Assessment Transcript.md",
     "Work/02 Environments/Check deployed version.md",
@@ -233,9 +236,6 @@
     "Study/Retos/retos-expo/node_modules/expo-manifests/README.md",
     "Study/Retos/retos-expo/node_modules/expo-manifests/CHANGELOG.md",
     "Study/Retos/retos-expo/node_modules/expo-json-utils/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-json-utils/CHANGELOG.md",
-    "Study/Retos/retos-expo/AGENTS.md",
-    "Study/Retos/retos-expo/node_modules/expo-image/README.md",
     "Untitled.canvas"
   ]
 }
