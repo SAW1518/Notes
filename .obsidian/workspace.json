@@ -190,6 +190,10 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Study/Retos/09 Quality gates, ADRs and deployments.md",
+    "Study/Retos/08 RAG and agents from scratch.md",
+    "Study/Retos/07 SOLID by refactoring.md",
+    "Study/Retos/06 Test pyramid and FIRST.md",
     "Study/Retos/05 Polling, SSE and WebSockets.md",
     "Study/Retos/04 Critical rendering path.md",
     "Study/Retos/03 TypeScript unions and a typed API client.md",
@@ -232,10 +236,6 @@
     "Study/Retos/retos-expo/node_modules/expo-dev-launcher/CHANGELOG.md",
     "Study/Retos/retos-expo/node_modules/expo-dev-menu-interface/README.md",
     "Study/Retos/retos-expo/node_modules/expo-updates-interface/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-updates-interface/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo-manifests/README.md",
-    "Study/Retos/retos-expo/node_modules/expo-manifests/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo-json-utils/README.md",
     "Untitled.canvas"
   ]
 }
