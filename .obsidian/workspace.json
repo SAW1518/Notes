@@ -13,22 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Sesiones/2026-09-25 Assessment Transcript.md",
+                "file": "Study/Assessment Plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-25 Assessment Transcript"
-            }
-          },
-          {
-            "id": "384bc3eace5f8dcd",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Assessment Plan"
             }
           }
         ]
@@ -201,8 +191,8 @@
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
     "Study/Assessment Plan.md",
-    "Work/02 Environments/Check deployed version.md",
     "Study/Sesiones/2026-09-25 Assessment Transcript.md",
+    "Work/02 Environments/Check deployed version.md",
     "Study/Retos/retos-expo/node_modules/react-native-gesture-handler/android/build/intermediates/cxx/Debug/2k20564k/logs/arm64-v8a/generate_cxx_metadata_1188_timing.txt",
     "Study/Retos/retos-expo/android/app/build/intermediates/cxx/Debug/464i3n3x/logs/arm64-v8a/generate_cxx_metadata_1189_timing.txt",
     "Study/Retos/retos-expo/node_modules/react-native-reanimated/android/build/intermediates/cxx/Debug/3g5s2x3v/logs/arm64-v8a/generate_cxx_metadata_1189_timing.txt",
