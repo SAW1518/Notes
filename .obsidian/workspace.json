@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Assessment Plan.md",
+                "file": "Work/01 Commands/Git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Assessment Plan"
+              "title": "Git"
             }
           }
         ]
@@ -190,6 +190,8 @@
   },
   "active": "03af9e62f428b734",
   "lastOpenFiles": [
+    "Utils/Create SSH git key.md",
+    "Study/Assessment Plan.md",
     "Work/02 Environments/Test users.md",
     "Work/02 Environments/Utils Users.md",
     "Work/04 Project/Links — Jira, Confluence, pipelines.md",
@@ -209,7 +211,6 @@
     "Study/Retos/05 Polling, SSE and WebSockets.md",
     "Study/Retos/04 Critical rendering path.md",
     "Study/Retos/03 TypeScript unions and a typed API client.md",
-    "Study/Assessment Plan.md",
     "Study/Sesiones/2026-09-25 Assessment Transcript.md",
     "Study/Retos/retos-expo/node_modules/react-native-gesture-handler/android/build/intermediates/cxx/Debug/2k20564k/logs/arm64-v8a/generate_cxx_metadata_1188_timing.txt",
     "Study/Retos/retos-expo/android/app/build/intermediates/cxx/Debug/464i3n3x/logs/arm64-v8a/generate_cxx_metadata_1189_timing.txt",
@@ -235,7 +236,6 @@
     "Study/Retos/retos-expo/android/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxhdpi-v4/ic_launcher.webp",
     "Study/Retos/retos-expo/node_modules/expo-dev-client/README.md",
     "Study/Retos/retos-expo/node_modules/expo-dev-client/CHANGELOG.md",
-    "Study/Retos/retos-expo/node_modules/expo-dev-launcher/README.md",
     "Untitled.canvas"
   ]
 }
