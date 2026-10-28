@@ -25,28 +25,28 @@ Built from two sources:
 
 # The plan at a glance
 
-| Item | Plan section | Assessed → target | What the committee wants to see | Topic · reto |
-|---|---|---|---|---|
-| **TypeScript** | **Required** | Intermediate → **Advanced** | Union and discriminated unions, conditional and mapped types, `infer`, generics, declaration merging, tsconfig and module resolution | 1 · [[03 TypeScript unions and a typed API client\|Reto 03]] |
-| **Browser APIs** | Recommended | Intermediate → Advanced | Critical rendering path, feature detection and fallbacks, memory and performance of API-heavy features | 2, 10 · [[04 Critical rendering path\|Reto 04]] |
-| **Software Engineering Practices** | Recommended | Intermediate → Advanced | Test pyramid, FIRST, Git workflows, performance testing, design reviews, AI evaluation in the pipeline, deployment strategies | 4, 8 · Retos 06 and 09 |
-| Critical Rendering Path | Resource | — | web.dev/critical-rendering-path | 2 · [[04 Critical rendering path\|Reto 04]] |
-| WebSockets vs Long Polling | Resource | — | ably.com/topic/websockets-vs-long-polling | 3 · [[05 Polling, SSE and WebSockets\|Reto 05]] |
-| Test Pyramid | Resource | — | martinfowler.com/bliki/TestPyramid.html | 4 · [[06 Test pyramid and FIRST\|Reto 06]] |
-| FIRST Principles | Resource | — | medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6 | 4 · [[06 Test pyramid and FIRST\|Reto 06]] |
-| SOLID in depth | Resource | — | engineering.dept.global/guide-solid-principles | 5 · [[07 SOLID by refactoring\|Reto 07]] |
-| How to delegate a half-done task | Resource | — | juliofalbo.medium.com/beyond-the-one-pager-a-staff-engineers-guide-to-effective-delegation-f3abc084e65f | 6 · [[10 Hand-off and hard conversations\|Reto 10]] |
-| JavaScript | Feedback | Advanced = target | Prototypes, execution context, event loop, ES module composition | 14 |
-| JavaScript Top Frameworks | Feedback | Advanced = target | When Vue vs React vs Angular, with technical reasons | 9 |
-| Design patterns | Feedback | Intermediate = target | DI/IoC used consistently, GoF breadth, composing patterns | 5 · [[07 SOLID by refactoring\|Reto 07]] |
-| Leadership | Feedback | Novice = target | Leadership across more than one team | 11 |
-| Software Design | Feedback | Advanced = target | Name the pattern when describing a design; SOLID; architecture diagrams | 5 · [[07 SOLID by refactoring\|Reto 07]] |
-| SE Knowledge & Experience | Feedback | Advanced = target | Algorithms and data structures, DB query optimisation, network troubleshooting, containers | 13 |
-| Web Communication Protocols | Feedback | Intermediate = target | Long polling vs WebSockets trade-offs, header and caching diagnosis, HTTP/2 beyond "more connections" | 3 · [[05 Polling, SSE and WebSockets\|Reto 05]] |
-| Conflict management | Feedback | Intermediate = target | How to push for the best decision in the end | 11 · [[10 Hand-off and hard conversations\|Reto 10]] |
-| Delegation | Feedback | Novice = target | KT session, done vs pending, expectations, support | 6 · [[10 Hand-off and hard conversations\|Reto 10]] |
-| Gen AI Assisted Development | Feedback | Intermediate = target | Chunking and overlap, embedding models, how vectors are used, RAG beyond docs, evals | 7 · [[08 RAG and agents from scratch\|Reto 08]] |
-| ReactJS | Feedback | Advanced = target | Custom hooks and HOCs, VDOM/Fiber, code splitting and build optimisation, security | 12 |
+| Item                               | Plan section | Assessed → target           | What the committee wants to see                                                                                                      | Topic · reto                                                 |
+| ---------------------------------- | ------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| **TypeScript**                     | **Required** | Intermediate → **Advanced** | Union and discriminated unions, conditional and mapped types, `infer`, generics, declaration merging, tsconfig and module resolution | 1 · [[03 TypeScript unions and a typed API client\|Reto 03]] |
+| **Browser APIs**                   | Recommended  | Intermediate → Advanced     | Critical rendering path, feature detection and fallbacks, memory and performance of API-heavy features                               | 2, 10 · [[04 Critical rendering path\|Reto 04]]              |
+| **Software Engineering Practices** | Recommended  | Intermediate → Advanced     | Test pyramid, FIRST, Git workflows, performance testing, design reviews, AI evaluation in the pipeline, deployment strategies        | 4, 8 · Retos 06 and 09                                       |
+| Critical Rendering Path            | Resource     | —                           | web.dev/critical-rendering-path                                                                                                      | 2 · [[04 Critical rendering path\|Reto 04]]                  |
+| WebSockets vs Long Polling         | Resource     | —                           | ably.com/topic/websockets-vs-long-polling                                                                                            | 3 · [[05 Polling, SSE and WebSockets\|Reto 05]]              |
+| Test Pyramid                       | Resource     | —                           | martinfowler.com/bliki/TestPyramid.html                                                                                              | 4 · [[06 Test pyramid and FIRST\|Reto 06]]                   |
+| FIRST Principles                   | Resource     | —                           | medium.com/@tasdikrahman/f-i-r-s-t-principles-of-testing-1a497acda8d6                                                                | 4 · [[06 Test pyramid and FIRST\|Reto 06]]                   |
+| SOLID in depth                     | Resource     | —                           | engineering.dept.global/guide-solid-principles                                                                                       | 5 · [[07 SOLID by refactoring\|Reto 07]]                     |
+| How to delegate a half-done task   | Resource     | —                           | juliofalbo.medium.com/beyond-the-one-pager-a-staff-engineers-guide-to-effective-delegation-f3abc084e65f                              | 6 · [[10 Hand-off and hard conversations\|Reto 10]]          |
+| JavaScript                         | Feedback     | Advanced = target           | Prototypes, execution context, event loop, ES module composition                                                                     | 14                                                           |
+| JavaScript Top Frameworks          | Feedback     | Advanced = target           | When Vue vs React vs Angular, with technical reasons                                                                                 | 9                                                            |
+| Design patterns                    | Feedback     | Intermediate = target       | DI/IoC used consistently, GoF breadth, composing patterns                                                                            | 5 · [[07 SOLID by refactoring\|Reto 07]]                     |
+| Leadership                         | Feedback     | Novice = target             | Leadership across more than one team                                                                                                 | 11                                                           |
+| Software Design                    | Feedback     | Advanced = target           | Name the pattern when describing a design; SOLID; architecture diagrams                                                              | 5 · [[07 SOLID by refactoring\|Reto 07]]                     |
+| SE Knowledge & Experience          | Feedback     | Advanced = target           | Algorithms and data structures, DB query optimisation, network troubleshooting, containers                                           | 13                                                           |
+| Web Communication Protocols        | Feedback     | Intermediate = target       | Long polling vs WebSockets trade-offs, header and caching diagnosis, HTTP/2 beyond "more connections"                                | 3 · [[05 Polling, SSE and WebSockets\|Reto 05]]              |
+| Conflict management                | Feedback     | Intermediate = target       | How to push for the best decision in the end                                                                                         | 11 · [[10 Hand-off and hard conversations\|Reto 10]]         |
+| Delegation                         | Feedback     | Novice = target             | KT session, done vs pending, expectations, support                                                                                   | 6 · [[10 Hand-off and hard conversations\|Reto 10]]          |
+| Gen AI Assisted Development        | Feedback     | Intermediate = target       | Chunking and overlap, embedding models, how vectors are used, RAG beyond docs, evals                                                 | 7 · [[08 RAG and agents from scratch\|Reto 08]]              |
+| ReactJS                            | Feedback     | Advanced = target           | Custom hooks and HOCs, VDOM/Fiber, code splitting and build optimisation, security                                                   | 12                                                           |
 
 Two things the plan does not list but the panel recorded: the reviewers before the assessment rated **communication 3/5** while everything else was 4–5, and several questions had to be repeated before the term was recognised (pyramid, long polling, RAG, quality gates, hand-off). Section 15 is about that.
 
