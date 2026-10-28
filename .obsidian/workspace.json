@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Study/Retos/03 TypeScript unions and a typed API client.md",
+                "file": "study/Assessment Plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 TypeScript unions and a typed API client"
+              "title": "Assessment Plan"
             }
           }
         ]
@@ -177,15 +177,15 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "cmdr:Open in Terminal: Open in terminal": false,
-      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "cmdr:Open in Terminal: Open in terminal": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "03af9e62f428b734",
